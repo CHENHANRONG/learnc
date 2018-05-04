@@ -18,7 +18,7 @@ using namespace std;
 
 /*
  * 
- */
+
 int main(int argc, char** argv) {
     
     Point p;
@@ -33,5 +33,6 @@ int main(int argc, char** argv) {
     printf("p2.x = %f, p2.y=%f\n", p2.x, p2.y);
     
     return 0;
-}
+} 
+ */
 
