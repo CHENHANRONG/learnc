@@ -68,3 +68,26 @@ int read_column_numbers(int columns[], int max)
     
     return num;
 }
+
+
+void rerange(char *output, char const *input, int n_columns, int const columns[])
+{
+    int col;  //column array index
+    int output_col;  //output column counter
+    int len;  //input length
+    
+    len = strlen(input);
+    output_col = 0;
+    
+    for(col = 0; col < n_columns; col+2){
+        int nchars = columns[col+1] - columns[col] +1;  //n chars to be read
+        
+        //
+        if(columns[col] >= len || output_col == MAX_INPUT -1){
+            break;
+        }
+        
+        // 
+        
+    }
+}
