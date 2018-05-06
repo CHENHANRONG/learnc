@@ -16,6 +16,11 @@
 
 using namespace std;
 
+
+void print_array(float array[], int len);
+
+    
+    
 /*
  * 
 
@@ -36,3 +41,10 @@ int main(int argc, char** argv) {
 } 
  */
 
+void print_array(float array[], int len){
+    puts("===========start to print array:");
+    for(int i = 0; i < len; i++ ) {
+        printf("%dth element value = %f\n", i, array[i]);
+    }
+    puts("===========end to print array.");
+}
