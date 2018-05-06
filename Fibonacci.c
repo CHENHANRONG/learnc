@@ -7,3 +7,13 @@ int Fibonacci(int n){
         return Fibonacci(n-1)+Fibonacci(n-2);
     }
 }
+
+
+/*input parameter changed from int to unsigned int*/
+unsigned int Fibonacci(unsigned int n){
+    if(n<2){
+        return n;
+    }else{
+        return Fibonacci(n-1)+Fibonacci(n-2);
+    }
+}
