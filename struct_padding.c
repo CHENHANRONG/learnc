@@ -1,7 +1,7 @@
  //==========================================================
     //    Size of structures
     struct{
-        //smaller type auto padding to same as longest type in struct
+        //smaller type auto padding to same as longer type in struct ?
         char c;
         int i;
         long l;
