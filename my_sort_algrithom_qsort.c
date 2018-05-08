@@ -10,7 +10,7 @@ void swap(int v[], int i, int j){
 /* qsort: sort v[left]...v[right] in increaseing order 
 step 1: choose (left+right)/2, swap it to 'left' postion as v[left]
 step 2: compare each element from left+1 to right until find one element's value >=v[left], mark its postion as last;
-step 3: swap v[left] with v[last], so that v[last] >= all elements in left sub array, and v[last] <= at least one element's value.
+step 3: swap v[left] with v[last], so that v[last] >= all elements in left sub array, and v[last] <= all element's value in right sub-array.
 Step 4: do recursively logic to [left, last-1] and [last+1, right] two subarrays.
 */
 void qsort0(int v[], int left, int right){
