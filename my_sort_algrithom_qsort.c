@@ -24,9 +24,7 @@ void qsort0(int v[], int left, int right){
     last = left;
     for(i = left+1; i <= right; i++)  //partition
         if(v[i] < v[left]){
-//            swap(v,++last,i);  //didn't swap anything, only means last++, so directly use last++ instead
-            last++;
-
+           swap(v,++last,i);
         }
 
     
