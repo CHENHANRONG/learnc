@@ -32,3 +32,47 @@ void qsort0(int v[], int left, int right){
     qsort0(v, left, last-1);  //recursively do the qsort to left sub array
     qsort0(v, last+1, right);  //recursively do the qsort to right sub array
 }
+
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap(int *x, int *y){
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+
+void qsort1(int *arr, unsigned int left, unsigned int right){
+//    int mid = (left+right)/2;
+    if(left >= right)
+        return; //nothing to be sorted when left >= right
+    
+    swap(arr+left, arr+ (left+right)/2);
+    unsigned int pivot = left;
+    unsigned int i = left;
+    /*go though the array, swap the smaller value to [last]'s left, and bigger
+    ones in the right of the [last] */
+    for(i = left+1; i<=right; i++){
+        if(*(arr+i) < *(arr+left)){
+            swap(arr + ++pivot, arr+i);
+        }
+    }
+    
+    swap(arr+left, arr+pivot);
+    qsort1(arr, left, pivot-1);
+    qsort1(arr, pivot+1, right);
+}
+
+int main(int argc, char **arg){
+    int ia[] = {4,23,63,745,34,53,24,344,5,6,87,2};
+    unsigned int len =sizeof(ia)/sizeof(ia[0]);
+    qsort1(ia, 0, len);
+    int j;
+    for(j=0; j<len; j++){
+        printf("ia[%d]=%d;\n", j, *(ia+j));
+    }
+    return EXIT_SUCCESS;
+}
