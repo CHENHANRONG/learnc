@@ -22,46 +22,9 @@ void print_array1(int array[], int begin, int end);
 //void bubbleSort1(float[],int);
 //void bubbleSort2(float[],int);
 //void readFile(char *filePath);
-
-void swap(int v[], int i, int j){
-    int temp;
-    temp = v[i];
-    v[i] = v[j];
-    v[j] = temp;
-}
-
-//    void swap(int v[], int i, int j);
-/* qsort: sort v[left]...v[right] in increaseing order */
-void qsort0(int v[], int left, int right){
-    int i, last;
-    
-    // do nothing if array contains fewer than two elements
-    if(left >= right)
-        return;
-//    print_array1(v, left, right);
-    swap(v, left, (left+right)/2);  //move partition elem to v[0]
-    print_array1(v, left, right);
-    last = left;
-    puts("started to swapped>>>>>>>>>>>");
-    for(i = left+1; i <= right; i++)  //partition
-        if(v[i] < v[left]){
-//            printf("i=%d\t, last=%d\n",i, last);
-            swap(v,++last,i);
-            print_array1(v, left, right);
-            puts("swapped>>>>>>>>>>>");
-
-        }
-
-    
-    swap(v,left, last);  //restore partition elem
-//    print_array1(v, left, right);
-    qsort0(v, left, last-1);
-    qsort0(v, last+1, right);
-}
-    
-                    
-
-
+int* generate_int_array(int *ia, int size);
+void swap(int v[], int i, int j);
+// void qsort0(int v[], int left, int right);
 
 
 int main(void){
@@ -217,6 +180,15 @@ int random_number(int min_num, int max_num)
     return result;
 }
 
+int* generate_int_array(int *ia, int size){
+    srand((unsigned int)time(NULL));
+    int i=0;
+    for(i=0;i<size;i++)
+        ia[i] = rand()%100+1;
+    
+    return ia;
+}
+
 
 void print_bytes(const void *object, size_t size)
 {
@@ -363,4 +335,45 @@ void bubbleSort2(float nums[], int len){
     printf("loop_counter = %d\n", loop_counter);
     print_array(nums,len);
 }
+
+
+
+
+void swap(int v[], int i, int j){
+    int temp;
+    temp = v[i];
+    v[i] = v[j];
+    v[j] = temp;
+}
+
+//    void swap(int v[], int i, int j);
+/* qsort: sort v[left]...v[right] in increaseing order */
+void qsort0(int v[], int left, int right){
+    int i, last;
+    
+    // do nothing if array contains fewer than two elements
+    if(left >= right)
+        return;
+//    print_array1(v, left, right);
+    swap(v, left, (left+right)/2);  //move partition elem to v[0]
+    print_array1(v, left, right);
+    last = left;
+    puts("started to swapped>>>>>>>>>>>");
+    for(i = left+1; i <= right; i++)  //partition
+        if(v[i] < v[left]){
+//            printf("i=%d\t, last=%d\n",i, last);
+            swap(v,++last,i);
+            print_array1(v, left, right);
+            puts("swapped>>>>>>>>>>>");
+
+        }
+
+    
+    swap(v,left, last);  //restore partition elem
+//    print_array1(v, left, right);
+    qsort0(v, left, last-1);
+    qsort0(v, last+1, right);
+}
+    
+                    
 
