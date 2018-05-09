@@ -69,7 +69,7 @@ void qsort1(int *arr, unsigned int left, unsigned int right){
 int main(int argc, char **arg){
     int ia[] = {4,23,63,745,34,53,24,344,5,6,87,2};
     unsigned int len =sizeof(ia)/sizeof(ia[0]);
-    qsort1(ia, 0, len);
+    qsort1(ia, 0, len-1);
     int j;
     for(j=0; j<len; j++){
         printf("ia[%d]=%d;\n", j, *(ia+j));
