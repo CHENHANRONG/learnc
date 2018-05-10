@@ -1,0 +1,2 @@
+# learnc
+learning c cpp
