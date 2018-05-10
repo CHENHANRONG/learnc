@@ -377,3 +377,223 @@ void qsort0(int v[], int left, int right){
     
                     
 
+//
+//  main.cpp
+//  cpp
+//
+//  Created by 陈含荣 on 2018/4/25.
+//  Copyright © 2018年 陈含荣. All rights reserved.
+//
+
+//#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <typeinfo>
+#include <cstring>
+
+#include "game.hpp"
+
+// pass by value
+void func0(int x){
+    printf("in func0 x = %d\n", x);
+    x = 30;
+}
+
+void fun00(int x){
+    printf("in func00 index is %d\n", x);
+}
+void fun01(int x){
+    printf("in func01 index is %d\n", x);
+}
+
+// pass by reference
+void func1(int &ix){
+    printf("in func1 ix = %d\n", ix);
+    ix = 20;
+}
+
+// pass by pointer
+void func2(int *ip){
+    printf("ip = %d\n", *ip);
+    *ip = 40;
+}
+
+const char * prompt(){
+    puts("Choose an option:\n");
+    puts("1. Fun00\n");
+    puts("2. fun01\n");
+    puts(">>>");
+    fflush(stdout);
+    const int buffsz=16;
+    static char resp[buffsz];
+    fgets(resp,buffsz, stdin);
+    
+    return resp;
+}
+
+void (*fp[])(int)={fun00, fun01, NULL};
+
+int jump(const char * rs){
+    char code = rs[0];
+    if(code == 'q' || code == 'Q') return 0;
+    
+    //count the length of the fun array
+    int len = 0;
+    while( fp[len] != NULL){
+        len++;
+    }
+    printf("sizeof(fp) is %lu\n", sizeof(fp));
+    printf("sizeof(*fp) is %lu\n", sizeof(*fp));
+    printf("length is %lu\n", sizeof(fp)/sizeof(*fp));
+    
+    int i = (int) code - '0';
+    i--;
+    if( i < 0 || i > len){
+        puts("Invalid choice");
+        return 1;
+    }else{
+        fp[i](i);
+        return 1;
+    }
+}
+
+void print_bytes(const void *object, size_t size)
+{
+    // This is for C++; in C just drop the static_cast<>() and assign.
+    const unsigned char * const bytes = static_cast<const unsigned char *>(object);
+    size_t i;
+    
+    printf("[ ");
+    for(i = 0; i < size; i++)
+    {
+        printf("%02x ", bytes[i]);
+    }
+    printf("]\n");
+}
+
+// int main(int argc, const char * argv[]) {
+    
+    
+//     int ax[]={1,2,3,4,5,6};
+//     printf("sizeof(ax) = %lu\n", sizeof(ax));
+// //    char str[]={'a','b','c','d','e'};
+//     char str[]="abcdefgigjk";
+//     printf("sizeof(str) = %lu\n", sizeof(str));
+//     printf("strlen(str) = %lu\n", strlen(str));
+
+//     char *pstr="abced";
+//     printf("sizeof(pstr) = %lu\n", sizeof(pstr));
+    
+    
+    
+    
+    
+    
+//     int ix = 100;
+//     int *p =&ix;
+//     printf("*p = %d\n", *p);
+//     printf("sizeof(*p) = %d\n", sizeof(*p));
+//     printf("sizeof(p) = %d\n", sizeof(p));
+
+
+
+//     printf("sizeof(char) = %d\n", sizeof(char));
+//     printf("sizeof(int) = %d\n", sizeof(int));
+//     printf("sizeof(long) = %d\n", sizeof(long));
+
+//     printf("sizeof(unsigned int) = %d\n", sizeof(unsigned int));
+//     printf("sizeof(unsigned long) = %d\n", sizeof(unsigned long));
+   
+//     union{                  //定义一个联合
+//         int i;
+//         struct{            //在联合中定义一个结构
+//             char first;
+//             char second;
+//         }half;
+//     }number;
+//     print_bytes(&number, sizeof(number));
+//     printf("sizeof(number) = %d\n", sizeof(number));
+//     printf("number = %p\n", number);
+//     number.i=0x4241;         //联合成员赋值
+//     print_bytes(&number, sizeof(number));
+//     printf("%c%c\n", number.half.first, number.half.second);
+//     number.half.first='a';   //联合中结构成员赋值
+//     number.half.second='b';
+//     print_bytes(&number, sizeof(number));
+//     printf("%x\n",number.i);
+ 
+
+//     Point p1;
+//     p1.x = 1;
+//     p1.y = 0;
+    
+//     Vector v;
+//     v.x = 2;
+//     v.y = 3;
+    
+//     Point p2 = p1.AddVector(v);
+//     printf("p2.x=%f, p2.y=%f\n", p2.x, p2.y);
+    
+//     while(jump(prompt()));
+//     puts("done\n");
+//     return 0;
+    
+    
+    
+ 
+//     int x = 10;
+    
+//     func0(x);
+//     printf("after func0 x = %d\n",x);
+    
+//     func1(x);
+//     printf("after func1 x = %d\n",x);
+
+//     func2(&x);
+//     printf("after func2 x = %d\n",x);
+
+
+//  int y = 10;
+//     switch (y) {
+//         case 1:
+//             puts("one");
+//             break;
+//         case 2:
+//             puts("two");
+//         case 3:
+//             puts("three");
+//         case 4:
+//             puts("four");
+//             break;
+//         case 5:
+//             puts("five");
+//             break;
+//         default:
+//             puts("default");
+//     }
+    
+    
+//     int ia[10] = {0,1,2,3,4,5,6,7,8,9};
+
+//     printf("address of ia is %d \n", &ia);
+//     printf("value of ia is %d \n", ia);
+//     printf("value of *ia is %d \n", *ia);
+
+    
+//     int x = 10;
+//     int *ipx = &x;
+//     printf("x address is %d\n", &x);
+//     printf("x value is %d\n", x);
+//     printf("ipx address is %d\n", &ipx);
+//     printf("ipx value is %d\n", ipx);
+//     printf("*ipx value is %d\n", *ipx);
+    
+    
+
+
+
+
+//     //    std::cout << "Hello, World!\n";
+//     return 0;
+// }
+
