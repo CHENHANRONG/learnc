@@ -471,6 +471,19 @@ void print_bytes(const void *object, size_t size)
     printf("]\n");
 }
 
+
+const char* u8_to_bin(unsigned int x){
+    static char s[sizeof(char)+1];
+    for(char &c : s)
+        c=0;
+    char *sp = s;
+    for(unsigned char z=128; z>0; z>>=1){
+        *(sp++) = ((x&z) == z) ? '1':'0';
+    }
+    return s;
+}
+
+
 // int main(int argc, const char * argv[]) {
     
     
@@ -596,4 +609,6 @@ void print_bytes(const void *object, size_t size)
 //     //    std::cout << "Hello, World!\n";
 //     return 0;
 // }
+
+
 
