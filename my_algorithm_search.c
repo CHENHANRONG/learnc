@@ -41,3 +41,16 @@ int *binary_search0(int val, int *arr, unsigned int arr_size){
     
     return NULL;  // no match
 }
+
+
+int* linear_search(int val, int *arr, size_t n){
+    int *pArr;
+    int *pArrEnd = arr+n;
+    for(pArr = arr;pArr<pArrEnd;pArr++ ){
+        if(*pArr == val){
+            return pArr;
+        }
+    }
+    
+    return NULL;
+}
