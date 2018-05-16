@@ -76,3 +76,24 @@ int main(int argc, char **arg){
     }
     return EXIT_SUCCESS;
 }
+
+
+* move previous elements down insertion point reached  */
+void shift_element (unsigned int i , int arr[]) {
+    int ivalue;
+    /* guard against going outside array */
+    for (ivalue = arr[i]; i && arr[i-1] > ivalue; i--){
+        arr[i] = arr[i-1]; /* move element down */
+    }
+    arr[ i ] = ivalue ;
+}
+
+/*iterate until out−of−order element found; shift the element, and continue iterating */
+void insertion_sort (int arr[], size_t len) {
+    unsigned int i;
+    for (i = 1; i < len; i++){
+        if (arr[i] < arr[i-1]){
+            shift_element(i, arr);
+        }
+        print_array(arr, len);
+    }
