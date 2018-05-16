@@ -78,7 +78,7 @@ int main(int argc, char **arg){
 }
 
 
-* move previous elements down insertion point reached  */
+/* move previous elements down insertion point reached  */
 void shift_element (unsigned int i , int arr[]) {
     int ivalue;
     /* guard against going outside array */
