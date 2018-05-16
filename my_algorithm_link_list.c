@@ -16,3 +16,13 @@ struct node* new_node(int data){
     }
     return pn;
 }
+
+struct node* add_frond(struct node* head, int data){
+    struct node *np = new_node(data);
+    if(np == NULL){
+        return head;
+    }else{
+        head->next = np;
+        return head;
+    }
+}
