@@ -26,3 +26,11 @@ struct node* add_frond(struct node* head, int data){
         return head;
     }
 }
+
+void apply(struct node *phead, void (*fp)(void *, void *), void *arg){
+    struct node *p = phead;
+    while(p!=NULL){
+        fp(p, arg);
+        p = p->next;
+    }
+}
