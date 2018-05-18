@@ -41,7 +41,16 @@ struct nlist *lookup(char *s)
     return NULL;
 }
 
-char *strdup(char*);
+/* make a duplicate of s */
+char *strdup(const char* s){
+    char *p;
+    
+    p = (char*) malloc(strlen(s)+1);  /* +1 for '\0\ */
+    if( p!=NULL)
+        strcpy(p, s);
+    
+    return p;
+}
 
 /*
  install uses lookup to determine whether the name being installed is already present;
