@@ -60,8 +60,7 @@ btnode * add_btnode(btnode *nodex, char *instr){
     if(instr == NULL){
         //exception handle
         return NULL;
-    }
-    else{  // if instr is not NULL
+    }else{  // if instr is not NULL
         if(nodex == NULL){
             //new node shoud be added
             nodex = malloc_new_btnode(instr);
