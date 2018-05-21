@@ -32,17 +32,6 @@ struct tnode* addnode(struct tnode* root, int data){
 
 ////////////////////////////////////////////////////////
 
-void tree_print(btnode *nodex){
-    if(nodex == NULL){
-        // do nothing
-    }else{
-        tree_print(nodex->lchild);
-        printf("%4d  %s\n", nodex->count, nodex->node_str);
-        tree_print(nodex->rchild);
-    }
-}
-
-
 struct binary_tree_node{
     char *node_str;
     unsigned int count;
@@ -50,7 +39,6 @@ struct binary_tree_node{
     struct binary_tree_node *rchild;  //right child
 };
 typedef struct binary_tree_node btnode;
-
 
 btnode * malloc_new_btnode(char *instr){
     btnode *new_node = (btnode*)malloc(sizeof(btnode));
@@ -65,6 +53,7 @@ btnode * malloc_new_btnode(char *instr){
     }
     return new_node;
 }
+
 
 btnode * add_btnode(btnode *nodex, char *instr){
   
@@ -92,4 +81,15 @@ btnode * add_btnode(btnode *nodex, char *instr){
     
     //not work as expected, return NULL
     return nodex;
+}
+
+
+void tree_print(btnode *nodex){
+    if(nodex == NULL){
+        // do nothing
+    }else{
+        tree_print(nodex->lchild);
+        printf("%4d  %s\n", nodex->count, nodex->node_str);
+        tree_print(nodex->rchild);
+    }
 }
