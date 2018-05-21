@@ -32,6 +32,17 @@ struct tnode* addnode(struct tnode* root, int data){
 
 ////////////////////////////////////////////////////////
 
+void tree_print(btnode *nodex){
+    if(nodex == NULL){
+        // do nothing
+    }else{
+        tree_print(nodex->lchild);
+        printf("%4d  %s\n", nodex->count, nodex->node_str);
+        tree_print(nodex->rchild);
+    }
+}
+
+
 struct binary_tree_node{
     char *node_str;
     unsigned int count;
