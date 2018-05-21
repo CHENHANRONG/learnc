@@ -48,7 +48,7 @@ btnode * malloc_new_btnode(char *instr){
     }else{
         new_node->node_str = instr;
         new_node->count = 1;
-        new_node->node_str = instr;
+        strcpy(new_node->node_str,instr);
         new_node->lchild = NULL;
         new_node->rchild = NULL;
     }
