@@ -79,6 +79,7 @@ Communication: <br />
    • Shared memory <br />
    • Network <br />
    • Pipes, Queues <br />
+    <br />
 • Thread:  <br />
    A light weight process that shares its address space with others.In POSIX systems, each thread maintains the bare essentials: registers, stack, signals.  <br />
 Communication: <br />
