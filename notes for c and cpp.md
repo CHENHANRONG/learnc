@@ -45,3 +45,8 @@ When is memory unreferenced?
 • Tricky when pointers on heap or references are circular
 (think of circular linked lists)
 • Pointers can be masked as data in memory; garbage collector may free data that is still referenced (or not free unreferenced data) 
+
+//======================================
+A garbage collector for C and C++
+//======================================
+http://www.hboehm.info/gc/
