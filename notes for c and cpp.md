@@ -11,6 +11,11 @@ including memcheck:
 valgrind --tool=memcheck --leak-check=yes program.o
 • memcheck runs program using virtual machine and tracks memory leaks
 • Does not trigger on out-of-bounds index errors for arrays on the stack 
+• Can use to profile code to measure memory usage, identify execution bottlenecks
+• valgrind tools (use name in -tool= flag):
+   • cachegrind – counts cache misses for each line of code
+   • callgrind – counts function calls and costs in program
+   • massif – tracks overall heap usage 
   
 //======================================
 Using malloc()
