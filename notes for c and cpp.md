@@ -37,3 +37,11 @@ http://g.oswego.edu/dl/html/malloc.html
 • Lists segregated into bins according to size; bin sizes spaced logarithmically
 • Placement done in best-fit order
 • Deferred coalescing and splitting performed to minimize overhead 
+
+//======================================
+When is memory unreferenced?
+//======================================
+• Pointer(s) to memory no longer exist
+• Tricky when pointers on heap or references are circular
+(think of circular linked lists)
+• Pointers can be masked as data in memory; garbage collector may free data that is still referenced (or not free unreferenced data) 
