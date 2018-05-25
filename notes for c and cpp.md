@@ -27,6 +27,18 @@ Minimize overhead – use fewer, larger allocations <br />
 (depending on implementation of malloc())  <br />
 
 
+• Mapping memory: mmap(), munmap(). Useful for demand paging. <br />
+• Resizing heap: sbrk() <br />
+• Designing malloc() <br />
+• implicit linked list,explicit linked list <br />
+• best fit,first fit,next fit <br />
+
+• Problems:<br />
+   • fragmentation<br />
+   • memory leaks<br />
+   • valgrind –tool=memcheck, checks for memory leaks.<br />
+
+
 //====================================== <br />
 malloc() for the real world <br />
 //====================================== <br />
