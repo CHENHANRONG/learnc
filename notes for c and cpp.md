@@ -1,10 +1,10 @@
 # learnc
-learning c cpp
+learning c cpp <br />
 
 
-//======================================
-Using valgrind to detect memory leaks.
-//======================================
+//======================================<br />
+Using valgrind to detect memory leaks. <br />
+//======================================<br />
 • A simple tutorial: http://cs.ecs.baylor.edu/~donahoo/tools/valgrind/
 • valgrind program provides several performance tools:
 including memcheck:
@@ -17,9 +17,9 @@ valgrind --tool=memcheck --leak-check=yes program.o
    • callgrind – counts function calls and costs in program
    • massif – tracks overall heap usage 
   
-//======================================
-Using malloc()
-//======================================
+//====================================== <br />
+Using malloc() <br />
+//====================================== <br />
 Minimize overhead – use fewer, larger allocations
 • Minimize fragmentation – reuse memory allocations as much as possible
 • Growing memory – using realloc() can reduce fragmentation
@@ -27,9 +27,9 @@ Minimize overhead – use fewer, larger allocations
 (depending on implementation of malloc()) 
 
 
-//======================================
-malloc() for the real world
-//======================================
+//====================================== <br />
+malloc() for the real world <br />
+//====================================== <br />
 • Used in GNU libc version of malloc()
 • Details have changed, but nice general discussion can be found at
 http://g.oswego.edu/dl/html/malloc.html
@@ -38,15 +38,15 @@ http://g.oswego.edu/dl/html/malloc.html
 • Placement done in best-fit order
 • Deferred coalescing and splitting performed to minimize overhead 
 
-//======================================
-When is memory unreferenced?
-//======================================
+//====================================== <br />
+When is memory unreferenced? <br />
+//====================================== <br />
 • Pointer(s) to memory no longer exist
 • Tricky when pointers on heap or references are circular
 (think of circular linked lists)
 • Pointers can be masked as data in memory; garbage collector may free data that is still referenced (or not free unreferenced data) 
 
-//======================================
-A garbage collector for C and C++
-//======================================
+//====================================== <br />
+A garbage collector for C and C++ <br />
+//====================================== <br />
 http://www.hboehm.info/gc/
