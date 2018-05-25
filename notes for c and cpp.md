@@ -63,3 +63,8 @@ A garbage collector for C and C++ <br />
 //====================================== <br />
 http://www.hboehm.info/gc/
  <br />
+ 
+   
+ //====================================== <br />
+ Parallel computing
+ //====================================== <br />
