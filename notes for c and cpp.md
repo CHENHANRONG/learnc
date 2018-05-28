@@ -74,7 +74,7 @@ http://www.hboehm.info/gc/
   - Task parallelism (embarrassingly parallel)  <br />
 - Concurrency: Multiple computations that may be done in parallel.  <br />
 - Concurrency vs. Parallelism <br />
-  -- http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html   <br />
+http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html   <br />
  <br />
  //====================================== <br />
  Process vs. Threads <br />
