@@ -92,10 +92,18 @@ Communication: <br />
 shared address space.  <br />
   <br />
   
-  //====================================== <br />
- <br />
+  
+//====================================== <br />
+Multithreaded: <br /> 
  //====================================== <br />
- 
+- Program is organized as multiple and concurrent threads of execution.
+- The main thread spawns multiple threads.
+- The thread may communicate with one another.
+- Advantages:
+  - Improves performance
+  - Improves responsiveness
+  - Improves utilization
+  - less overhead compared to multiple processes 
   <br />
   
   //====================================== <br />
