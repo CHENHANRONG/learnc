@@ -72,7 +72,9 @@ http://www.hboehm.info/gc/
   - Instruction level (pipelining) <br />
   - Data parallelism (SIMD) <br />
   - Task parallelism (embarrassingly parallel)  <br />
-
+- Concurrency: Multiple computations that may be done in parallel.  <br />
+- Concurrency vs. Parallelism 
+  -- http://tutorials.jenkov.com/java-concurrency/concurrency-vs-parallelism.html   <br />
  <br />
  //====================================== <br />
  Process vs. Threads <br />
