@@ -83,9 +83,9 @@ Process vs. Threads <br />
 - Process:  <br />
 An instance of a program that is being executed in its own address space. In POSIX systems, each process maintains its own heap, stack, registers, file descriptors etc. <br />
 Communication: <br />
-  -- Shared memory <br />
-  -- Network <br />
-  -- Pipes, Queues <br />
+  - Shared memory <br />
+  - Network <br />
+  - Pipes, Queues <br />
 - Thread:  <br />
 A light weight process that shares its address space with others.In POSIX systems, each thread maintains the bare essentials: registers, stack, signals.  <br />
 - Communication: <br />
@@ -107,6 +107,14 @@ Multithreaded: <br />
   - less overhead compared to multiple processes 
   <br />
   
+- Even in C, multithread programming may be accomplished in several ways:   <br />
+  - Pthreads: POSIX C library.   <br />
+  - OpenMP   <br />
+  - Intel threading building blocks   <br />
+  - Cilk (from CSAIL!)   <br />
+  - Grand central despatch   <br />
+  - **CUDA (GPU)**  <br />
+  - **OpenCL (GPU/CPU)**    <br />
   //====================================== <br />
  <br />
  //====================================== <br />
