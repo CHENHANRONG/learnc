@@ -267,7 +267,26 @@ check (OR-ed combination of flags like POLLIN, POLLOUT, POLLERR, POLLHUP), and r
     - nfds – number of structures in the array
     - timeout – number of milliseconds to wait; use 0 to return immediately, or −1 to block indefinitely 
     
-    
+- Summary:
+  - multithreading:
+    - Race conditions
+      - non-determinism in thread order.
+      - can be prevented by synchronization
+      - atomic operations necessary for synchronization
+    - Mutex: Allows a single thread to own it
+    - Semaphores: Generalization of mutex, allows N threads to acquire it at a time.
+      - P(s) : acquires a lock
+      - V(s) : releases lock
+      - sem_init(),sem_destroy()
+      - sem_wait(),sem_trywait(),sem_post()
+    - Other problems: deadlock, starvation 
+  - Sockets: 
+    - <sys/socket.h>
+    - enables client-server computing
+    - Client: connect()
+    - Server: bind(),listen(),accept()
+    - I/O: write(),send(),read(),recv()
+  
   <br />
   
   
