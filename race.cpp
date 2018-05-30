@@ -1,3 +1,14 @@
+/*
+C not designed for multithreading
+• No notion of atomic operations in C
+• Increment cnt++; maps to three assembly operations:
+1. load cnt into a register
+2. increment value in register
+3.	 save new register value as new cnt
+• So what happens if thread interrupted in the middle?
+• Race condition! 
+*/
+
 #include <cstdlib>
 # include <cstdio>
 //#include <cstring>
