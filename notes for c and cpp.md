@@ -168,18 +168,109 @@ Race conditions occur when multiple threads share a variable, without proper syn
   - Tricky bug to locate and reproduce, since schedule-dependent
   - Can visualize using a progress graph – traces progress of threads in terms of synchronization objects
   
--Starvation and priority inversion
+- Starvation and priority inversion
   - Starvation similar to deadlock
   - Scheduler never allocates resources (e.g. CPU time) for a thread to complete its task
   - Happens during priority inversion
   - example: highest priority thread T1 waiting for low priority thread T2 to finish using a resource, while thread T3, which has higher priority than T2, is allowed to run indefinitely. thread T1 is considered to be in starvation 
   
     
-  //====================================== <br />
- <br />
- //====================================== <br />
+//====================================== <br />
+**Sockets**  <br />
+//====================================== <br />
+- Socket: abstraction to enable communication across a network in a manner similar to file I/O
+- Uses header <sys/socket.h> (extension of C standard library)
+- Network I/O, due to latency, usually implemented asynchronously, using multithreading
+- Sockets use client/server model of establishing connections 
  
+ 
+-  Creating a socket
+  - Create a socket, getting the file descriptor for that socket:
+  int socket(int domain, int type, int protocol );
+    - domain – use constant AF_INET, so we’re using the internet; might also use AF_INET6 for IPv6 addresses
+    - type – use constant SOCK_STREAM for connection-based protocols like TCP/IP; use SOCK_DGRAM for connectionless datagram protocols like UDP (we’ll concentrate on the
+former)
+    - protocol – specify 0 to use default protocol for the socket type (e.g. TCP)
+    - returns nonnegative integer for file descriptor, or −1 if couldn’t create socket
+  - Don’t forget to close the file descriptor when you’re done! 
+  
+  
+- Connecting to a server
+  - Using created socket, we connect to server using:   <br />
+  int connect(int fd, struct sockaddr ∗addr, int addr_len);
+    - fd: the socket’s file descriptor
+    - addr: the address and port of the server to connect to; for internet addresses, cast data of type struct
+sockaddr_in, which has the following members:
+      - sin_family – address family; always AF_INET
+      - sin_port – port in network byte order (use htons() to convert to network byte order)
+      - sin_addr.s_addr – IP address in network byte order (use htonl() to convert to network byte order)
+    - addr_len – size of sockaddr_in structure
+    - returns 0 if successful
+- Associate server socket with a port
+  - Using created socket, we bind to the port using:  <br />
+  int bind(int fd, struct sockaddr ∗addr, int addr_len);
+    - fd, addr, addr_len – same as for connect()
+    - note that address should be IP address of desired interface (e.g. eth0) on local machine
+    - ensure that port for server is not taken (or you may get “address already in use” errors)
+    - return 0 if socket successfully bound to port 
+    
+- Listening for clients
+  - Using the bound socket, start listening: <br />
+  int listen (int fd, int backlog);
+    - fd – bound socket file descriptor
+    - backlog – length of queue for pending TCP/IP connections; normally set to a large number, like 1024
+    - returns 0 if successful 
+- Accepting a client’s connection
+  - Wait for a client’s connection request (may already be queued):  <br />
+  int accept(int fd, struct sockaddr ∗addr, int ∗addr_len);
+    - fd – socket’s file descriptor
+    - addr – pointer to structure to be filled with client address info (can be NULL)
+    - addr_len – pointer to int that specifies length of structure pointed to by addr; on output, specifies the length of the stored address (stored address may be truncated if bigger than supplied structure)
+    - returns (nonnegative) file descriptor for connected client socket if successful 
+- Reading and writing with sockets
+  - Send data using the following functions:  <br />
+  int write(int fd, const void ∗buf, size_t len );    <br />
+  int send(int fd, const void ∗buf, size_t len, int flags );    <br /> 
+  - Receive data using the following functions: <br />
+  int read(int fd, void ∗buf, size_t len ); <br />
+  int recv(int fd, void ∗buf, size_t len, int flags ); <br />
+    - fd – socket’s file descriptor
+    - buf – buffer of data to read or write
+    - len – length of buffer in bytes
+    - flags – special flags; we’ll just use 0
+  - all these return the number of bytes read/written (if successful) 
+    
+- Asynchronous I/O
+  - Up to now, all I/O has been synchronous – functions do not return until operation has been performed
+  - Multithreading allows us to read/write a file or socket without blocking our main program code (just put I/O functions in a separate thread)
+  - Multiplexed I/O – use select() or poll() with multiple file descriptors
+  
+- I/O multiplexing with select()
+  - To check if multiple files/sockets have data to read/write/etc: (include <sys/select.h>)
+  int select(int nfds, fd_set ∗readfds, fd_set ∗writefds, fd_set ∗errorfds, struct timeval ∗timeout);
+    - nfds – specifies the total range of file descriptors to be tested (0 up to nfds−1)
+    - readfds, writefds, errorfds – if not NULL, pointer to set of file descriptors to be tested for being ready to read, write, or having an error; on output, set will contain a list of only those file descriptors that are ready
+    - timeout – if no file descriptors are ready immediately, maximum time to wait for a file descriptor to be ready
+    - returns the total number of set file descriptor bits in all the sets
+  - Note that select() is a blocking function 
+  - fd_set – a mask for file descriptors; bits are set (“1”) if in the set, or unset (“0”) otherwise Use the following functions to set up the structure:
+    - FD_ZERO(&fdset) – initialize the set to have bits unset for all file descriptors
+    - FD_SET(fd, &fdset) – set the bit for file descriptor fd in the set
+    - FD_CLR(fd, &fdset) – clear the bit for file descriptor fd in the set
+    - FD_ISSET(fd, &fdset) – returns nonzero if bit for file descriptor fd is set in the set 
+
+- I/O multiplexing using poll()
+  - Similar to select(), but specifies file descriptors differently: (include <poll.h>) 
+  int poll (struct pollfd fds [], nfds_t nfds, int timeout);
+    - fds – an array of pollfd structures, whose members fd, events, and revents, are the file descriptor, events to
+check (OR-ed combination of flags like POLLIN, POLLOUT, POLLERR, POLLHUP), and result of polling with that file descriptor for those events, respectively
+    - nfds – number of structures in the array
+    - timeout – number of milliseconds to wait; use 0 to return immediately, or −1 to block indefinitely 
+    
+    
   <br />
+  
+  
   
   //====================================== <br />
  <br />
