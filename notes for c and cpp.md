@@ -162,7 +162,11 @@ Race conditions occur when multiple threads share a variable, without proper syn
     - dynamically allocate memory for result; (deep) copy result into new memory
     - unlock mutex 
     
-    
+- Deadlock: 
+  - Deadlock – happens when every thread is waiting on another thread to unblock
+  - Usually caused by improper ordering of synchronization objects
+   - Tricky bug to locate and reproduce, since schedule-dependent
+   - Can visualize using a progress graph – traces progress of threads in terms of synchronization objects 
     
     
   //====================================== <br />
