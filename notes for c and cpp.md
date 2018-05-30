@@ -165,9 +165,15 @@ Race conditions occur when multiple threads share a variable, without proper syn
 - Deadlock: 
   - Deadlock – happens when every thread is waiting on another thread to unblock
   - Usually caused by improper ordering of synchronization objects
-   - Tricky bug to locate and reproduce, since schedule-dependent
-   - Can visualize using a progress graph – traces progress of threads in terms of synchronization objects 
-    
+  - Tricky bug to locate and reproduce, since schedule-dependent
+  - Can visualize using a progress graph – traces progress of threads in terms of synchronization objects
+  
+-Starvation and priority inversion
+  - Starvation similar to deadlock
+  - Scheduler never allocates resources (e.g. CPU time) for a thread to complete its task
+  - Happens during priority inversion
+  - example: highest priority thread T1 waiting for low priority thread T2 to finish using a resource, while thread T3, which has higher priority than T2, is allowed to run indefinitely. thread T1 is considered to be in starvation 
+  
     
   //====================================== <br />
  <br />
