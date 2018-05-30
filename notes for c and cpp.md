@@ -153,7 +153,18 @@ Race conditions occur when multiple threads share a variable, without proper syn
   - Example: two threads both need to access a variable and modify it based on its value
     - surround access and modification with a mutex
     - mutex groups operations together to make them atomic treated as one unit 
-  
+- To make your code thread-safe:
+  - Use synchronization objects around shared variables
+  - Use reentrant functions
+  - Use synchronization around functions returning pointers to shared memory (lock-and-copy):
+    - lock mutex for function
+    - call unsafe function
+    - dynamically allocate memory for result; (deep) copy result into new memory
+    - unlock mutex 
+    
+    
+    
+    
   //====================================== <br />
  <br />
  //====================================== <br />
