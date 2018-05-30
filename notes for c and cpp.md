@@ -113,8 +113,47 @@ Multithreaded: <br />
   - Intel threading building blocks   <br />
   - Cilk (from CSAIL!)   <br />
   - Grand central despatch   <br />
-  - **CUDA (GPU)**  <br />
+  - **CUDA (GPU)**   <br />
   - **OpenCL (GPU/CPU)**    <br />
+  
+- Thread: abstraction of parallel processing with shared memory
+  - Program organized to execute multiple threads in parallel
+  - Threads spawned by main thread, communicate via shared resources and joining
+  - pthread library implements multithreading
+    - int pthread_create ( pthread_t ∗ thread , const p t h r e a d _ a t tr _ t ∗ a t tr , void ∗(∗ s t a rt _ r o u t i n e ) ( void ∗) , void ∗ arg ) ;
+    - void pthread_exit(void ∗value_ptr);
+    - int pthread_join(pthread_t thread, void ∗∗value_ptr);
+    - pthread_t pthread_self(void); 
+- Resource sharing
+  - Access to shared resources need to be controlled to ensure deterministic operation
+  - Synchronization objects: mutexes, semaphores, read/write locks, barriers
+  - Mutex: simple single lock/unlock mechanism
+    - int pthread_mutex_init(pthread_mutex_t ∗mutex, const pthread_mutexattr_t ∗ attr);
+    - int pthread_mutex_destroy(pthread_mutex_t ∗mutex);
+    - int pthread_mutex_lock(pthread_mutex_t ∗mutex);
+    - int pthread_mutex_trylock(pthread_mutex_t ∗mutex);
+    - int pthread_mutex_unlock(pthread_mutex_t ∗mutex); 
+- Condition variables
+  - Lock/unlock (with mutex) based on run-time condition variable
+  - Allows thread to wait for condition to be true
+  - Other thread signals waiting thread(s), unblocking them
+    - int pthread_cond_init(pthread_cond_t ∗cond, const pthread_condattr_t ∗attr);
+    - int pthread_cond_destroy(pthread_cond_t ∗cond);
+    - int pthread_cond_wait(pthread_cond_t ∗cond, pthread_mutex_t ∗mutex);
+    - int pthread_cond_broadcast(pthread_cond_t ∗cond);
+    - int pthread_cond_signal(pthread_cond_t ∗cond); 
+- OS implements scheduler – determines which threads execute when. Scheduling may execute threads in arbitrary order. Without proper synchronization, code can execute non-deterministically. Non-determinism creates a race condition – where the
+behavior/result depends on the order of executio.
+- Race conditions:
+Race conditions occur when multiple threads share a variable, without proper synchronization
+  - Synchronization uses special variables, like a mutex, to ensure order of execution is correct
+  - Example: thread T1 needs to do something before thread T2
+    - condition variable forces thread T2 to wait for thread T1
+    - producer-consumer model program 
+  - Example: two threads both need to access a variable and modify it based on its value
+    - surround access and modification with a mutex
+    - mutex groups operations together to make them atomic treated as one unit 
+  
   //====================================== <br />
  <br />
  //====================================== <br />
