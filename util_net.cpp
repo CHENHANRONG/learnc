@@ -10,10 +10,12 @@
 //  Copyright © 2018年 陈含荣. All rights reserved.
 //
 
+
 #include "util_net.hpp"
 
 #include <stdlib.h>
-#include <string.h>
+#include <string>
+
 
 #define NUM_THREAD 5
 
@@ -53,8 +55,8 @@ int get_stock_data_from_sina(char* base_url, unsigned int stock_list_len, unsign
     const char *stockcodes[stock_list_len];
     int i;
     for(i=0;i<stock_list_len;i++){
-        stockcodes[i]= (char*)malloc(sizeof(char)*stock_code_len);
-        stockcodes[i] = "60000"+i;
+        stockcodes[i] = (char*)malloc(sizeof(char)*stock_code_len);
+        stockcodes[i] = std::to_string(600000+i).cstr();
     }
 }
 
@@ -78,4 +80,5 @@ const char * const urls[NUMT]= {
     "http://www.contactor.se/",
     "www.haxx.se"
 };
+
 
