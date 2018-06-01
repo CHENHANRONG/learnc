@@ -291,10 +291,21 @@ check (OR-ed combination of flags like POLLIN, POLLOUT, POLLERR, POLLHUP), and r
   
   
   
-  //====================================== <br />
- <br />
- //====================================== <br />
- 
+//====================================== <br />
+- Inter process communication
+  - Signals
+  - Fork
+  - Pipes
+  - FIFO <br />
+//====================================== <br />
+- Each process has its own address space. Therefore, individual processes cannot communicate unlike threads.
+- Interprocess communication: Linux/Unix provides several ways to allow communications
+  - signal
+  - pipes
+  - FIFO queues
+  - shared memory
+  - semaphores
+  - sockets
   <br />
   
   //====================================== <br />
@@ -310,9 +321,15 @@ check (OR-ed combination of flags like POLLIN, POLLOUT, POLLERR, POLLHUP), and r
   <br />
   
   
-  //====================================== <br />
+//====================================== <br />
+- How to get clear complex expression.  <br />
+ Start with the leftmost identifier and work your way out, 
+ **remembering that [] and () bind before *,** 
+so   <br />
+*a[] is an array of pointers, (*a)[] is a pointer to an array,   <br />
+*f() is a function returning a pointer, and (*f)() is a pointer to a function  <br />
  <br />
- //====================================== <br />
+//====================================== <br />
  
   <br />
   
