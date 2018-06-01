@@ -307,7 +307,8 @@ check (OR-ed combination of flags like POLLIN, POLLOUT, POLLERR, POLLHUP), and r
   - semaphores
   - sockets
 - signal
-  - void (*signal(int sig,void(*handler)(int )))( int) 
+  - void (*signal(int sig,void(*handler)(int )))( int)  <br />
+  
 SIG name      | explain       | comment
 ------------- |-------------| ------
 SIGABRT |abnormal termination | 
