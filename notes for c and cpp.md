@@ -319,7 +319,22 @@ SIGSEGV | segmentation fault |
 SIGTERM|termination request |
 SIGBUS|bus error|
 SIGQUIT| quit|
-
+  <br /> The two signals SIGSTOP,SIGKILL cannot be handled.
+  - int raise( int sig)  <br />
+  can be used to send signal sig to the program. 
+    - Notes:
+      - There can be race conditions.
+      - signal handler itself can be interrupted.
+      - use of non-reentrant functions unsafe.
+      - sigprocmask can be used to prevent interruptions.
+      - handler is reset each time it is called.
+- Fork
+  -  pid_t fork (void) 
+    - fork() is a system call to create a new process
+    - In the child process, it returns 0
+    - In the parent process, it returns the PID (process id) of the child.
+    - The child PID can be used to send signals to the child process.
+    - returns -1 on failure (invalid PID) 
   <br />
   
   
