@@ -308,16 +308,16 @@ check (OR-ed combination of flags like POLLIN, POLLOUT, POLLERR, POLLHUP), and r
   - sockets
 - signal
   - void (*signal(int sig,void(*handler)(int )))( int) 
-| SIG name      | explain       | comment|
-| ------------- |:-------------:| ------:|
-|SIGABRT    | abnormal termination |   |
-|SIGFPE      | floating point error      |     |
-|SIGILL    | illegal instruction  |     |
-|SIGINT | interrupt||
-|SIGSEGV | segmentation fault ||
-|SIGTERM|termination request ||
-|SIGBUS|bus error||
-|SIGQUIT| quit||
+SIG name      | explain       | comment
+------------- |-------------| ------
+SIGABRT |abnormal termination | 
+SIGFPE |floating point error | 
+SIGILL|illegal instruction  | 
+SIGINT | interrupt||
+SIGSEGV | segmentation fault |
+SIGTERM|termination request |
+SIGBUS|bus error|
+SIGQUIT| quit|
 
   <br />
   
