@@ -1,8 +1,23 @@
 # learnc
-learning c cpp <br />
+learning c and cpp <br />
+
 
 //======================================<br />
-stack vs. heap. <br />
+**Managing memory**  <br />
+//======================================<br />
+- Conceptually 
+  - Keep track of what memory belongs to your program, making sure:
+    - all addresses you give to other functions are valid for those functions and 
+    - you deallocate memory you are not using while you still know about it.
+- While programming 
+  - Use malloc to allocate memory on the heap if you will need it after the current function returns. 
+  - Use free to free pointers before you reassign them and lose the pointer.
+- Dynamic allocation and deallocation
+  - Allocation: malloc is a C standard library function that finds a chunk of free memory of the desired size and returns a pointer to it.
+  - Deallocation: free marks the memory associated with a specific address as no longer in use. (It keeps track of how much memory was associated with that address!)
+
+//======================================<br />
+**stack vs. heap.** <br />
 //======================================<br />
 - The C compiler lays out memory corresponding to functions (arguments, variables) on the stack. 
 - C allows the programmer to allocate additional memory on the heap. 
