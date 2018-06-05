@@ -13,8 +13,8 @@ Memory is allocated  |Upon entering function|With malloc
 Memory is deallocated |Upon function return |With free
 Addresses are assigned|Statically|Dynamically
 
-Stack Heap Memory is allocated Upon entering function With malloc Memory is deallocated Upon function return With free Addresses are assigned Statically Dynamicall
 
+<br />
 //======================================<br />
 Using valgrind to detect memory leaks. <br />
 //======================================<br />
