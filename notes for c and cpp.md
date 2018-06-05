@@ -15,7 +15,16 @@ learning c and cpp <br />
 - Dynamic allocation and deallocation
   - Allocation: malloc is a C standard library function that finds a chunk of free memory of the desired size and returns a pointer to it.
   - Deallocation: free marks the memory associated with a specific address as no longer in use. (It keeps track of how much memory was associated with that address!)
-
+- How you can produce memory errors
+  - Program accesses memory it shouldn’t (not yet allocated, not yet freed, past end of heap block, inaccessible parts of the stack). 
+  - Dangerous use of unitialized values. 
+  - Memory leaks. 
+  - Bad frees. 
+- Manifestations of memory errors
+  - “Junk” values. 
+  - Segmentation fault–program crashes. 
+  
+  
 //======================================<br />
 **stack vs. heap.** <br />
 //======================================<br />
