@@ -1,6 +1,19 @@
 # learnc
 learning c cpp <br />
 
+//======================================<br />
+stack vs. heap. <br />
+//======================================<br />
+- The C compiler lays out memory corresponding to functions (arguments, variables) on the stack. 
+- C allows the programmer to allocate additional memory on the heap. 
+
+SIG name      | **Stack**       | **Heap**
+------------- |-------------| ------
+Memory is allocated  |Upon entering function|With malloc 
+Memory is deallocated |Upon function return |With free
+Addresses are assigned|Statically|Dynamically
+
+Stack Heap Memory is allocated Upon entering function With malloc Memory is deallocated Upon function return With free Addresses are assigned Statically Dynamicall
 
 //======================================<br />
 Using valgrind to detect memory leaks. <br />
