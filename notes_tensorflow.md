@@ -10,9 +10,11 @@ https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runt
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runtime/executor.cc |
 
 
-Good projects |  Comments     
------- |-----
-tensorflow |
+Good projects |  Source code     
+------------ |-----------------
+tensorflow | https://github.com/tensorflow/tensorflow
+awesome cpp|https://github.com/fffaraz/awesome-cpp
+
 
 
 Structure | Comments
