@@ -4,15 +4,15 @@
 //======================================<br />
 
 
-Links     |        |  
-------------- |-------------| ------
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runtime/direct_session.cc  ||
-https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runtime/executor.cc ||
-||
+Links | 
+------------- |------
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runtime/direct_session.cc  |
+https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runtime/executor.cc |
 
-Good projects |        |  
-------------- |-------------| ------
-tensorflow | | 
+
+Good projects |       
+------------- |-----
+tensorflow |
 
 
 Structure     |
