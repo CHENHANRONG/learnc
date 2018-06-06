@@ -5,18 +5,18 @@
 
 
 Links | Comments
-------------- |------
+------ |------
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runtime/direct_session.cc  |
 https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runtime/executor.cc |
 
 
-Good projects |       
-------------- |-----
+Good projects |  Comments     
+------ |-----
 tensorflow |
 
 
-Structure     |
-------------- |----
+Structure | Comments
+------ |------
 core/ contains the main C++ code and runtimes. | 
 core/ops/ contains the "signatures" of the operations |
 core/kernels/ contains the "implementations" of the operations (including CPU and CUDA kernels) |
