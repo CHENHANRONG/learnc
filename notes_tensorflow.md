@@ -13,6 +13,8 @@ https://github.com/tensorflow/tensorflow/blob/master/tensorflow/core/common_runt
 Good projects |  Source code     
 ------------ |-----------------
 tensorflow | https://github.com/tensorflow/tensorflow
+openCV | https://opencv.org/
+openCL | https://www.khronos.org/opencl/
 awesome cpp|https://github.com/fffaraz/awesome-cpp
 
 
