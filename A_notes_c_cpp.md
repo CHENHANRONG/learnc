@@ -36,8 +36,8 @@ SIG name      | **Stack**       | **Heap**
 Memory is allocated  |Upon entering function|With malloc 
 Memory is deallocated |Upon function return |With free
 Addresses are assigned|Statically|Dynamically
+<img src="resource/images/heapandstack.png" alt="Heap V.S. Stack" width="300px" height="450px">
 
-![Heap V.S. Stack](resource/images/heapandstack.png ) {:height="100px" width="50px"}.
 
 <br />
 //======================================<br />
