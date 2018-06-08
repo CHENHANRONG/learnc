@@ -37,7 +37,7 @@ Memory is allocated  |Upon entering function|With malloc
 Memory is deallocated |Upon function return |With free
 Addresses are assigned|Statically|Dynamically
 
-![Heap V.S. Stack](resource/images/heapandstack.png)
+![Heap V.S. Stack](resource/images/heapandstack.png=100x300)
 
 <br />
 //======================================<br />
