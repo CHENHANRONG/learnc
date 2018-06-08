@@ -23,7 +23,10 @@ learning c and cpp <br />
 - Manifestations of memory errors
   - “Junk” values. 
   - Segmentation fault–program crashes. 
-  
+- when to use pointers 
+  - When you have to allocate memory on heap. 
+  - When passing a parameter whose value you want to allow the other function to change. 
+  - Also for efficiency–to avoid copying data structures.
   
 //======================================<br />
 **stack vs. heap.** <br />
@@ -95,6 +98,10 @@ When is memory unreferenced? <br />
 • Tricky when pointers on heap or references are circular <br />
 (think of circular linked lists)
 • Pointers can be masked as data in memory; garbage collector may free data that is still referenced (or not free unreferenced data)  <br />
+
+
+
+
 
 //====================================== <br />
 A garbage collector for C and C++ <br />
