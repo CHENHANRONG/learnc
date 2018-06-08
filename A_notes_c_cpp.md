@@ -100,6 +100,26 @@ When is memory unreferenced? <br />
 • Pointers can be masked as data in memory; garbage collector may free data that is still referenced (or not free unreferenced data)  <br />
 
 
+//====================================== <br />
+A closer look at the GCC compilation process <br />
+//====================================== <br />
+- Preprocessor:
+  - Translation of # directives. 
+    - Translates all macros (#DEFINE’s) into inline C code. 
+    - Takes #include files and inserts them into the code. 
+      - Get redefinition error if structs etc. are defined more than once! 
+      - Use #ifndef directive to define things only if they have not been defined.
+- Parsing and translation
+  - Translates to assembly, performing optimizations.
+- Assembler 
+  - Translates assembly to machine instructions. 
+- Linking 
+  - Static. For each function called by the program, the assembly to that function is included directly in the executable, allowing function calls to directly address code. 
+  - Dynamic. Function calls call a Procedure Linkage Table, which contains the proper addresses of the mapped memory.
+
+
+
+
 
 
 
