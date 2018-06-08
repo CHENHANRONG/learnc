@@ -37,7 +37,7 @@ Memory is allocated  |Upon entering function|With malloc
 Memory is deallocated |Upon function return |With free
 Addresses are assigned|Statically|Dynamically
 
-![Optional Text](learnc/resource/images/heap and stack.png)
+![Optional Text](https://github.com/CHENHANRONG/learnc/blob/master/learnc/resource/images/heap and stack.png)
 
 <br />
 //======================================<br />
