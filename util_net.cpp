@@ -9,8 +9,10 @@
 #include "util_net.hpp"
 
 #include <stdlib.h>
-#include <string>
+#include <cstring>
 #include <ctime>
+#include <curl/curl.h>
+
 
 #define NUM_THREAD 5
 
@@ -41,7 +43,7 @@ void get_today_str(char *day_str){
 char * get_stock_data_from_163(const char *stockcode){
     //    symbol = '0%s' % code if code[:1] in ['5', '6', '9'] else '1%s' % code
     if(stockcode == NULL){
-        printf("input stock code is NULL");
+        fprintf(stderr, "input stock code is NULL");
     }else{
         printf("input stock code is %s", stockcode);
     }
@@ -67,6 +69,74 @@ char * get_stock_data_from_163(const char *stockcode){
              , WEB_SERVICE_163, symbol, end_day_str);
     
     return CNA_DAY_TRADE_URL;
+}
+
+/* the function to invoke as the data recieved */
+size_t static write_callback_func(void *buffer,
+                                  size_t size,
+                                  size_t nmemb,
+                                  void *userp)
+{
+    printf("\n\nIn write_callback_func()...\n");
+    int bufferlen = strlen(buffer);
+    printf("In write_callback_func(): strlen(buffer) = [%d]\n", bufferlen);
+    printf("In write_callback_func(): buffer = [%s]\n", buffer);
+    char **response_ptr = (char**)userp;
+    printf("In write_callback_func(): About to call strndup()...\n");
+    /* assuming the response is a string */
+    //*response_ptr = strndup(buffer, (size_t)(size *nmemb));
+    apr_cpystrn((const char *)userp, buffer, bufferlen);
+    printf("In write_callback_func(): Finished setting *response_ptr, returning...\n");
+} // end write_callback_func()
+
+static void *pull_one_url(void *url)
+{
+    CURL *curl;
+    CURLcode res;
+    const char * response;
+
+    
+    curl = curl_easy_init();
+    if(curl) {
+
+        curl_easy_setopt(curl, CURLOPT_URL, url);
+        /* setting a callback function to return the data
+         https://curl.haxx.se/libcurl/c/getinmemory.html
+         https://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string
+         */
+        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback_func);
+        /* passing the pointer to the response as the callback parameter */
+        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+        printf("In callCurl(): Returned from calling curl_easy_setopt()...\n");
+
+        curl_easy_perform(curl); /* ignores error */
+        printf("\n\n\nres=[%s]\n", res);
+
+        int response_code;
+        int i=0;
+        while(i<5){
+            curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+            //curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &size);
+            double size;
+            curl_easy_getinfo(curl, CURLINFO_SIZE_DOWNLOAD, &size);
+
+            if(response_code>199 && response_code<300){   //Things are OK
+                printf("http response code = %d", response_code);
+                break;
+            }else if( i++ == 5 && (response_code>399 || response_code<200)){
+                //4xx - Failed because of a client problem
+                //5xx - Failed because of a server problem
+                fprintf(stderr, "http response code = %d", response_code);
+            }
+        }
+
+
+        curl_easy_cleanup(curl);
+    }else{
+        fprintf(stderr, "curl_easy_init() returns NULL");
+    }
+    
+    return NULL;
 }
 
 /*
