@@ -93,6 +93,7 @@ static void *pull_one_url(void *url)
 {
     CURL *curl;
     CURLcode res;
+    char errbuf[CURL_ERROR_SIZE];
     const char * response;
 
     
@@ -108,18 +109,54 @@ static void *pull_one_url(void *url)
         /* passing the pointer to the response as the callback parameter */
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
         printf("In callCurl(): Returned from calling curl_easy_setopt()...\n");
+        /* provide a buffer to store errors in */
+        curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, errbuf);
+        
 
-        curl_easy_perform(curl); /* ignores error */
-        printf("\n\n\nres=[%s]\n", res);
-
-        int response_code;
         int i=0;
         while(i<5){
-            curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
-            //curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &size);
-            double size;
-            curl_easy_getinfo(curl, CURLINFO_SIZE_DOWNLOAD, &size);
+            
+            /* set the error buffer as empty before performing a request */
+            errbuf[0] = 0;
+            // perform
+            res = curl_easy_perform(curl); /* ignores error */
+            printf("\n\n\nres=[%s]\n", res);
+            
+            
+            /* if the request did not complete correctly, show the error
+             information. if no detailed error information was written to errbuf
+             show the more generic information from curl_easy_strerror instead.
+             */
+            if(CURLE_OK != res) {
+                size_t len = strlen(errbuf);
+                fprintf(stderr, "\nlibcurl: (%d) ", res);
+                if(len)
+                    fprintf(stderr, "%s%s", errbuf,
+                            ((errbuf[len - 1] != '\n') ? "\n" : ""));
+                else
+                    fprintf(stderr, "%s\n", curl_easy_strerror(res));
+            }else{
+                /* get response code */
+                int response_code;
+                curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+                printf("We received response code = %d\n", response_code);
 
+                char *ct;
+                /* ask for the content-type */
+                res = curl_easy_getinfo(curl, CURLINFO_CONTENT_TYPE, &ct);
+                if(ct){
+                    printf("We received Content-Type: %s\n", ct);
+                }else{
+                    fprintf(stderr, "curl_easy_getinfo(curl, CURLINFO_CONTENT_TYPE, &ct) returns NULL");
+                }
+                
+                //curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &size);
+                double size;
+                curl_easy_getinfo(curl, CURLINFO_SIZE_DOWNLOAD, &size);
+                
+                break;
+            }
+/*
             if(response_code>199 && response_code<300){   //Things are OK
                 printf("http response code = %d", response_code);
                 break;
@@ -127,7 +164,7 @@ static void *pull_one_url(void *url)
                 //4xx - Failed because of a client problem
                 //5xx - Failed because of a server problem
                 fprintf(stderr, "http response code = %d", response_code);
-            }
+            } */
         }
 
 
