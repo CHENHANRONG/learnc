@@ -71,46 +71,61 @@ char * get_stock_data_from_163(const char *stockcode){
     return CNA_DAY_TRADE_URL;
 }
 
+struct MemoryStruct {
+    char *memory;
+    size_t size;
+};
+
 /* the function to invoke as the data recieved */
-size_t static write_callback_func(void *buffer,
-                                  size_t size,
-                                  size_t nmemb,
-                                  void *userp)
+static size_t
+WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
-    printf("\n\nIn write_callback_func()...\n");
-    int bufferlen = strlen(buffer);
-    printf("In write_callback_func(): strlen(buffer) = [%d]\n", bufferlen);
-    printf("In write_callback_func(): buffer = [%s]\n", buffer);
-    char **response_ptr = (char**)userp;
-    printf("In write_callback_func(): About to call strndup()...\n");
-    /* assuming the response is a string */
-    //*response_ptr = strndup(buffer, (size_t)(size *nmemb));
-    apr_cpystrn((const char *)userp, buffer, bufferlen);
-    printf("In write_callback_func(): Finished setting *response_ptr, returning...\n");
-} // end write_callback_func()
+    size_t realsize = size * nmemb;
+    struct MemoryStruct *mem = (struct MemoryStruct *)userp;
+    
+    mem->memory = (char*)realloc(mem->memory, mem->size + realsize + 1);
+    if(mem->memory == NULL) {
+        /* out of memory! */
+        printf("not enough memory (realloc returned NULL)\n");
+        return 0;
+    }
+    
+    memcpy(&(mem->memory[mem->size]), contents, realsize);
+    mem->size += realsize;
+    mem->memory[mem->size] = 0;
+    
+    return realsize;
+}
 
 static void *pull_one_url(void *url)
 {
-    CURL *curl;
+    CURL *curl_handle;
     CURLcode res;
     char errbuf[CURL_ERROR_SIZE];
-    const char * response;
-
+//    const char * response;
     
-    curl = curl_easy_init();
-    if(curl) {
+    struct MemoryStruct chunk;
+    chunk.memory = (char*)malloc(1);  /* will be grown as needed by the realloc above */
+    chunk.size = 0;    /* no data at this point */
+    
+    curl_handle = curl_easy_init();
+    if(curl_handle) {
 
-        curl_easy_setopt(curl, CURLOPT_URL, url);
+        curl_easy_setopt(curl_handle, CURLOPT_URL, url);
         /* setting a callback function to return the data
          https://curl.haxx.se/libcurl/c/getinmemory.html
          https://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string
          */
-        curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_callback_func);
+        /* send all data to this function  */
+        curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, WriteMemoryCallback);
         /* passing the pointer to the response as the callback parameter */
-        curl_easy_setopt(curl, CURLOPT_WRITEDATA, &response);
+        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, (void *)&chunk);
         printf("In callCurl(): Returned from calling curl_easy_setopt()...\n");
         /* provide a buffer to store errors in */
-        curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, errbuf);
+        curl_easy_setopt(curl_handle, CURLOPT_ERRORBUFFER, errbuf);
+        /* some servers don't like requests that are made without a user-agent
+         field, so we provide one */
+        curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, "libcurl-agent/1.0");
         
 
         int i=0;
@@ -119,8 +134,8 @@ static void *pull_one_url(void *url)
             /* set the error buffer as empty before performing a request */
             errbuf[0] = 0;
             // perform
-            res = curl_easy_perform(curl); /* ignores error */
-            printf("\n\n\nres=[%s]\n", res);
+            res = curl_easy_perform(curl_handle); /* ignores error */
+            printf("\n\n\nres=[%d]\n", res);
             
             
             /* if the request did not complete correctly, show the error
@@ -138,37 +153,34 @@ static void *pull_one_url(void *url)
             }else{
                 /* get response code */
                 int response_code;
-                curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+                curl_easy_getinfo(curl_handle, CURLINFO_RESPONSE_CODE, &response_code);
                 printf("We received response code = %d\n", response_code);
 
                 char *ct;
                 /* ask for the content-type */
-                res = curl_easy_getinfo(curl, CURLINFO_CONTENT_TYPE, &ct);
+                res = curl_easy_getinfo(curl_handle, CURLINFO_CONTENT_TYPE, &ct);
                 if(ct){
                     printf("We received Content-Type: %s\n", ct);
                 }else{
                     fprintf(stderr, "curl_easy_getinfo(curl, CURLINFO_CONTENT_TYPE, &ct) returns NULL");
                 }
-                
                 //curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &size);
                 double size;
-                curl_easy_getinfo(curl, CURLINFO_SIZE_DOWNLOAD, &size);
-                
+                curl_easy_getinfo(curl_handle, CURLINFO_SIZE_DOWNLOAD, &size);
+                /*
+                 * Now, our chunk.memory points to a memory block that is chunk.size
+                 * bytes big and contains the remote file.
+                 *
+                 * Do something nice with it!
+                 */
+                printf("%lu bytes retrieved\n", chunk.size);
+                printf("contnat is [%s]\n", chunk.memory);
+
                 break;
             }
-/*
-            if(response_code>199 && response_code<300){   //Things are OK
-                printf("http response code = %d", response_code);
-                break;
-            }else if( i++ == 5 && (response_code>399 || response_code<200)){
-                //4xx - Failed because of a client problem
-                //5xx - Failed because of a server problem
-                fprintf(stderr, "http response code = %d", response_code);
-            } */
+            
         }
-
-
-        curl_easy_cleanup(curl);
+        curl_easy_cleanup(curl_handle);
     }else{
         fprintf(stderr, "curl_easy_init() returns NULL");
     }
@@ -192,13 +204,14 @@ int main(int argc, char **argv)
 //    const unsigned int NUM_STOCKCODES = 10;
 //    const unsigned short LEN_STOCKCODE = 7;  //stock code len is 6 and end with \0
 //    const char* WEB_SERVICE_163 = "http://quotes.money.163.com/service/";
-    get_stock_data_from_163("600036");
+    char *stockReqUrl = get_stock_data_from_163("600036");
+    pull_one_url(stockReqUrl        );
     return EXIT_SUCCESS;
 }
 
 
 
-/* reverse:  reverse string s in place */
+/* reverse:  reverse string s in place
 void reverse(char s[])
 {
     int i, j;
@@ -210,22 +223,22 @@ void reverse(char s[])
         s[j] = c;
     }
 }
-
+*/
 /* itoa:  convert n to characters in s */
-void itoa(int n, char s[])
-{
-    int i, sign;
-    if ((sign = n) < 0)  /* record sign */
-        n = -n;          /* make n positive */
-    i = 0;
-    do {       /* generate digits in reverse order */
-        s[i++] = n % 10 + '0';   /* get next digit */
-    } while ((n /= 10) > 0);     /* delete it */
-    if (sign < 0)
-        s[i++] = '-';
-    s[i] = '\0';
-    reverse(s);
-}
+//void itoa(int n, char s[])
+//{
+//    int i, sign;
+//    if ((sign = n) < 0)  /* record sign */
+//        n = -n;          /* make n positive */
+//    i = 0;
+//    do {       /* generate digits in reverse order */
+//        s[i++] = n % 10 + '0';   /* get next digit */
+//    } while ((n /= 10) > 0);     /* delete it */
+//    if (sign < 0)
+//        s[i++] = '-';
+//    s[i] = '\0';
+//    reverse(s);
+//}
 
 
 /*
