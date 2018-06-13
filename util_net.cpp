@@ -108,6 +108,9 @@ static void *pull_one_url(void *url)
     chunk.memory = (char*)malloc(1);  /* will be grown as needed by the realloc above */
     chunk.size = 0;    /* no data at this point */
     
+   
+
+    
     curl_handle = curl_easy_init();
     if(curl_handle) {
 
@@ -204,8 +207,18 @@ int main(int argc, char **argv)
 //    const unsigned int NUM_STOCKCODES = 10;
 //    const unsigned short LEN_STOCKCODE = 7;  //stock code len is 6 and end with \0
 //    const char* WEB_SERVICE_163 = "http://quotes.money.163.com/service/";
+    
     char *stockReqUrl = get_stock_data_from_163("600036");
-    pull_one_url(stockReqUrl        );
+    
+    /* Must initialize libcurl before any threads are started */
+    curl_global_init(CURL_GLOBAL_ALL);
+    
+    pull_one_url(stockReqUrl);
+    
+    /* we're done with libcurl, so clean it up */
+    curl_global_cleanup();
+    
+    
     return EXIT_SUCCESS;
 }
 
