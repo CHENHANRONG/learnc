@@ -7,7 +7,7 @@
 //
 
 #include "util_net.hpp"
-
+#include<cstdio>
 #include <stdlib.h>
 #include <cstring>
 #include <ctime>
@@ -71,10 +71,107 @@ char * get_stock_data_from_163(const char *stockcode){
     return CNA_DAY_TRADE_URL;
 }
 
+static void*
+write_url_response_to_file(char *url, char* file_full_path)
+{
+    char buffer [1024];
+    if(file_full_path == NULL)
+    {
+        fprintf(stderr,"input file full path is NULL\n");
+        exit(EXIT_FAILURE);
+    }
+    FILE *pFile = fopen(file_full_path,"w");
+    if (pFile == NULL)
+        perror ("Error opening file");
+    
+    CURL *curl_handle;
+    char errbuf[CURL_ERROR_SIZE];
+    //    const char * response;
+    // init curl
+    curl_handle = curl_easy_init();
+    if(curl_handle) {
+        /* set target url to curl */
+        curl_easy_setopt(curl_handle, CURLOPT_URL, url);
+        /* follow redirection */
+        curl_easy_setopt(curl_handle, CURLOPT_FOLLOWLOCATION, 1L);
+        /*  */
+//        curl_easy_setopt(curl_handle, CURLOPT_WRITEFUNCTION, NULL);
+        /* A data pointer to pass to the write callback.
+         If you use the CURLOPT_WRITEFUNCTION option, this is the pointer you'll get in that callback's 4th argument.
+         If you don't use a write callback, you must make pointer a 'FILE *' (cast to 'void *')
+         as libcurl will pass this to fwrite(3) when writing data.
+         The internal CURLOPT_WRITEFUNCTION will write the data to the FILE * given with this option, or to stdout if this option hasn't been set.
+         If you're using libcurl as a win32 DLL, you MUST use the CURLOPT_WRITEFUNCTION if you set this option or you will experience crashes.n  */
+        curl_easy_setopt(curl_handle, CURLOPT_WRITEDATA, pFile);
+        printf("In callCurl(): Returned from calling curl_easy_setopt()...\n");
+        /* provide a buffer to store errors in */
+        curl_easy_setopt(curl_handle, CURLOPT_ERRORBUFFER, errbuf);
+        /* some servers don't like requests that are made without a user-agent
+         field, so we provide one */
+        curl_easy_setopt(curl_handle, CURLOPT_USERAGENT, "libcurl-agent/1.0");
+        
+        CURLcode res=CURLE_OPERATION_TIMEDOUT;
+        int i=0;
+        while(i<5 && CURLE_OK != res){
+            
+            /* set the error buffer as empty before performing a request */
+            errbuf[0] = 0;
+            // perform
+            res = curl_easy_perform(curl_handle); /* ignores error */
+            printf("\n\n\nres=[%d]\n", res);
+            
+            
+            /* if the request did not complete correctly, show the error
+             information. if no detailed error information was written to errbuf
+             show the more generic information from curl_easy_strerror instead.
+             */
+            if(CURLE_OK != res) {
+                size_t len = strlen(errbuf);
+                fprintf(stderr, "\nlibcurl: (%d) ", res);
+                if(len)
+                    fprintf(stderr, "%s%s", errbuf,
+                            ((errbuf[len - 1] != '\n') ? "\n" : ""));
+                else
+                    fprintf(stderr, "%s\n", curl_easy_strerror(res));
+            }else{
+                /* get response code */
+                int response_code;
+                curl_easy_getinfo(curl_handle, CURLINFO_RESPONSE_CODE, &response_code);
+                printf("We received response code = %d\n", response_code);
+                
+                char *ct;
+                /* ask for the content-type */
+                res = curl_easy_getinfo(curl_handle, CURLINFO_CONTENT_TYPE, &ct);
+                if(ct){
+                    printf("We received Content-Type: %s\n", ct);
+                }else{
+                    fprintf(stderr, "curl_easy_getinfo(curl, CURLINFO_CONTENT_TYPE, &ct) returns NULL");
+                }
+                // redirection
+                char *url = NULL;
+                curl_easy_getinfo(curl_handle, CURLINFO_REDIRECT_URL, &url);
+                if(url)
+                    printf("Redirect to: %s\n", url);
+                //curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &size);
+                double size;
+                curl_easy_getinfo(curl_handle, CURLINFO_SIZE_DOWNLOAD, &size);
+            }
+            
+        }
+        curl_easy_cleanup(curl_handle);
+    }else{
+        fprintf(stderr, "curl_easy_init() returns NULL");
+    }
+    
+    return NULL;
+}
+       
+
 struct MemoryStruct {
     char *memory;
     size_t size;
 };
+
 
 /* This callback function gets called by libcurl as soon as there is data received that needs to be saved.
  The callback function will be passed as much data as possible in all invokes, but you must not make any assumptions.
@@ -89,6 +186,15 @@ struct struct_data_str {
     char *ptr_data_str;
     size_t len_data_str;
 };
+void init_struct_data_str(struct struct_data_str *s) {
+    s->len_data_str = 0;
+    s->ptr_data_str = (char*)malloc(s->len_data_str+1);
+    if (s->ptr_data_str == NULL) {
+        fprintf(stderr, "malloc() failed\n");
+        exit(EXIT_FAILURE);
+    }
+    s->ptr_data_str[0] = '\0';
+}
 size_t
 write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
 {
@@ -131,6 +237,8 @@ WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
     
     return realsize;
 }
+
+
 
 static void *pull_one_url(void *url)
 {
