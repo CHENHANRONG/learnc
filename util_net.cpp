@@ -76,6 +76,41 @@ struct MemoryStruct {
     size_t size;
 };
 
+/* This callback function gets called by libcurl as soon as there is data received that needs to be saved.
+ The callback function will be passed as much data as possible in all invokes, but you must not make any assumptions.
+ It may be one byte, it may be thousands. The maximum amount of body data that will be passed to the write callback is defined in the curl.h header
+ file: CURL_MAX_WRITE_SIZE (the usual default is 16K).
+ If CURLOPT_HEADER is enabled, which makes header data get passed to the write callback,
+ you can get up to CURL_MAX_HTTP_HEADER bytes of header data passed into it. This usually means 100K.
+ 
+
+ */
+struct struct_data_str {
+    char *ptr_data_str;
+    size_t len_data_str;
+};
+size_t
+write_callback(char *ptr, size_t size, size_t nmemb, void *userdata)
+{
+    /*  ptr points to the delivered data, and the size of that data is size multiplied with nmemb. */
+    size_t size_data = size * nmemb;
+    /* Set the userdata argument with the CURLOPT_WRITEDATA option. */
+    struct struct_data_str *datastr = (struct struct_data_str *)userdata;
+    size_t new_len = datastr->len_data_str + size_data+1;  // the new length of the struct struct_data_str
+    datastr->ptr_data_str = (char*)realloc(datastr, new_len);
+    if(datastr->ptr_data_str  == NULL){
+        fprintf(stderr, "realloc() failed\n");
+        exit(EXIT_FAILURE);
+    }
+    /* void * memcpy ( void * destination, const void * source, size_t num ); */
+    memcpy(datastr->ptr_data_str+datastr->len_data_str, ptr, size_data);
+    datastr->ptr_data_str[size_data] = '\0';  // set end of string
+    datastr->len_data_str = size_data;
+
+    return size*nmemb;
+}
+
+
 /* the function to invoke as the data recieved */
 static size_t
 WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
@@ -107,14 +142,14 @@ static void *pull_one_url(void *url)
     struct MemoryStruct chunk;
     chunk.memory = (char*)malloc(1);  /* will be grown as needed by the realloc above */
     chunk.size = 0;    /* no data at this point */
-    
-   
 
-    
+    // init curl
     curl_handle = curl_easy_init();
     if(curl_handle) {
-
+        /* set target url to curl */
         curl_easy_setopt(curl_handle, CURLOPT_URL, url);
+        /* follow redirection */
+        curl_easy_setopt(curl_handle, CURLOPT_FOLLOWLOCATION, 1L);
         /* setting a callback function to return the data
          https://curl.haxx.se/libcurl/c/getinmemory.html
          https://stackoverflow.com/questions/2329571/c-libcurl-get-output-into-a-string
@@ -167,6 +202,11 @@ static void *pull_one_url(void *url)
                 }else{
                     fprintf(stderr, "curl_easy_getinfo(curl, CURLINFO_CONTENT_TYPE, &ct) returns NULL");
                 }
+                // redirection
+                char *url = NULL;
+                curl_easy_getinfo(curl_handle, CURLINFO_REDIRECT_URL, &url);
+                if(url)
+                    printf("Redirect to: %s\n", url);
                 //curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &size);
                 double size;
                 curl_easy_getinfo(curl_handle, CURLINFO_SIZE_DOWNLOAD, &size);
