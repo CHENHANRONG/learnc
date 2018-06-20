@@ -10,6 +10,8 @@
 #include <iostream>
 #include<vector>
 #include<algorithm>
+#include<iterator>
+
 
 
 /* Vector is a quite useful sequence container, and it works exactly as an array,
