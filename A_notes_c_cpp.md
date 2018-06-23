@@ -403,7 +403,25 @@ SIGQUIT| quit|
   <br />
   
   
-  //====================================== <br />
+ //====================================== <br />
+ Standard Template Library
+ - Architecture
+   - Algorithms
+   - Iterators
+   - Containers
+     - Sequence containers
+       - Array
+       - Vector
+       - List
+       - Forward List
+       - Deque
+     - Associative containers
+       - Set
+       - Map
+       - Multiset
+       - Multimap
+       
+   - Functors
  <br />
  //====================================== <br />
  
