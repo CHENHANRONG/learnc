@@ -419,11 +419,33 @@ SIGQUIT| quit|
        - Set
        - Map
        - Multiset
-       - Multimap
+       - MultimapSet
+       - Unordered set
+       - Unordered multiset
+       - Unordered map
+       - Unordered multimap
        
    - Functors
  <br />
  //====================================== <br />
+ 
+- Associative containers <br />
+  Associative containers store data in a sorted fashion.the order in which the data is inserted will not be retained by the associative containers. Associative containers are highly efficient in searching a value with O( log n ) runtime complexity. Every time a new value gets added to the container, the container will reorder the values stored internally if required. <br />
+ 
+ Associative containers organize the data as key-value pairs. The data will be sorted based on the key for random and faster access. Associative containers come in two flavors:
+  - Ordered 
+  - Unordered. 
+  <br /> The following associative containers come under ordered containers, as they are ordered/sorted in a particular fashion. Ordered associative containers generally use some form of Binary Search Tree (BST); usually, a red-black tree is used to store the data:
+  - Set
+  - Map
+  - Multiset
+  - Multimap
+  <br /> The following associative containers come under unordered containers, as they are not ordered in any particular fashion and they use hash tables:
+  - Unordered Set
+  - Unordered Map
+  - Unordered Multiset
+  - Unordered Multimap
+  
  
   <br />
   
