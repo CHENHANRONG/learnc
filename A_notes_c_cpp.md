@@ -453,9 +453,32 @@ SIGQUIT| quit|
     - A multimap works exactly as a map, except that a multimap container will allow multiple values to be stored with the same key.
   <br /> The following associative containers come under unordered containers, as they are not ordered in any particular fashion and they use hash tables:
   - Unordered Set
+    - An unordered set works in a manner similar to a set, except that the internal behavior of these containers differs. 
+    - A set makes use of red-black trees while an unordered set makes use of hash tables. 
+    - The time complexity of set operations is O(log N) while the time complexity of unordered set operations is O(1);
+    hence, the unordered set tends to be faster than the set.
+    - The values stored in an unordered set are not organized in any particular fashion, unlike in a set, which stores values in a sorted fashion. 
+    - If performance is the criteria, then an unordered set is a good bet; however, if iterating the values in a sorted fashion is a requirement, then set is a good choice.
   - Unordered Map
+    - An unordered map works in a manner similar to a map, except that the internal behavior of these containers differs. 
+    - A map makes use of red-black trees while unordered map makes use of hash tables. 
+    - The time complexity of map operations is O(log N) while that of unordered map operations is O(1); 
+    hence, an unordered map tends to be faster than a map.
+    - The values stored in an unordered map are not organized in any particular fashion, unlike in a map where values are sorted by keys.
   - Unordered Multiset
+    - An unordered multiset works in a manner similar to a multiset, except that the internal behavior of these containers differs. 
+    - A multiset makes use of red-black trees while an unordered multiset makes use of hash tables. 
+    - The time complexity of multiset operations is O(log N) while that of unordered multiset operations is O(1). 
+    Hence, an unordered multiset tends to be faster than a multiset.
+    - The values stored in an unordered multiset are not organized in any particular fashion, unlike in a multiset where values are stored in a sorted fashion. 
+    - If performance is the criteria, unordered multisets are a good bet; however, if iterating the values in a sorted fashion is a requirement, then multiset is a good choice.
   - Unordered Multimap
+    - An unordered multimap works in a manner similar to a multimap, except that the internal behavior of these containers differs. 
+    - A multimap makes use of red-black trees while an unordered multimap makes use of hash tables. 
+    - The time complexity of multimap operations is O( log N) while that of unordered multimap operations is O(1); 
+    hence, an unordered multimap tends to be faster than a multimap.
+    - The values stored in an unordered multimap are not organized in any particular fashion, unlike in multimaps where values are sorted by keys. 
+    - If performance is the criteria, then an unordered multimap is a good bet; however, if iterating the values in a sorted fashion is a requirement, then multimap is a good choice.
   
  
   <br />
