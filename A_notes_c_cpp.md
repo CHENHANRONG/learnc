@@ -404,7 +404,7 @@ SIGQUIT| quit|
   
   
  //====================================== <br />
- Standard Template Library
+ **Standard Template Library**
  - Architecture
    - Algorithms
    - Iterators
@@ -513,9 +513,18 @@ The deque and vector meet the requirements of a priority queue adaptor.
  
   <br />
   
-  //====================================== <br />
+//====================================== <br />
+**Template Programming**
+- Generic programming
+- Function templates
+- Class templates
+- Overloading function templates
+- Generic classes
+- Explicit class specializations
+- Partial specializations
+
  <br />
- //====================================== <br />
+//====================================== <br />
  
   <br />
   
