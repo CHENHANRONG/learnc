@@ -450,6 +450,7 @@ SIGQUIT| quit|
     - the values themselves are used as keys to organize the data. 
     - A multiset container is just like a set; it doesn't allow modifying the values stored in the multiset.
   - Multimap
+    - A multimap works exactly as a map, except that a multimap container will allow multiple values to be stored with the same key.
   <br /> The following associative containers come under unordered containers, as they are not ordered in any particular fashion and they use hash tables:
   - Unordered Set
   - Unordered Map
