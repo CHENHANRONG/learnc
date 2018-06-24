@@ -424,6 +424,10 @@ SIGQUIT| quit|
        - Unordered multiset
        - Unordered map
        - Unordered multimap
+     - Container adapters
+       - Stack
+       - Queue
+       - Priority Queue
        
    - Functors
  <br />
@@ -479,7 +483,17 @@ SIGQUIT| quit|
     hence, an unordered multimap tends to be faster than a multimap.
     - The values stored in an unordered multimap are not organized in any particular fashion, unlike in multimaps where values are sorted by keys. 
     - If performance is the criteria, then an unordered multimap is a good bet; however, if iterating the values in a sorted fashion is a requirement, then multimap is a good choice.
-  
+    
+- Container adapters <br />
+Container adapters adapt existing containers to provide new containers. In simple terms, STL extension is done with composition instead of inheritance. <br />
+STL containers can't be extended by inheritance, as their constructors aren't virtual. 
+Throughout the STL, you can observe that while static polymorphism is used both in terms of operator overloading and templates, dynamic polymorphism is consciously avoided for performance reasons. 
+Hence, extending the STL by subclassing the existing containers isn't a good idea, as it would lead to memory leaks because container classes aren't designed to behave like base classes. <br />
+The STL supports the following container adapters: <br />
+  - Stack
+  - Queue
+  - Priority Queue
+<br />
  
   <br />
   
