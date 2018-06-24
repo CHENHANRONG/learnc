@@ -498,6 +498,10 @@ The STL supports the following container adapters: <br />
     - Deques, lists, and vectors meet the requirements of a stack adapter.
     - A stack operates on the Last In First Out (LIFO) philosophy. 
   - Queue
+    - A queue works based on the First In First Out (FIFO) principle. 
+    - A queue is not a new container; it is a templatized adapter class that wraps an existing container and provides the high-level functionalities that are required for queue operations, while hiding the unnecessary functionalities that are irrelevant for a queue. 
+    - The STL queue makes use of a deque container by default; however, we can instruct the queue to use any existing container that meets the requirement of the queue during the queue instantiation.
+    - In a queue, new values can be added at the back and removed from the front. Deques, lists, and vectors meet the requirements of a queue adapter.
   - Priority Queue
 <br />
  
