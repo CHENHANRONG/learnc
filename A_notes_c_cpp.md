@@ -503,6 +503,12 @@ The STL supports the following container adapters: <br />
     - The STL queue makes use of a deque container by default; however, we can instruct the queue to use any existing container that meets the requirement of the queue during the queue instantiation.
     - In a queue, new values can be added at the back and removed from the front. Deques, lists, and vectors meet the requirements of a queue adapter.
   - Priority Queue
+    - A priority queue is not a new container; it is a templatized adapter class that wraps an existing container and provides high-level functionalities that are required for priority queue operations, while hiding the unnecessary functionalities that are irrelevant for a priority queue. 
+    - A priority queue makes use of a vector container by default; however, a deque container also meets the requirement of the priority queue. Hence, during the priority queue instantiation, you could instruct the priority queue to make use of a deque as well. 
+    - A priority queue organizes the data in such a way that the highest priority value appears first; in other words, the values are sorted in a descending order.
+    - priority_queue is a special type of queue that reorders the inputs in such a way that the highest value appears first.
+
+The deque and vector meet the requirements of a priority queue adaptor.
 <br />
  
   <br />
