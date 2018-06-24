@@ -491,6 +491,12 @@ Throughout the STL, you can observe that while static polymorphism is used both 
 Hence, extending the STL by subclassing the existing containers isn't a good idea, as it would lead to memory leaks because container classes aren't designed to behave like base classes. <br />
 The STL supports the following container adapters: <br />
   - Stack
+    - Stack is not a new container; it is a template adapter class. 
+    - The adapter containers wrap an existing container and provide high-level functionalities. 
+    - The stack adapter container offers stack operations while hiding the unnecessary functionalities that are irrelevant for a stack. 
+    - The STL stack makes use of a deque container by default; however, we can instruct the stack to use any existing container that meets the requirement of the stack during the stack instantiation.
+    - Deques, lists, and vectors meet the requirements of a stack adapter.
+    - A stack operates on the Last In First Out (LIFO) philosophy. 
   - Queue
   - Priority Queue
 <br />
