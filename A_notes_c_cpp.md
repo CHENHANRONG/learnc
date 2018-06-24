@@ -437,8 +437,18 @@ SIGQUIT| quit|
   - Unordered. 
   <br /> The following associative containers come under ordered containers, as they are ordered/sorted in a particular fashion. Ordered associative containers generally use some form of Binary Search Tree (BST); usually, a red-black tree is used to store the data:
   - Set
+    - Set allows only unique values to be stored.
+    - in a sorted fashion
+    - set organizes the values using the value itself as a key.
+    - The set container is immutable, that is, the values stored in a set can't be modified;
+    - the values can be deleted
+    - A set generally uses a red-black tree data structure, which is a form of balanced BST
+    - The time complexity of set operations are guaranteed to be O(log N). 
   - Map
   - Multiset
+    - multiset lets you store duplicate values. 
+    - the values themselves are used as keys to organize the data. 
+    - A multiset container is just like a set; it doesn't allow modifying the values stored in the multiset.
   - Multimap
   <br /> The following associative containers come under unordered containers, as they are not ordered in any particular fashion and they use hash tables:
   - Unordered Set
