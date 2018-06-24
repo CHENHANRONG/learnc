@@ -16,7 +16,7 @@ int main ( ) {
     
     stack<string> spoken_languages;  //declare stack
     
-    spoken_languages.push ( "French" );
+    spoken_languages.push ( "French" );  //push
     spoken_languages.push ( "German" );
     spoken_languages.push ( "English" );
     spoken_languages.push ( "Hindi" );
@@ -24,9 +24,9 @@ int main ( ) {
     spoken_languages.push ( "Tamil" );
     
     cout << "\nValues in Stack are ..." << endl;
-    while ( ! spoken_languages.empty() ) {
-        cout << spoken_languages.top() << endl;
-        spoken_languages.pop();
+    while ( ! spoken_languages.empty() ) {  //is empty
+        cout << spoken_languages.top() << endl;  //top value
+        spoken_languages.pop();  //pop top value
     }
     cout << endl;
     
