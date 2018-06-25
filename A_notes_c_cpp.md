@@ -538,7 +538,9 @@ The deque and vector meet the requirements of a priority queue adaptor.
   - However, the disadvantages are as follows:
     - Not all C++ programmers feel comfortable writing template-based coding, but this is only an initial hiccup
     - In certain scenarios, templates could bloat your code and increase the binary footprint, leading to performance issues
-
+- Function templates
+  - A function template lets you parameterize a data type. The reason this is referred to as generic programming is that a single template function will support many built-in and user-defined data types. A templatized function works like a **C-style macro**, except for the fact that the C++ compiler will **type check** the function when we supply an incompatible data type at the time of invoking the template function.
+-
 
 
   <br />
