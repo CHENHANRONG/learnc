@@ -524,8 +524,8 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - Partial specializations
  <br />
 //====================================== <br />
-- Generic programming
-  - Generic programming is a style of programming that helps you develop reusable code or generic algorithms that can be applied to a wide variety of data types. Whenever a generic algorithm is invoked, the data types will be supplied as parameters with a special syntax.  
+1. Generic programming
+  - Generic programming is a style of programming that helps you develop **reusable code or generic algorithms** that can be applied to a wide **variety of data types**. Whenever a generic algorithm is invoked, the data types will be supplied as parameters with a special syntax.  
   - C++ supports generic programming with templates, which has the following benefits:
     - We just need to write one function using templates
     - Templates support **static polymorphism**
