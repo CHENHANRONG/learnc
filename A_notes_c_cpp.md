@@ -525,7 +525,11 @@ The deque and vector meet the requirements of a priority queue adaptor.
 
  <br />
 //====================================== <br />
- 
+- Generic programming
+  - Generic programming is a style of programming that helps you develop ***reusable code or generic algorithms*** that can be applied to ***a wide variety of data types***. 
+
+
+
   <br />
   
   
