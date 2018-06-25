@@ -526,7 +526,19 @@ The deque and vector meet the requirements of a priority queue adaptor.
  <br />
 //====================================== <br />
 - Generic programming
-  - Generic programming is a style of programming that helps you develop ***reusable code or generic algorithms*** that can be applied to ***a wide variety of data types***. 
+  - Generic programming is a style of programming that helps you develop **reusable code or generic algorithms** that can be applied to **a wide variety of data types**. Whenever a generic algorithm is invoked, the data types will be supplied as parameters with a special syntax.  
+  - C++ supports generic programming with templates, which has the following benefits:
+    - We just need to write one function using templates
+    - Templates support **static polymorphism**
+    - Templates offer all the advantages of the two aforementioned approaches, without any disadvantages
+    - Generic programming enables code reuse
+    - The resultant code is object-oriented
+    - The C++ compiler can perform type checking during compile time
+    - Easy to maintain
+    - Supports a wide variety of built-in and user-defined data types
+  - However, the disadvantages are as follows:
+    - Not all C++ programmers feel comfortable writing template-based coding, but this is only an initial hiccup
+    - In certain scenarios, templates could bloat your code and increase the binary footprint, leading to performance issues
 
 
 
