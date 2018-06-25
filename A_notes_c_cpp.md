@@ -559,7 +559,15 @@ so   <br />
   <br />
   
   
-  //====================================== <br />
+ //====================================== <br />
+ **Compile tools**
+ - gcc -Wall -o outfilename cppsource.cpp 
+ - The nm Unix utility will list the symbols in the symbol table
+   - nm ./outfilename.o | grep some_express
+ - c++filt utility:  Demangle C++ and Java symbols. Unix utility to help you interpret the function signatures without much struggle.
+   - c++filt <_Z4sortIdLi5EEvPT_>  -> void sort<double>(double*, int)
+
+ 
  <br />
  //====================================== <br />
  
