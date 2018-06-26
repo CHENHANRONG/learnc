@@ -41,7 +41,23 @@ Requirements need to fulfill the following criteria in order to be testable: <br
   - https://blog.csdn.net/vincetest/article/details/1463626
   
 <br/>=========================<br/>
-**测试策略**
+**Test strategy 测试策略**
+1	Test levels
+2	Roles and responsibilities
+3	Environment requirements
+4	Testing tools
+5	Risks and mitigation
+6	Test schedule
+7	Regression test approach
+8	Test groups
+9	Test priorities
+10	Test status collections and reporting
+11	Test records maintenance
+12	Requirements traceability matrix
+13	Test summary
+14	See also
+15	References
+reference: https://en.wikipedia.org/wiki/Test_strategy
 <br/>=========================<br/>
 - **测试策略** <br/>
 一般来说，测试策略描述了软件开发过程中进行测试方法，用来告诉测试过程中所有可能的参与者，测试活动应该如何进行。其中主要会包括测试目标，测试新功能的方法，测试项目的时间和资源，以及测试环境等等。除此以外，测试策略应该描述测试过程中存在哪些风险，以及如何能够规避或者降低这些风险。同时，测试策略也会提到测试的级别，哪些测试应该被执行，入口出口条件是什么。创建测试策略时候我们可以参考各种需求文档和设计文档. <br/>
