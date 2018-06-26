@@ -42,8 +42,8 @@ Requirements need to fulfill the following criteria in order to be testable: <br
   
 <br/>=========================<br/>
 **Test strategy 测试策略**
-1	Test levels
-2	Roles and responsibilities
+1. Test levels
+1. Roles and responsibilities
 3	Environment requirements
 4	Testing tools
 5	Risks and mitigation
