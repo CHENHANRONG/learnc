@@ -544,6 +544,17 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - Class template 
 <br/>A class template lets you parameterize the data type on the class level via a template type expression. <br/>
   - C++ template function overloading is a form of **static or compile-time polymorphism**.
+  - Complete template class specialization
+    - style: template<class T> class TemplateClassName
+  - Explicit class specializations: 
+    - explicit template specialization replaces the primary template class with its own complete definitions for a specific data type.
+    - style: template<> class TemplateClassName<special type e.g. bool>
+    - in above styple, class TemplateClassName<bool> is the explicit specialization.
+  - Partial template specialization:
+    - partial template specialization specialize a certain subset of template parameters supported by the primary template class, while the other generic types can be the same as the primary template class.
+    - the primary template class name and the partially specialized class name are the same as in the case of full or explicit template class specialization. However, there are some syntactic changes in the template parameter expression. In the case of a complete template class specialization, the template parameter expression will be empty, whereas, in the case of a partially specialized template class, listed appears.
+    - style: template <typename T1, typename T2, typename T3> class TemplateClassName< T1, T2*, T3*> : public TemplateClassName<T1, T2, T3> 
+    - in above styple, class TemplateClassName< T1, T2*, T3*> is the partial specialization.
   
 
 
