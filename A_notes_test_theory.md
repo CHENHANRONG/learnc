@@ -43,10 +43,13 @@ Requirements need to fulfill the following criteria in order to be testable: <br
 <br/>=========================<br/>
 **Test strategy 测试策略**
 1. Test levels
+<br/>primarily **three levels of testing: unit testing, integration testing, and system testing**. 
 1. Roles and responsibilities
 1. Environment requirements
 1. Testing tools
+<br/>combination of manual and automated testing
 1. Risks and mitigation
+<br/>Any risks that will affect the testing process must be listed along with the mitigation.  
 1. Test schedule
 1. Regression test approach
 1. Test groups
@@ -54,6 +57,7 @@ Requirements need to fulfill the following criteria in order to be testable: <br
 1. Test status collections and reporting
 1. Test records maintenance
 1. Requirements traceability matrix
+<br/>[Traceability matrix](https://en.wikipedia.org/wiki/Traceability_matrix)
 1. Test summary
 reference: https://en.wikipedia.org/wiki/Test_strategy
 <br/>=========================<br/>
@@ -65,7 +69,8 @@ reference: https://en.wikipedia.org/wiki/Test_strategy
   - 环境需求：这一点非常重要，它将描述测试时需要的系统环境，包括软硬件以及网络环境等等。在澄清环境需求的时候，测试组织可以识别出资源方面的风险。
   - 风险分析：影响测试过程的风险都应该尽早被识别出来，而且必须有相应的解决办法以便消除或者减轻这些风险。
   - 测试进度：测试进度将会评估完成测试所需要的时间。在设定进度的时候，首先需要明确测试范围，然后根据测试资源的多少来制定能被各方面认可的测试进度计划。做一个非常准确的进度计划是困难的事情，因为测试过程中充满了各种不确定性，所以一般计划者需要考虑增加一定的buffer。当然，制定进度计划的时候可以参考已有的项目的数据。如果是一个全新的软件项目，专家认为将初始计划的时间翻倍比较靠谱！
-  - 回归测试方法：回归测试用来保证之前fix bug的代码不会影响软件的其他部分，这样需要我们选择已经执行过的测试用例重新运行。测试人员需要找到一个方法来确定哪些测试用例应该在回归测试中运行，用例不能太多，因为资源有限，用例也不能太少，否则会达不到必须的测试强度。不过，如果测试部门对待测系统以及软件架构非常了解的话，就比较容易找到合适的回归测试集合。
+  - 回归测试方法：回归测试用来保证之前fix bug的代码不会影响软件的其他部分，这样需要我们选择已经执行过的测试用例重新运行。测试人员需要找到一个方法来确定哪些测试用例应该在回归测试中运行，用例不能太多，因为资源有限，用例也不能太少，否则会达不到必须的测试强度。不过，如果测试部门对待测系统以及软件架构非常了解的话，就比较容易找到合适的回归测试集合。Regression tests will make sure that one fix does not create some other problems in that program or in any other interface. So, a set of related test cases may have to be repeated again, to make sure that nothing else is affected by a particular fix. How this is going to be carried out must be elaborated in this section.
+Consider different testing levels when selecting regression test cases. Unit-, integration- and system test cases are good candidates. Select cases that have direct relationship with the fix and also include few business critical cases that prove basic business scenarios still work. Remember also that non-functional testing (security,performance,usability) plays a important role in proving business continuation.
   - 测试范围：这个没啥好说的，就是你要测试的内容，可能是某些模块，可能是某些指标，比如功能，性能，易用性…
   - 测试优先级：测试范围内的东西不会都是一样重要的，加上测试资源各种有限，所以为测试排定优先级是十分的必要。
   
