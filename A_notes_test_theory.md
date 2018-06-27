@@ -118,3 +118,37 @@ Consider different testing levels when selecting regression test cases. Unit-, i
 1. 测试度量测试部门需要规划从哪些方面去衡量当前产品的质量，对应的衡量要素的具体标准是什么范围，便于后期具体测试时进行评估。
 1. 测试管理这个一般有质量管理平台软件来负责，实现对测试全生命周期的管理。常用的有商用软件Quality Center,开源软件JIRA, Redmine等。
 1. 测试过程改进一般公司常参考CMMI/TMM/TPI Matrix等过程改进模型，结合公司具体的实际进行改进。
+
+
+<br/>=========================<br/>
+**[Test plan](https://en.wikipedia.org/wiki/Test_plan)**
+<br/>=========================<br/>
+- A test plan is a document detailing the **objectives, resources, and processes** for a specific test for a software or hardware product. The plan typically contains a detailed understanding of the eventual workflow.
+- IEEE 829 test plan structure
+<br/>IEEE 829-2008, also known as the 829 Standard for Software Test Documentation, is an IEEE standard that specifies the form of a set of documents for use in defined stages of software testing, each stage potentially producing its own separate type of document. These stages are:
+
+  - Test plan identifier
+  - Introduction
+  - Test items
+  - Features to be tested
+  - Features not to be tested
+  - Approach
+  - Item pass/fail criteria
+  - Suspension criteria and resumption requirements
+  - Test deliverables
+  - Testing tasks
+  - Environmental needs
+  - Responsibilities
+  - Staffing and training needs
+  - Schedule
+  - Risks and contingencies
+  - Approvals
+- The IEEE documents that suggest what should be contained in a test plan are:
+  - 829-2008 IEEE Standard for Software and System Test Documentation
+  - 829-1998 IEEE Standard for Software Test Documentation (superseded by 829-2008)
+  - 829-1983 IEEE Standard for Software Test Documentation (superseded by 829-1998)
+  - 1008-1987 IEEE Standard for Software Unit Testing
+  - 1012-2004 IEEE Standard for Software Verification and Validation
+  - 1012-1998 IEEE Standard for Software Verification and Validation (superseded by 1012-2004)
+  - 1012-1986 IEEE Standard for Software Verification and Validation Plans (superseded by 1012-1998)
+  - 1059-1993 IEEE Guide for Software Verification & Validation Plans (withdrawn)
