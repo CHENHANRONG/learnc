@@ -63,13 +63,13 @@ int main() {
     double d[] = { 100.0, 20.5, 200.5, 300.8, 186.78, 1.1 };
     
     cout << "\nArray values before sorting ..." << endl;
-    //copy (d.begin(), d.end(), ostream_iterator<double>(cout, "\t"));
+    copy (d, d+6, ostream_iterator<double>(cout, "\t"));
     cout << endl;
     
     algorithm2.sort(d);
     
     cout << "\nArray values after sorting ..." << endl;
-    //copy ( d.begin(), d.end(), ostream_iterator<double>(cout, "\t"));
+    copy (d, d+6, ostream_iterator<double>(cout, "\t"));
     cout << endl;
     
     return 0;
