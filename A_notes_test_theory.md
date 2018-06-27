@@ -56,8 +56,7 @@ Requirements need to fulfill the following criteria in order to be testable: <br
 1. Test priorities
 1. Test status collections and reporting
 1. Test records maintenance
-1. Requirements traceability matrix
-<br/>[Traceability matrix](https://en.wikipedia.org/wiki/Traceability_matrix)
+1. Requirements [traceability matrix](https://en.wikipedia.org/wiki/Traceability_matrix)
 1. Test summary
 reference: https://en.wikipedia.org/wiki/Test_strategy
 <br/>=========================<br/>
