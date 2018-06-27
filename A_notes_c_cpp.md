@@ -560,6 +560,23 @@ The deque and vector meet the requirements of a priority queue adaptor.
 
   <br />
   
+ <br />//====================================== <br />
+**Smart Pointers**
+- Memory management
+- Issues with raw pointers
+- Cyclic dependency
+- Smart pointers
+  - auto_ptr
+  - unique_ptr
+  - shared_ptr
+  - weak_ptr
+ <br/>//====================================== <br/>  
+  
+ 
+  
+  
+  
+  
   
 //====================================== <br />
 - How to get clear complex expression.  <br />
