@@ -16,8 +16,7 @@ public:
         int *ptr = new int();
         *ptr = 100;
         int result = *ptr / 0;  //division by zero error expected
-        delete ptr;  //memory leak, using valgrind --leak-check=full --show-leak-kinds=all ./try_smartpointer_issue_code
-to check
+        delete ptr;  //memory leak, using valgrind --leak-check=full --show-leak-kinds=all ./try_smartpointer_issue_code to check
         cout<<"result="<<result<<endl;
     }
 };
