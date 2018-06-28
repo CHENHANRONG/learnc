@@ -600,7 +600,8 @@ so   <br />
    - nm ./outfilename.o | grep some_express
  - c++filt utility:  Demangle C++ and Java symbols. Unix utility to help you interpret the function signatures without much struggle.
    - c++filt <_Z4sortIdLi5EEvPT_>  -> void sort<double>(double*, int)
-  
+- valgrind
+  - valgrind --leak-check=full --show-leak-kinds=all ./outfilename.o 
 
  
  <br />
