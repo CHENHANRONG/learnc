@@ -570,8 +570,20 @@ The deque and vector meet the requirements of a priority queue adaptor.
   - unique_ptr
   - shared_ptr
   - weak_ptr
- <br/>//====================================== <br/>  
-  
+<br/>//====================================== <br/>  
+- Smart pointers let you use raw pointers safely. They take the responsibility of cleaning up the memory used by raw pointers.  
+- The **auto_ptr** smart pointer was introduced in C++11. An auto_ptr smart pointer helps release the heap memory automatically when it goes out of scope. However, due to the way auto_ptr transfers ownership from one auto_ptr instance to another, it was deprecated and **unique_ptr** was introduced as its replacement. 
+- The **shared_ptr** smart pointer helps multiple shared smart pointers reference the same object and takes care of the memory management burden.
+- The **weak_ptr** smart pointer helps resolve memory leak issues that arise due to the use of **shared_ptr** when there is a **cyclic dependency issue** in the application design.
+- Other smart pointers:
+  - owner_less
+    - The owner_less smart pointer helps compare two or more smart pointers if they share the same raw pointed object.
+  - enable_shared_from_this
+    - The enable_shared_from_this smart pointer helps get a smart pointer of the this pointer.
+  - bad_weak_ptr
+    - The bad_weak_ptr smart pointer is an exception class that implies that shared_ptr was created using an invalid smart pointer. 
+  - default_delete
+    - The default_delete smart pointer refers to the default destruction policy used by unique_ptr, which invokes the delete statement, while partial specialization for array types that use delete[] is also supported.
  
   
   
