@@ -571,6 +571,10 @@ The deque and vector meet the requirements of a priority queue adaptor.
   - shared_ptr
   - weak_ptr
 <br/>//====================================== <br/>  
+- **auto_ptr**
+  - The auto_ptr smart pointer takes a raw pointer, wraps it, and ensures the memory pointed by the raw pointer is released back whenever the auto_ptr object goes out of scope. 
+  - **At any time, only one auto_ptr smart pointer can point to an object**. Hence, whenever one auto_ptr pointer is assigned to another auto_ptr pointer, the ownership gets transferred to the auto_ptr instance that has received the assignment; the same happens when an auto_ptr smart pointer is copied.
+  
 - Smart pointers let you use raw pointers safely. They take the responsibility of cleaning up the memory used by raw pointers.  
 - The **auto_ptr** smart pointer was introduced in C++11. An auto_ptr smart pointer helps release the heap memory automatically when it goes out of scope. However, due to the way auto_ptr transfers ownership from one auto_ptr instance to another, it was deprecated and **unique_ptr** was introduced as its replacement. 
 - The **shared_ptr** smart pointer helps multiple shared smart pointers reference the same object and takes care of the memory management burden.
