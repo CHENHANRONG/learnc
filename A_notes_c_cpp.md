@@ -578,7 +578,10 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - **unique_ptr**
   - The unique_ptr smart pointer works in exactly the same way as auto_ptr, except that unique_ptr addresses the issues introduced by auto_ptr. Hence, **unique_ptr is a replacement of auto_ptr, starting from C++11**. The unique_ptr smart pointer allows only one smart pointer to exclusively own a heap-allocated object. The ownership transfer from one unique_ptr instance to another can be done **only via the std::move()** function.
 - **shared_ptr**
-  - 
+  - The shared_ptr smart pointer is used when a group of shared_ptr objects shares the ownership of a heap-allocated object. The shared_ptr pointer releases the shared object when all the shared_ptr instances are done with the use of the shared object. The shared_ptr pointer uses the **reference counting mechanism** to check the total references to the shared object; whenever the reference count becomes zero, the last shared_ptr instance deletes the shared object. 
+  - shared_ptr fails to clean up the memory when there is a **circular dependency** in the application design. Either the application design must be refactored to avoid cyclic dependency, or we can make use of weak_ptr to resolve the cyclic dependency issue. 
+- **weak_ptr**
+  - make use of weak_ptr to resolve the cyclic dependency issue. 
   
   
   
