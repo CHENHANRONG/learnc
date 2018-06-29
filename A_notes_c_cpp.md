@@ -574,6 +574,7 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - **auto_ptr**
   - The auto_ptr smart pointer takes a raw pointer, wraps it, and ensures the memory pointed by the raw pointer is released back whenever the auto_ptr object goes out of scope. 
   - **At any time, only one auto_ptr smart pointer can point to an object**. Hence, whenever one auto_ptr pointer is assigned to another auto_ptr pointer, the ownership gets transferred to the auto_ptr instance that has received the assignment; the same happens when an auto_ptr smart pointer is copied.
+  - **std::auto_ptr will be deprecated in favor of std::unique_ptr**. The choice of smart pointer will depend on your use case and your requirements, with std::unique_ptr with move semantics for single ownership that can be used inside containers (using move semantics) and std::shared_ptr when ownership is shared.
   
 - Smart pointers let you use raw pointers safely. They take the responsibility of cleaning up the memory used by raw pointers.  
 - The **auto_ptr** smart pointer was introduced in C++11. An auto_ptr smart pointer helps release the heap memory automatically when it goes out of scope. However, due to the way auto_ptr transfers ownership from one auto_ptr instance to another, it was deprecated and **unique_ptr** was introduced as its replacement. 
