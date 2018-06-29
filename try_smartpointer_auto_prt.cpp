@@ -51,7 +51,9 @@ int MyClass::count = 0;
 
 int main ( ) {
     
-    auto_ptr<MyClass> ptr1( new MyClass() );
+    auto_ptr<MyClass> ptr1( new MyClass() );  //std::auto_ptr will be deprecated in favor of std::unique_ptr. The choice of smart pointer will depend on your use case and your requirements, with std::unique_ptr with move semantics for single ownership that can be used inside containers (using move semantics) and std::shared_ptr when ownership is shared.
+    
+    You should try to use the smart pointer that best fits the situation, choosing the correct pointer type provides other programmers with insight into your design.
     auto_ptr<MyClass> ptr2( new MyClass() );
     
     return 0;
