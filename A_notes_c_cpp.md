@@ -574,12 +574,19 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - **auto_ptr**
   - The auto_ptr smart pointer takes a raw pointer, wraps it, and ensures the memory pointed by the raw pointer is released back whenever the auto_ptr object goes out of scope. 
   - **At any time, only one auto_ptr smart pointer can point to an object**. Hence, whenever one auto_ptr pointer is assigned to another auto_ptr pointer, the ownership gets transferred to the auto_ptr instance that has received the assignment; the same happens when an auto_ptr smart pointer is copied.
-  - **std::auto_ptr will be deprecated in favor of std::unique_ptr**. The choice of smart pointer will depend on your use case and your requirements, with std::unique_ptr with move semantics for single ownership that can be used inside containers (using move semantics) and std::shared_ptr when ownership is shared.
+  - **std::auto_ptr will be deprecated in favor of std::unique_ptr**. The choice of smart pointer will depend on your use case and your requirements, with std::unique_ptr with move semantics for single ownership that can be used inside containers (using move semantics) and std::shared_ptr when ownership is shared. You should try to use the smart pointer that best fits the situation, choosing the correct pointer type provides other programmers with insight into your design.
+- **unique_ptr**
+  - The unique_ptr smart pointer works in exactly the same way as auto_ptr, except that unique_ptr addresses the issues introduced by auto_ptr. Hence, **unique_ptr is a replacement of auto_ptr, starting from C++11**. The unique_ptr smart pointer allows only one smart pointer to exclusively own a heap-allocated object. The ownership transfer from one unique_ptr instance to another can be done **only via the std::move()** function.
+- **shared_ptr**
+  - 
+  
+  
+  
   
 - Smart pointers let you use raw pointers safely. They take the responsibility of cleaning up the memory used by raw pointers.  
 - The **auto_ptr** smart pointer was introduced in C++11. An auto_ptr smart pointer helps release the heap memory automatically when it goes out of scope. However, due to the way auto_ptr transfers ownership from one auto_ptr instance to another, it was deprecated and **unique_ptr** was introduced as its replacement. 
 - The **shared_ptr** smart pointer helps multiple shared smart pointers reference the same object and takes care of the memory management burden.
-- The **weak_ptr** smart pointer helps resolve memory leak issues that arise due to the use of **shared_ptr** when there is a **cyclic dependency issue** in the application design.
+- The **weak_ptr** smart pointer helps resolve memory leak issues that arise due to the use of **shared_ptr** when there is a **cyclic dependency issue** in the application design. 
 - Other smart pointers:
   - owner_less
     - The owner_less smart pointer helps compare two or more smart pointers if they share the same raw pointed object.
