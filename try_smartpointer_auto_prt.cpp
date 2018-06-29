@@ -51,10 +51,25 @@ int MyClass::count = 0;
 
 int main ( ) {
     
-    auto_ptr<MyClass> ptr1( new MyClass() );  //std::auto_ptr will be deprecated in favor of std::unique_ptr. The choice of smart pointer will depend on your use case and your requirements, with std::unique_ptr with move semantics for single ownership that can be used inside containers (using move semantics) and std::shared_ptr when ownership is shared.
-    
-    You should try to use the smart pointer that best fits the situation, choosing the correct pointer type provides other programmers with insight into your design.
+    auto_ptr<MyClass> ptr1( new MyClass() );  //std::auto_ptr will be deprecated in favor of std::unique_ptr. The choice of smart pointer will depend on your use case and your requirements, with std::unique_ptr with move semantics for single ownership that can be used inside containers (using move semantics) and std::shared_ptr when ownership is shared.You should try to use the smart pointer that best fits the situation, choosing the correct pointer type provides other programmers with insight into your design.
     auto_ptr<MyClass> ptr2( new MyClass() );
+    
+    ptr1->sayHello();
+    ptr2->sayHello();
+    
+    //At this point the below stuffs happen
+    //1. ptr2 smart pointer has given up ownership of MyClass Object 2
+    //2. MyClass Object 2 will be destructed as ptr2 has given up its
+    //   ownership on Object 2
+    //3. Ownership of Object 1 will be transferred to ptr2
+    ptr2 = ptr1;
+    
+    //The line below if uncommented will result in core dump as ptr1
+    //has given up its ownership on Object 1 and the ownership of
+    //Object 1 is transferred to ptr2.
+    // ptr1->sayHello();
+    
+    ptr2->sayHello();
     
     return 0;
     
