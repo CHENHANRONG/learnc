@@ -611,7 +611,7 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - The idea is that one should focus on one test case or scenario at a time and once the test case passes, they can then move on to the next scenario. 
 - In other words, in the process of developing a new feature or while fixing a bug, we can modify the production code only for two reasons: either to ensure the test case passes or to refactor the code. 
 - The primary focus of TDD is unit testing; however, it can be extended to integration and interaction testing to some extent.
-
+<img src="resource/images/TDD.png" alt="TDD" width="250px" height="200px">
 
 
 
