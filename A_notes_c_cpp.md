@@ -612,6 +612,7 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - In other words, in the process of developing a new feature or while fixing a bug, we can modify the production code only for two reasons: either to ensure the test case passes or to refactor the code. 
 - The primary focus of TDD is unit testing; however, it can be extended to integration and interaction testing to some extent.
 <img src="resource/images/TDD.png" alt="TDD" width="250px" height="200px">
+- As per software engineering best practices, a good design is **loosely coupled and strongly cohesive** in nature. Though we all strive to write code that is loosely coupled, it isn't possible to write code that is absolutely independent all the time. Most times, the code has some type of dependency. In the case of application software, the dependency could be a database or a web server; in the case of embedded products, the dependency could be a piece of hardware. But using **dependency inversion**, **code under test (CUT)** can be isolated from its dependency, enabling us to test the code without its dependency, which is a powerful technique. So as long as we are open to refactoring the code to make it more modular and atomic, any type of code and project or product will benefit from the TDD approach.
 
 
 
