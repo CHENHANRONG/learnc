@@ -2,6 +2,8 @@
 //  try_google_test_framework_test.cpp
 //  learnc
 //
+// g++ -isystem /usr/local/include/gtest/ -pthread try_google_test_framework_tobetest.cpp try_google_test_framework_test.cpp /Users/hanrchen/workspace/cpp/libgtest.a -o try_google_test_framework_test
+//
 //  Created by hanrong chen on 7/13/18.
 //  Copyright © 2018 hanrong chen. All rights reserved.
 //
