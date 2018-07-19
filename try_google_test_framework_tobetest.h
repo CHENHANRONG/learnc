@@ -10,6 +10,10 @@
 #define try_google_test_framework_tobetest_hpp
 
 #include <string>
+#include <iostream>
+#include<stack>
+#include<vector>
+#include<sstream>
 using namespace std;
 
 class Math{
@@ -19,7 +23,7 @@ public:
 
 class RPNCalculator {
 public:
-    double evaluate ( string );
+    double evaluate(string);
 };
 
 
