@@ -1,11 +1,12 @@
 SRC = try_google_test_framework_test.cpp try_google_test_framework_tobetest.cpp
 OBJS = try_google_test_framework_test.o  try_google_test_framework_tobetest.o
+OUT = try_google_test_framework_test.o
 CFLAGS = -std=c++17
 LIBS = -pthread  ~/workspace/cpp/libgtest.a
 INC = -isystem /usr/local/include/gtest/
 
 all: $(OBJS)
-        g++ $(CFLAGS) $(INC) $(LIBS) $(SRC) -o $(OBJS)
+        g++ $(CFLAGS) $(INC) $(LIBS) $(SRC) -o $(OUT)
 
 
 try_google_test_framework_tobetest.o: try_google_test_framework_tobetest.cpp
