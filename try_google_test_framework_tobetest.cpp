@@ -34,6 +34,13 @@ double RPNCalculator::evaluate(string rpnMathExpression) {
             numberStack.pop();
             result = firstNumber + secondNumber;
             numberStack.push(result);
+        }if(*pos == "*"){
+            firstNumber = numberStack.top();
+            numberStack.pop();
+            secondNumber = numberStack.top();
+            numberStack.pop();
+            result = firstNumber * secondNumber;
+            numberStack.push(result);
         }else if(*pos == "-"){
             firstNumber = numberStack.top();
             numberStack.pop();
@@ -41,6 +48,17 @@ double RPNCalculator::evaluate(string rpnMathExpression) {
             numberStack.pop();
             result = secondNumber - firstNumber;
             numberStack.push(result);
+        }else if(*pos == "/"){
+            firstNumber = numberStack.top();
+            numberStack.pop();
+            secondNumber = numberStack.top();
+            numberStack.pop();
+            if(firstNumber - 0.0< 0.00000000001){
+                fprintf(stderr,"Dividen number is zero\n");
+            }else{
+                result = secondNumber / firstNumber;
+                numberStack.push(result);
+            }
         }else{
             numberStack.push(std::stod(*pos));
         }
