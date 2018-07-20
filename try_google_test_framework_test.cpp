@@ -18,11 +18,26 @@
  Hence, it is very important to name the test module and test case
  aptly to improve the readability of the test report.  */
 
-TEST(RPNCalculatorTest, testSimpleAddition ){
+TEST(RPNCalculatorTest, testEvaluate){
     RPNCalculator rpnCalculator;
-    double actualResult = rpnCalculator.evaluate ( "10 15 +" );
+    double actualResult = rpnCalculator.evaluate ("2 5 * 4 + 7 2 - 1 + /");
+    double expectedResult = 2.33;
+    ASSERT_NEAR(expectedResult, actualResult, 4);
+}
+
+
+TEST(RPNCalculatorTest, testAdd){
+    RPNCalculator rpnCalculator;
+    double actualResult = rpnCalculator.evaluate ("10 15 +");
     double expectedResult = 25.0;
     EXPECT_EQ ( expectedResult, actualResult ); 
+}
+
+TEST(RPNCalculatorTest, testSub){
+    RPNCalculator rpnCalculator;
+    double actualResult = rpnCalculator.evaluate ("25 10 -");
+    double expectedResult = 15.0;
+    EXPECT_EQ ( expectedResult, actualResult );
 }
 
 TEST(MathTest, testAdd){
