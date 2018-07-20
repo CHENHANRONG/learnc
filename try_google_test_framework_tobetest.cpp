@@ -34,6 +34,13 @@ double RPNCalculator::evaluate(string rpnMathExpression) {
             numberStack.pop();
             result = firstNumber + secondNumber;
             numberStack.push(result);
+        }else if(*pos == "-"){
+            firstNumber = numberStack.top();
+            numberStack.pop();
+            secondNumber = numberStack.top();
+            numberStack.pop();
+            result = secondNumber - firstNumber;
+            numberStack.push(result);
         }else{
             numberStack.push(std::stod(*pos));
         }
