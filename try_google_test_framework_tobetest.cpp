@@ -14,6 +14,14 @@ int Math::add(int firstInput, int secondInput){
     return firstInput+secondInput;
 }
 
+RPNCalculator::RPNCalculator() {
+    strMathOperators = "+-*/";
+}
+
+bool RPNCalculator::isMathOperator(string strMathOperator) {
+    return strMathOperators.find(strMathOperator) != string::npos;
+}
+
 double RPNCalculator::evaluate(string rpnMathExpression) {
     MathOperator *mathOp = MathFactory::getMathObject();
     
