@@ -8,7 +8,7 @@
 
 #ifndef try_google_test_framework_tobetest_hpp
 #define try_google_test_framework_tobetest_hpp
-
+#include<cstdio>
 #include <string>
 #include <iostream>
 #include<stack>
@@ -22,7 +22,13 @@ public:
 };
 
 class RPNCalculator {
+private:
+    string strMathOperators;
+    bool isMathOperator(string);
+    
 public:
+    RPNCalculator();
+
     double evaluate(string);
 };
 
