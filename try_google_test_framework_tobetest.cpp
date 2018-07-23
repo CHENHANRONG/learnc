@@ -23,7 +23,7 @@ bool RPNCalculator::isMathOperator(string strMathOperator) {
 }
 
 double RPNCalculator::evaluate(string rpnMathExpression) {
-    MathOperator *mathOp = MathFactory::getMathObject();
+    MathOperator *pMathOperator = MathFactory::getMathObject();
     
     stack<double> numberStack;
     stringstream rpnMathTokens(rpnMathExpression);
