@@ -604,8 +604,8 @@ The deque and vector meet the requirements of a priority queue adaptor.
   
   
 <br />//====================================== <br />
-**TDD: Test-Driven Developments**
-
+**TDD: Test-Driven Developments** 
+- how to automate Unit Test Cases, Integration Test Cases, and Interaction Test cases in a bottom-up approach
 <br/>//====================================== <br/>  
 - In TDD, we start with a test case and incrementally write the production code that is required to make the test case succeed.
 - The idea is that one should focus on one test case or scenario at a time and once the test case passes, they can then move on to the next scenario. 
@@ -613,9 +613,20 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - The primary focus of TDD is unit testing; however, it can be extended to integration and interaction testing to some extent.
 <img src="resource/images/TDD.png" alt="TDD" width="250px" height="200px">
 - As per software engineering best practices, a good design is **loosely coupled and strongly cohesive** in nature. Though we all strive to write code that is loosely coupled, it isn't possible to write code that is absolutely independent all the time. Most times, the code has some type of dependency. In the case of application software, the dependency could be a database or a web server; in the case of embedded products, the dependency could be a piece of hardware. But using **dependency inversion**, **code under test (CUT)** can be isolated from its dependency, enabling us to test the code without its dependency, which is a powerful technique. So as long as we are open to refactoring the code to make it more modular and atomic, any type of code and project or product will benefit from the TDD approach.
+- summary of the key takeaway points:
+  - TDD is an Extreme Programming (XP) practice
+  - TDD is a bottom-up approach that encourages us to start with a test case, hence it is commonly referred to as LowercaseTest-First Development
+  - **Dependency Inversion technique** and how to unit test a code by isolating its dependency using the Google Mock Framework
+  - The Google Test Framework supports Unit Testing, Integration Testing, Regression Testing, Performance Testing, Functional Testing, and so on
+  - TDD mainly insists on Unit Testing, Integration Testing, and Interaction Testing while complex functional testing must be done with Behavior-Driven Development
+  - refactor code smells into clean code while the unit test cases that you wrote give continuous feedback
+  - You have learned TDD and how to automate Unit Test Cases, Integration Test Cases, and Interaction Test cases in a bottom-up approach. With BDD, you will learn the top-down development approach, writing end-to-end functionalities and test cases and other complex test scenarios that we did not cover while discussing TDD.
 
 
-
+<br />//====================================== <br />
+**BDD: Behavior-Driven Development**
+- the top-down development approach, writing end-to-end functionalities and test cases and other complex test scenarios 
+<br/>//====================================== <br/>  
 
   
   
