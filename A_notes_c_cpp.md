@@ -628,8 +628,10 @@ The deque and vector meet the requirements of a priority queue adaptor.
 - the top-down development approach, writing end-to-end functionalities and test cases and other complex test scenarios 
 <br/>//====================================== <br/>  
 
-  
-  
+
+<br />//====================================== <br />
+**Code Smells and Clean Code**
+<br />//====================================== <br />  
   
 //====================================== <br />
 - How to get clear complex expression.  <br />
