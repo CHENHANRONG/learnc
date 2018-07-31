@@ -2,7 +2,7 @@
 Test tool setups.
 - refer docs:
   - https://blogs.oracle.com/shay/installing-jdeveloper-on-mac-os-x-lion-107
-  - 
+  - https://blogs.oracle.com/shay/installing-jdeveloper-11g-on-mac-os-105
 </br>======================</br>
 - For MAC
   1. jdeveloper requires JDK1.6, so for MAC OS, need to install legecy 1.6 JDK from https://support.apple.com/kb/DL1572?locale=en_US&viewlocale=en_US
