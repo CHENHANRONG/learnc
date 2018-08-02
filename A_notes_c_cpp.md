@@ -632,6 +632,22 @@ The deque and vector meet the requirements of a priority queue adaptor.
 <br />//====================================== <br />
 **Code Smells and Clean Code**
 <br />//====================================== <br />  
+- Agile is all about fail fast.
+- Scrum has two sets of processes:
+  - the project management process
+  - the engineering side of the process:  TDD, BDD, ATDD, continuous integration, and DevOps in the product development
+- SOLID design principle:
+  - Single responsibility principle
+  - Open closed principle
+  - Liskov substitution principle
+  - Interface segregation
+  - Dependency inversion
+  
+  
+  
+  
+  
+  
   
 //====================================== <br />
 - How to get clear complex expression.  <br />
