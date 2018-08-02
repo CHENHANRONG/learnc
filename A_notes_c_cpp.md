@@ -638,8 +638,19 @@ The deque and vector meet the requirements of a priority queue adaptor.
   - the engineering side of the process:  TDD, BDD, ATDD, continuous integration, and DevOps in the product development
 - SOLID design principle:
   - Single responsibility principle
+    - SRP says that every class must have only one responsibility. In other words, every class must represent exactly one object. 
   - Open closed principle
+    - An architecture or design is in compliance with the open closed principle (OCP) when the design supports the addition of new features with no code changes or without modifying the existing source code. 
   - Liskov substitution principle
+    - Liskov substitution principle (LSP) stresses the importance of subclasses adhering to the contract established by the base class. In an ideal inheritance hierarchy, as the design focus moves up the class hierarchy, we should notice generalization; as the design focus moves down the class hierarchy, we should notice specialization.  
+    - The technique to identify LSP violation is as follows:
+      - Subclasses will have one or more overridden methods with empty implementations
+      - The base class will have a specialized behavior, which will force certain subclasses, irrespective of whether those specialized behaviors are of the subclasses' interest or not
+      - Not all generalized methods can be invoked polymorphically 
+    - The following are the ways to refactor LSP violations:
+      - Move the specialized methods from the base class to the subclass that requires those specialized behaviors.
+      - Avoid forcing vaguely related classes to participate in an inheritance relationship. Unless the subclass is a base type, do not use inheritance for the mere sake of code reuse.
+      - Do not look for small benefits, such as code reuse, but look for ways to use polymorphism or aggregation or composition when possible.
   - Interface segregation
   - Dependency inversion
   
