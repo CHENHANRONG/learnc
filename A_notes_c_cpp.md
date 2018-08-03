@@ -652,6 +652,7 @@ The deque and vector meet the requirements of a priority queue adaptor.
       - Avoid forcing vaguely related classes to participate in an inheritance relationship. Unless the subclass is a base type, do not use inheritance for the mere sake of code reuse.
       - Do not look for small benefits, such as code reuse, but look for ways to use polymorphism or aggregation or composition when possible.
   - Interface segregation
+    - Interface segregation design principle recommends modeling many small interfaces for a specific purpose, as opposed to modeling one bigger interface that represents many things. In the case of C++, an abstract class with pure virtual functions can be thought of as an interface.
   - Dependency inversion
   
   
