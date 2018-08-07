@@ -654,6 +654,9 @@ The deque and vector meet the requirements of a priority queue adaptor.
   - Interface segregation
     - Interface segregation design principle recommends modeling many small interfaces for a specific purpose, as opposed to modeling one bigger interface that represents many things. In the case of C++, an abstract class with pure virtual functions can be thought of as an interface.
   - Dependency inversion
+    - A good design will be **strongly cohesive and loosely coupled**. Hence, our design must have less dependency. A design that makes a code dependent on many other objects or modules is considered a poor design. If Dependency Inversion (DI) is violated, any change that happens in the dependent modules will have a bad impact on our module, leading to a ripple effect. 
+    - via an interface or an abstract class with pure virtual functions
+    
   
   
   
