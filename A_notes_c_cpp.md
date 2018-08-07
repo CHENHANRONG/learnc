@@ -657,6 +657,11 @@ The deque and vector meet the requirements of a priority queue adaptor.
     - A good design will be **strongly cohesive and loosely coupled**. Hence, our design must have less dependency. A design that makes a code dependent on many other objects or modules is considered a poor design. If Dependency Inversion (DI) is violated, any change that happens in the dependent modules will have a bad impact on our module, leading to a ripple effect. 
     - via an interface or an abstract class with pure virtual functions
     
+- Comment Smell
+  - Ideally, clean code should be self-explanatory, without any need for comments. 
+  - A good comment will express why the code is written in a specific way rather than express how the code does something. 
+  - A comment that conveys how the code does something is a code smell, whereas a comment that conveys the why part of the code is a good comment, as the why part is not expressed by the code; therefore, a good comment provides value addition.
+    
   
   
   
