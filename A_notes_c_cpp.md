@@ -656,13 +656,30 @@ The deque and vector meet the requirements of a priority queue adaptor.
   - Dependency inversion
     - A good design will be **strongly cohesive and loosely coupled**. Hence, our design must have less dependency. A design that makes a code dependent on many other objects or modules is considered a poor design. If Dependency Inversion (DI) is violated, any change that happens in the dependent modules will have a bad impact on our module, leading to a ripple effect. 
     - via an interface or an abstract class with pure virtual functions
-    
-- Comment Smell
-  - Ideally, clean code should be self-explanatory, without any need for comments. 
-  - A good comment will express why the code is written in a specific way rather than express how the code does something. 
-  - A comment that conveys how the code does something is a code smell, whereas a comment that conveys the why part of the code is a good comment, as the why part is not expressed by the code; therefore, a good comment provides value addition.
-    
-  
+- Code Smells
+  - Comment Smell
+    - Ideally, clean code should be self-explanatory, without any need for comments. 
+    - A good comment will express why the code is written in a specific way rather than express how the code does something. 
+    - A comment that conveys how the code does something is a code smell, whereas a comment that conveys the why part of the code is a good comment, as the why part is not expressed by the code; therefore, a good comment provides value addition.
+  - Long method
+    - A method is long when it is identified to have multiple responsibilities. 
+    - smaller methods that have one single responsibility
+    - Handling errors by returning error code isn't considered object-oriented code, hence error handling must be done using C++ exceptions.
+  - Long parameter list
+    - An object-oriented method takes fewer arguments, as a well-designed object will be strongly cohesive and loosely coupled. 
+    - A method that takes too many arguments is a symptom that informs that the knowledge required to make a decision is received externally, which means the current object doesn't have all of the knowledge to make a decision by itself. This means the current object is weakly cohesive and strongly coupled, as it depends on too much external data to make a decision.
+    - Member functions generally tend to receive fewer arguments, as the data members they require are generally member variables. Hence, the need to pass member variables to member functions sounds artificial.
+    - some of the common reasons why a method tends to receive too many arguments. The most common symptoms and reasons are listed here:
+      - The object is weakly cohesive and strongly coupled; that is, it depends too much on other objects 
+      - It is a static method
+      - It is a misplaced method; that is, it doesn't belong to that object
+      - It is not object-oriented code
+      - SRP is violated
+    - The ways to refactor a method that takes **long parameter list (LPL)** are listed here:
+      - Avoid extracting and passing data in bits and pieces; consider passing an entire object and let the method extract the details it requires
+      - Identify the object that supplies the arguments to the method that receives LPL and consider moving the method there
+      - Group the list of arguments and create a parameter object and move the method that receives LPL inside the new object
+  - Duplicate code
   
   
   
