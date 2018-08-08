@@ -1,6 +1,11 @@
 # learnc
 learning c and cpp <br />
 
+<br />//======================================<br />
+**Mastering C++ Multithreading**
+<br />//======================================<br />
+
+
 
 //======================================<br />
 **Managing memory**  <br />
@@ -631,6 +636,24 @@ The deque and vector meet the requirements of a priority queue adaptor.
 
 <br />//====================================== <br />
 **Code Smells and Clean Code**
+- Code smells and the importance of refactoring code
+- SOLID design principles:
+  - Single responsibility principle
+  - Open closed principle
+  - Liskov substitution
+  - Interface segregation
+  - Dependency injection
+- Various code smells:
+  - Comments smell
+  - Long method
+  - Long parameter list
+  - Duplicate code
+  - Conditional complexity
+  - Large class
+  - Dead code
+- Object-oriented code smells' primitive obsession
+  - Data class
+  - Feature envy
 <br />//====================================== <br />  
 - Agile is all about fail fast.
 - Scrum has two sets of processes:
