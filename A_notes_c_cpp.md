@@ -681,7 +681,7 @@ The deque and vector meet the requirements of a priority queue adaptor.
       - Group the list of arguments and create a parameter object and move the method that receives LPL inside the new object
   - Duplicate code
   - Conditional complexity
-    - Conditional complexity code smell is about complex large conditions that tend to grow larger and more complex with time. This code smell can be refactored with the **strategy design pattern**. As the strategy design pattern deals with many related objects, there is scope for using the **Factory method**, and the **null object design pattern **can be used to deal with unsupported subclasses in the Factory method: 
+    - Conditional complexity code smell is about complex large conditions that tend to grow larger and more complex with time. This code smell can be refactored with the **strategy design pattern**. As the strategy design pattern deals with many related objects, there is scope for using the **Factory method**, and the **null object design pattern** can be used to deal with unsupported subclasses in the Factory method: 
     ```cpp
     //Before refactoring
     void SomeClass::someMethod( ) {
@@ -703,10 +703,16 @@ The deque and vector meet the requirements of a priority queue adaptor.
              //do something
     }
     ```
-    
-
-
-  
+  - Large class
+    - A large class code smell makes the code difficult to understand and tougher to maintain. A large class can do too many things for one class. Large classes can be refactored by breaking them into smaller classes with a single responsibility.
+  - Dead code
+    - Dead code is commented code or code that is never used or integrated. It can be detected with code coverage tools. Generally, developers retain these instances of code due to lack of confidence, and this happens more often in legacy code. As every code is tracked in version control software tools, dead code can be deleted, and if required, can always be retrieved back from version control software.
+  - Primitive obsession
+    - Primitive Obsession (PO) is a wrong design choice: use of a primitive data type to represent a complex domain entity. 
+  - Data class
+    - Data classes provide only getter and setter functions. Though they are very good for transferring data from one layer to another, they tend to burden the classes that depend on the data class. As data classes won't provide any useful functionalities, the classes that interact or depend on data classes end up adding functionalities with the data from the data class. In this fashion, the classes around the data class violate the SRP and tend to be a large class.
+  - Feature envy
+    - Certain classes are termed feature envy if they have too much knowledge about other internal details of other classes. Generally, this happens when the other classes are data classes. Code smells are interrelated; breaking one code smell tends to attract other code smells.
   
   
   
