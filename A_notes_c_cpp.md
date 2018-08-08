@@ -707,6 +707,7 @@ The deque and vector meet the requirements of a priority queue adaptor.
     - A large class code smell makes the code difficult to understand and tougher to maintain. A large class can do too many things for one class. Large classes can be refactored by breaking them into smaller classes with a single responsibility.
   - Dead code
     - Dead code is commented code or code that is never used or integrated. It can be detected with code coverage tools. Generally, developers retain these instances of code due to lack of confidence, and this happens more often in legacy code. As every code is tracked in version control software tools, dead code can be deleted, and if required, can always be retrieved back from version control software.
+- Object-oriented code smells
   - Primitive obsession
     - Primitive Obsession (PO) is a wrong design choice: use of a primitive data type to represent a complex domain entity. 
   - Data class
