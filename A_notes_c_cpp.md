@@ -682,27 +682,27 @@ The deque and vector meet the requirements of a priority queue adaptor.
   - Duplicate code
   - Conditional complexity
     - Conditional complexity code smell is about complex large conditions that tend to grow larger and more complex with time. This code smell can be refactored with the **strategy design pattern**. As the strategy design pattern deals with many related objects, there is scope for using the **Factory method**, and the **null object design pattern **can be used to deal with unsupported subclasses in the Factory method: 
-    ```c++
+    ```cpp
     //Before refactoring
-void SomeClass::someMethod( ) {
+    void SomeClass::someMethod( ) {
       if (  ! conition1 && condition2 )
          //perform some logic
       else if ( ! condition3 && condition4 && condition5 )
          //perform some logic
       else
          //do something 
-} 
+     } 
 
-//After refactoring
-void SomeClass::someMethod() {
-     if ( privateMethod1() )
-          //perform some logic
-     else if ( privateMethod2() )
-          //perform some logic
-     else
-         //do something
-}
-```
+    //After refactoring
+    void SomeClass::someMethod() {
+         if ( privateMethod1() )
+              //perform some logic
+         else if ( privateMethod2() )
+              //perform some logic
+         else
+             //do something
+    }
+    ```
     
 
 
