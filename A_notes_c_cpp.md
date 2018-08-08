@@ -4,7 +4,7 @@ learning c and cpp <br />
 <br />//======================================<br />
 **Mastering C++ Multithreading**
 <br />//======================================<br />
-
+- the **thread** and **mutex** includes are the core of multithreaded application; they provide the basic means for creating threads, and allow for thread-safe interactions between them.
 
 
 //======================================<br />
