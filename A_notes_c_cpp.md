@@ -22,6 +22,7 @@ learning c and cpp <br />
   - Each task also runs within a hardware-defined protection ring, with the OS's tasks generally running on ring 0, and user tasks on ring 3. Rings 1 and 2 are rarely used except for specific use cases with modern OSes on the x86 architecture. These rings are privilege-levels enforced by the hardware and allow for example for the strict separation of kernel and user-level tasks.
   - **Task State Structure (TSS)**: The **task structure** for 32-bit and 64-bit tasks:
     - 64-bit x86 CPUs:
+      <img src="resource/images/TSS layout  for 64-bit x86_64 CPUs.png" alt="TSS layout  for 64-bit x86_64 CPUs" width="300px" height="450px">
       - RSPn: SP for privilege levels 0 through 2
       - ISTn: Interrupt stack table pointers
     - 32-bit x86 CPUs:
