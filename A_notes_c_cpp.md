@@ -4,7 +4,8 @@ learning c and cpp <br />
 **The stack**
 <br />//======================================<br />
 - the stack together with the CPU registers define a task.
-- stack consists of stack frames, each of which defines the (local) variables, parameters, data, and instructions for that particular instance of task execution. 
+- stack consists of stack frames, each of which defines the (local) variables, parameters, data, and instructions for that particular instance of task execution. </br>
+      <img src="resource/images/Stack.png" alt="Stack" width="300px" height="450px">
 - 
 
 <br />//======================================<br />
