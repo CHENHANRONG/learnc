@@ -9,7 +9,7 @@ learning c and cpp <br />
   - essentially, to the operating system (OS), a process consists of one or more threads, each thread processing its own state and variables. One would regard this as a **hierarchical configuration**, with the OS as the foundation, providing support for the running of (user) processes. Each of these processes then consists of one or more threads. Communication between processes is handled by **inter-process communication (IPC)**, which is provided by the operating system.
 <img src="resource/images/Processes and threads.png" alt="Processes and Threads" width="300px" height="300px">
 <br />
-- Each process within the OS has its own state, with each thread in a process having its own state as well as the relative to the other threads within that same process. While IPC allows processes to communicate with each other, threads can communicate with other threads within the process in a variety of ways, this generally involves some kind of **shared memory** between threads.
+  - Each process within the OS has its own state, with each thread in a process having its own state as well as the relative to the other threads within that same process. While IPC allows processes to communicate with each other, threads can communicate with other threads within the process in a variety of ways, this generally involves some kind of **shared memory** between threads.
 
 
 
