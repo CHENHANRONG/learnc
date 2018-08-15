@@ -29,6 +29,7 @@ learning c and cpp <br />
       <img src="resource/images/TSS layout  for 32-bit x86 CPUs.png" alt="TSS layout  for 32-bit x86 CPUs" width="300px" height="450px">
       - SS0: The first stack segment selector field
       - ESP0: The first SP field
+    - During a **software-based task switch** (usually via an interrupt), the ESP/RSP, and so on are stored in memory and replaced with the values for the next scheduled task. This means that once execution resumes, the TSS structure will now have the Stack Pointer (SP), segment pointer(s), register contents, and all other details of the new task.
     
   
 
