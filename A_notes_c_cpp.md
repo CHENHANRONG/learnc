@@ -15,7 +15,8 @@ learning c and cpp <br />
   - In an operating system, a **process consists of a block of memory addresses, the size of which is constant and limited by the size of its memory pointers**. For a 32-bit OS, this would limit this block to 4 GB. **Within this virtual memory space, the OS allocates a basic stack and heap, both of which can grow until all memory addresses have been exhausted, and further attempts by the process to allocate more memory will be denied.**
   - The stack is a concept both for the operating system and for the hardware. In essence, it's a collection (stack) of so-called stack frames, each of which is composed of variables, instructions, and other data relevant to the execution frame of a task.
   - In hardware terms, the stack is part of the task (x86) or process state (ARM), which is how the processor defines an execution instance (program or thread). This hardware-defined entity contains the entire state of a singular thread of execution. See the following sections for further details on this.
-
+- Tasks in x86 (32-bit and 64-bit)
+  - 
 
 
 //======================================<br />
