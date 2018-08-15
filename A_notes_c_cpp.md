@@ -1,5 +1,11 @@
 # learnc
 learning c and cpp <br />
+<br />//======================================<br />
+**The stack**
+<br />//======================================<br />
+- the stack together with the CPU registers define a task.
+- stack consists of stack frames, each of which defines the (local) variables, parameters, data, and instructions for that particular instance of task execution. 
+- 
 
 <br />//======================================<br />
 **Mastering C++ Multithreading**
