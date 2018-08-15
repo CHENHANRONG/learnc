@@ -21,7 +21,7 @@ learning c and cpp <br />
   - It's important to realize here that, to the processor, there's no such thing as a process or thread. All it knows of are threads of execution, defined as a series of instructions. These instructions are loaded into memory somewhere, and the current position in these instructions is kept track of along with the variable data (variables) being created, as the application is executed within the data section of the process.
   - Each task also runs within a hardware-defined protection ring, with the OS's tasks generally running on ring 0, and user tasks on ring 3. Rings 1 and 2 are rarely used except for specific use cases with modern OSes on the x86 architecture. These rings are privilege-levels enforced by the hardware and allow for example for the strict separation of kernel and user-level tasks.
   - **Task State Structure (TSS)**: The **task structure** for 32-bit and 64-bit tasks:
-    - 64-bit x86 CPUs:
+    - 64-bit x86 CPUs: </br>
       <img src="resource/images/TSS layout  for 64-bit x86_64 CPUs.png" alt="TSS layout  for 64-bit x86_64 CPUs" width="300px" height="450px">
       - RSPn: SP for privilege levels 0 through 2
       - ISTn: Interrupt stack table pointers
