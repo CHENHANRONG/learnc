@@ -6,7 +6,7 @@ learning c and cpp <br />
 - the **stack** together with the **CPU registers** define a **task**.
 - **stack** consists of **stack frames**, each of which defines the (local) variables, parameters, data, and instructions for that particular instance of task execution. </br>
       <img src="resource/images/Stack.png" alt="Stack" width="300px" height="450px">
-- 
+- The SP (ESP on x86) points to the top of the stack, with another pointer (Extended Base Pointer (EBP) for x86). Each frame contains a reference to the preceding frame (caller return address), as set by the OS.
 
 <br />//======================================<br />
 **Mastering C++ Multithreading**
