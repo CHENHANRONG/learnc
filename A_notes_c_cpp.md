@@ -25,7 +25,10 @@ learning c and cpp <br />
       <img src="resource/images/TSS layout  for 64-bit x86_64 CPUs.png" alt="TSS layout  for 64-bit x86_64 CPUs" width="300px" height="450px">
       - RSPn: SP for privilege levels 0 through 2
       - ISTn: Interrupt stack table pointers
-    - 32-bit x86 CPUs:
+    - 32-bit x86 CPUs:</br>
+      <img src="resource/images/TSS layout  for 32-bit x86 CPUs.png" alt="TSS layout  for 32-bit x86 CPUs" width="300px" height="450px">
+      - SS0: The first stack segment selector field
+      - ESP0: The first SP field
     
   
 
