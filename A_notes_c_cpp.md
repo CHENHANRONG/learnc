@@ -30,6 +30,10 @@ learning c and cpp <br />
       - SS0: The first stack segment selector field
       - ESP0: The first SP field
     - During a **software-based task switch** (usually via an interrupt), the ESP/RSP, and so on are stored in memory and replaced with the values for the next scheduled task. This means that once execution resumes, the TSS structure will now have the Stack Pointer (SP), segment pointer(s), register contents, and all other details of the new task.
+  - Interrupt
+    - The source of the interrupt can be based in hardware or software. 
+    - A hardware interrupt is usually used by devices to signal to the CPU that they require attention by the OS. The act of calling a hardware interrupt is called an Interrupt Request, or **IRQ**.
+    - A software interrupt can be due to an exceptional condition in the CPU itself, or as a feature of the CPU's instruction set. The action of switching tasks by the OS's kernel is also performed by triggering a software interrupt.
     
   
 
