@@ -53,6 +53,7 @@ learning c and cpp <br />
     - AMP's main defining feature is that a second processor is attached as a peripheral to the primary CPU. This means that it cannot run control software, but only user applications. This approach has also been used to connect CPUs using a different architecture to allow one to,
     </br>
     <img src="resource/images/SMP and AMP.png" alt="SMP and AMP" width="300px" height="300px">
+  - General Purpose GPU (GPGPU) 
 
 //======================================<br />
 **Managing memory**  <br />
