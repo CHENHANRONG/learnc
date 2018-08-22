@@ -1,9 +1,10 @@
 
 <br />//======================================<br />
-## Dependency injection
+### Dependency injection
 - references:
   - https://en.wikipedia.org/wiki/Dependency_injection
   - http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/dependency_injection.html
+  
 <br />//======================================<br />
 - The Dependency Injection pattern  is based on the **"inversion of control" (IoC) principle**.
 - It relates to the way in which an object obtains references to its dependencies - the object is passed its dependencies through constructor arguments or after construction through setter methods or interface methods.
