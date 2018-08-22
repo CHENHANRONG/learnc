@@ -37,3 +37,12 @@
   - Factory Method is inherited, generics can help here (root class is an interface)
 
 
+<br />//======================================<br />
+### Interface Pattern
+- references:
+  - http://best-practice-software-engineering.ifs.tuwien.ac.at/patterns/interface.html
+  
+  
+<br />//======================================<br />
+
+
