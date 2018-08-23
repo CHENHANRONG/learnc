@@ -25,7 +25,13 @@ learning c and cpp <br />
 		const pthread_attr_t * _Nullable __restrict,
 		void * _Nullable (* _Nonnull)(void * _Nullable),
 		void * _Nullable __restrict);
+      - The first argument: thread ID. The thread ID is the handle to reference the thread in future calls.
+      - The second argument: pthread_attr_t structure instance, or 0 if none. This allows for configuration characteristics of the new thread, such as the initial stack size. When zero is passed, default parameters are used, which differ per platform and configuration.
+      - The third parameter: a pointer to the function which the new thread will start with. This function pointer is defined as a function which returns a pointer to void data (that is, custom data), and accepts a pointer to void data. 
     - **pthread_join**: int pthread_join(pthread_t , void * _Nullable * _Nullable)
+      -  The first argument:thread ID.
+      -  The second argument:a buffer for the return value of the input function (or zero).
+    -
   
 
 
