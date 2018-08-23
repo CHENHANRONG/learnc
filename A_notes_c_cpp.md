@@ -9,8 +9,11 @@ learning c and cpp <br />
 - The SP (ESP on x86) points to the top of the stack, with another pointer (Extended Base Pointer (EBP) for x86). Each frame contains a reference to the preceding frame (caller return address), as set by the OS.
 
 <br />//======================================<br />
-**Mastering C++ Multithreading**
+
+### Mastering C++ Multithreading
+
 <br />//======================================<br />
+
 - the **thread** and **mutex** includes are the core of multithreaded application; they provide the basic means for creating threads, and allow for thread-safe interactions between them.
 - Defining processes and threads
   - essentially, to the operating system (OS), a process consists of one or more threads, each thread processing its own state and variables. One would regard this as a **hierarchical configuration**, with the OS as the foundation, providing support for the running of (user) processes. Each of these processes then consists of one or more threads. Communication between processes is handled by **inter-process communication (IPC)**, which is provided by the operating system.
