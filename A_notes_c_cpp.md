@@ -32,7 +32,7 @@ learning c and cpp <br />
     - **pthread_join**: int pthread_join(pthread_t , void * _Nullable * _Nullable)
       -  The first argument: thread ID.
       -  The second argument: a buffer for the return value of the input function (or zero).
-    - **pthread_exit*: void pthread_exit(void *value_ptr):
+    - **pthread_exit**: void pthread_exit(void *value_ptr):
       - This function terminates the thread calling it, making the provided argument's value available to any thread calling pthread_join() on it.
     - **pthread_cancel**: int pthread_cancel(pthread_t thread):
       - This function requests that the specified thread will be canceled. Depending on the state of the target thread, this will invoke its cancellation handlers.
