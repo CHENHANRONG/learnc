@@ -36,7 +36,7 @@ learning c and cpp <br />
       - This function terminates the thread calling it, making the provided argument's value available to any thread calling pthread_join() on it.
     - **pthread_cancel**: int pthread_cancel(pthread_t thread):
       - This function requests that the specified thread will be canceled. Depending on the state of the target thread, this will invoke its cancellation handlers.
-    - **pthread_attr_* functions**
+    - **pthread_attr_ functions**
       - manipulate and obtain information about a pthread_attr_t structure.
   
 
