@@ -18,7 +18,7 @@ learning c and cpp <br />
   - **native** multithreading implementation in the **Standard Template Library (STL)**
   - **OS-level** : Windows and POSIX (Portable Operating System Interface) threads
   - **framework-based** multithreading APIs : Qt, Boost, and POCO etc. (make cross-platform development easier)
-##### PThreads thread management
+- **PThreads thread management**
   - The main Pthreads header is **pthread.h**. 
   - all the functions which start with either **pthread_** or **pthread_attr_**.
     - **pthread_create**: int pthread_create(pthread_t _Nullable * _Nonnull __restrict,
@@ -38,7 +38,16 @@ learning c and cpp <br />
       - This function requests that the specified thread will be canceled. Depending on the state of the target thread, this will invoke its cancellation handlers.
     - **pthread_attr_ functions**
       - manipulate and obtain information about a pthread_attr_t structure.
-##### Mutexes
+- **Mutexes**
+  - functions prefixed with either **pthread_mutex_** or **pthread_mutexattr_**. They apply to mutexes and their attribute objects.
+  - Mutexes in Pthreads can be initialized, destroyed, locked, and unlocked. They can also have their behavior customized using a pthread_mutexattr_t structure, which has its corresponding pthread_mutexattr_* functions for initializing and destroying an attribute on it.
+    - PTHREAD_MUTEX_INITIALIZER macro: initializes the mutex for us without having to type out the code for it every time.
+    - int pthread_mutex_lock(pthread_mutex_t *);
+    - int pthread_mutex_unlock(pthread_mutex_t *);
+    - int pthread_mutex_trylock(pthread_mutex_t *);
+
+
+
   
 
 
