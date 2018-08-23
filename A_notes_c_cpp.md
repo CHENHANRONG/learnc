@@ -18,7 +18,8 @@ learning c and cpp <br />
   - **native** multithreading implementation in the **Standard Template Library (STL)**
   - **OS-level** : Windows and POSIX (Portable Operating System Interface) threads
   - **framework-based** multithreading APIs : Qt, Boost, and POCO etc. (make cross-platform development easier)
-  
+- PThreads thread management
+
 
 
 #### C++ Multithreading basis
