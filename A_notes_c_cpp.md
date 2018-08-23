@@ -18,7 +18,7 @@ learning c and cpp <br />
   - **native** multithreading implementation in the **Standard Template Library (STL)**
   - **OS-level** : Windows and POSIX (Portable Operating System Interface) threads
   - **framework-based** multithreading APIs : Qt, Boost, and POCO etc. (make cross-platform development easier)
-- PThreads thread management
+##### PThreads thread management
   - The main Pthreads header is **pthread.h**. 
   - all the functions which start with either **pthread_** or **pthread_attr_**.
     - **pthread_create**: int pthread_create(pthread_t _Nullable * _Nonnull __restrict,
@@ -38,6 +38,7 @@ learning c and cpp <br />
       - This function requests that the specified thread will be canceled. Depending on the state of the target thread, this will invoke its cancellation handlers.
     - **pthread_attr_ functions**
       - manipulate and obtain information about a pthread_attr_t structure.
+##### Mutexes
   
 
 
