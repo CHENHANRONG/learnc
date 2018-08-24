@@ -45,7 +45,10 @@ learning c and cpp <br />
     - int pthread_mutex_lock(pthread_mutex_t *);
     - int pthread_mutex_unlock(pthread_mutex_t *);
     - int pthread_mutex_trylock(pthread_mutex_t *);
-
+- **Condition variables**
+  - functions which are prefixed with either **pthread_cond_** or **pthread_condattr_**.
+  - pthread_cond_wait(&, &); 
+  - pthread_cond_signal(&count_cv); 
 
 
   
