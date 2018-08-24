@@ -49,6 +49,7 @@ learning c and cpp <br />
   - functions which are prefixed with either **pthread_cond_** or **pthread_condattr_**.
   - pthread_cond_wait(&, &); 
   - pthread_cond_signal(&count_cv); 
+  - pthread_cond_broadcast()
 
 
   
