@@ -9,7 +9,7 @@
 
 //#include <stdio.h>.
 #include <gtest/gtest.h>
-#include "try_google_test_framework_tobetest.hpp"
+#include "try_google_test_framework_tobetest.h"
 
 /* using a TEST macro that takes two parameters.
  The first parameter, namely <XXXTest>, represents the test module name
