@@ -12,7 +12,7 @@
                 "-g",
                 "try_concurrency.cpp",
                 "-isystem",
-                "/usr/local/include/gtest",
+                "/usr/include",
                 "-pthread",
                 "~/workspace/cpp/libgtest.a",
                 "-o",
