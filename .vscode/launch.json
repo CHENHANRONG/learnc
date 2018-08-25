@@ -9,12 +9,13 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/a.out",
+            "miDebuggerPath": "/usr/bin/gdb",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
-            "MIMode": "lldb",
+            "MIMode": "gdb",
             "logging": {
                 "programOutput": true
             },
