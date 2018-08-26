@@ -1,9 +1,9 @@
 #include "image_classify.h"
 
 //set appid/ak/sk
-std::string app_id = "11726882";
-std::string api_key = "8msWtxapbtZknv95YgmqE5XY";
-std::string secret_key = "MghF6DCifoIl5zWSXiupLQdno0Wo7q52";
+std::string app_id = "";
+std::string api_key = "";
+std::string secret_key = "";
 
 aip::Imageclassify client(app_id, api_key, secret_key);
 
