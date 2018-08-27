@@ -53,7 +53,9 @@ learning c and cpp <br />
 - **Synchronization**
   - synchronization are prefixed with pthread_rwlock_ or pthread_barrier_. These implement read/write locks and synchronization barriers.
   - A read/write lock (rwlock) is very similar to a mutex, except that it has the additional feature of **allowing infinite threads to read simultaneously, while only restricting write access to a singular thread**.
-  - 
+- **Barriers**
+  - Barriers are another concept with Pthreads. These are synchronization objects which act like a barrier for a number of threads. All of these have to reach the barrier before any of them can proceed past it. In the barrier initialization function, the thread count is specified. Only once all of these threads have called the barrier object using the pthread_barrier_wait() function will they continue executing.
+
 
 
   
