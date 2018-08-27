@@ -1,3 +1,6 @@
+Algorithm: method for solving problem.
+Data structure: method to store information.
+
 
 algorithm | worst case | average case | best case| practical
 --------- | ---------- | ------------ | ---------| ---------
