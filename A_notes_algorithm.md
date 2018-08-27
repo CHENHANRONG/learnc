@@ -1,7 +1,7 @@
 Algorithm: method for solving problem.
 Data structure: method to store information.
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"> $$О(n^{2})$$</script>
 
 
 algorithm | worst case | average case | best case| practical
