@@ -50,6 +50,10 @@ learning c and cpp <br />
   - pthread_cond_wait(&, &); 
   - pthread_cond_signal(&count_cv); 
   - pthread_cond_broadcast()
+- **Synchronization**
+  - synchronization are prefixed with pthread_rwlock_ or pthread_barrier_. These implement read/write locks and synchronization barriers.
+  - A read/write lock (rwlock) is very similar to a mutex, except that it has the additional feature of **allowing infinite threads to read simultaneously, while only restricting write access to a singular thread**.
+  - 
 
 
   
