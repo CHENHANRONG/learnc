@@ -2,8 +2,8 @@
 #ifndef DISPATCHER_H
 #define DISPATCHER_H
 
-#include "abstract_request.h"
-#include "worker.h"
+#include "try_abstract_request.h"
+#include "try_worker.h"
 
 #include <queue>
 #include <mutex>
