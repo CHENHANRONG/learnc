@@ -10,9 +10,19 @@
   - scientific method: we develop hypotheses about performance, create mathematical models, and run experiments to test them, repeating the process as necessary.
 
 
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
+
+New section   |     More      |         Data |
+And more      | With an escaped '\|'         ||  
+
+
 
 |   algorithm |          Performance                  |practical|
-|              |worst case  | average case | best case |          |
+              |worst case  | average case | best case |          |
  ------------ | :-------: | -----------: |:---------:|:---------:|
 
 bubble sort   |   **О(n^2**|         Cell |      Cell | If the input is in mostly sorted order with some out-of-order elements nearly in position. 
