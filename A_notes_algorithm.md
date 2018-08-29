@@ -14,7 +14,17 @@
   
 # Performance
 
-|             |          Grouping           ||
-First Header  | Second Header | Third Header |
- ------------ | :-----------: | -----------: |
-Content       |          *Long Cell*        ||
+  <table border="1" cellpadding="1" cellspacing="2">
+                        <tr>
+                            <th>Name</th>
+                            <th>Cups</th>
+                            <th>Type</th>
+                            <th>Sugar</th>
+                        </tr>
+                        <tr>
+                            <td>Wendy</td>
+                            <td>10</td>
+                            <td>Regular</td>
+                            <td>yes</td>
+                        </tr>
+  </table>
