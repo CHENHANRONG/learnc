@@ -10,7 +10,8 @@
   - scientific method: we develop hypotheses about performance, create mathematical models, and run experiments to test them, repeating the process as necessary.
 
 <\br>
-
+<table>
+  </table>
 probblem | algorithm | ADTs | | 
 --------- | ---------- | ------------ | ---------| ---------
 connectivity problem|| union-find ||
