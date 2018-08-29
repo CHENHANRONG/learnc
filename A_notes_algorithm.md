@@ -17,5 +17,5 @@
 
 | Algorithm  | Performance |  |  | Practical |
 | ------------- | ------------- | ------------- | ------------- |------------- |
-|    | worst case  | average case  | best case ||
-| Content Cell  | Content Cell  | Content Cell  |
+|    | **worst case**  | **average case**  | **best case** ||
+| bubble sort  | О(n^2)  |   | | If the input is in mostly sorted order with some out-of-order elements nearly in position. |
