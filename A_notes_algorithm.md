@@ -1,3 +1,4 @@
+# Summary
 - Algorithm: method for solving problem.
 - Data structure: method to store information.
 - basic programming model.
@@ -8,7 +9,11 @@
     - stack
 - Performance is a central consideration in the study of algorithms.
   - scientific method: we develop hypotheses about performance, create mathematical models, and run experiments to test them, repeating the process as necessary.
-
+  
+  
+  # performance
+  
+  
 
 |             |          Grouping           ||
 First Header  | Second Header | Third Header |
@@ -18,6 +23,7 @@ Content       |   **Cell**    |         Cell |
 
 New section   |     More      |         Data |
 And more      | With an escaped '\|'         ||  
+
 
 
 
