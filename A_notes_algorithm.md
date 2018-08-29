@@ -14,8 +14,7 @@
   
 # Performance
 
-| algorithm |            |   |   |   |
-|-----------|------------|---|---|---|
-|           | worst case |   |   |   |
-|           |            |   |   |   |
-|           |            |   |   |   |
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
