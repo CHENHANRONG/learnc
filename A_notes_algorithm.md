@@ -13,3 +13,8 @@
   
   
 # Performance
+
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+
