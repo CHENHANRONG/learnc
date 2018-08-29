@@ -15,6 +15,10 @@
 # Performance
 
   <table border="1" cellpadding="1" cellspacing="2">
+  <tr>                      <th>Name</th>
+                            <th>Cups</th>
+                            <th>Type</th>
+                            <th>Sugar</th></tr>
                         <tr>
                             <th>Name</th>
                             <th>Cups</th>
