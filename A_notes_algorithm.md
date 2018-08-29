@@ -10,6 +10,8 @@
     - stack
 - Performance is a central consideration in the study of algorithms.
   - scientific method: we develop hypotheses about performance, create mathematical models, and run experiments to test them, repeating the process as necessary.
+- Analysis of algorithms
+  - Choosing the best algorithm for a particular task can be a complicated process, involving sophisticated mathematical analysis.
 
 # Problems & Solutions
 |probblem | algorithm | ADTs |  | 
