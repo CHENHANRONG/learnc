@@ -11,7 +11,12 @@
 
 <\br>
 <table>
-  </table>
+  <th></th>
+   <th></th>
+   <th></th>
+  <tr><td></td><td></td><td></td></tr>
+  
+</table>
 probblem | algorithm | ADTs | | 
 --------- | ---------- | ------------ | ---------| ---------
 connectivity problem|| union-find ||
