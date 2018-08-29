@@ -15,7 +15,7 @@
 # Performance
 
 
-| Algorithm  | Performance | Practical |
+| Algorithm  | Performance |  |  | Practical |
 | ------------- | ------------- | ------------- |
 | Content Cell  | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | Content Cell  |
