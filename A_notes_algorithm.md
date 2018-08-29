@@ -17,7 +17,7 @@
   <tr><td></td><td></td><td></td></tr>
   
 </table>
-probblem | algorithm | ADTs | | 
+|probblem | algorithm | ADTs | | 
 --------- | ---------- | ------------ | ---------| ---------
 connectivity problem|| union-find ||
 
@@ -30,6 +30,7 @@ Content       |   **Cell**    |         Cell |
 <\br>
 
 
-algorithm | worst case | average case | best case| practical
+|algorithm | Performance |practical|
+worst case | average case | best case| practical
 --------- | ---------- | ------------ | ---------| ---------
 bubble sort | О(n^2) | ------------ | ---------| If the input is in mostly sorted order with some out-of-order elements nearly in position. 
