@@ -15,20 +15,7 @@
 # Performance
 
   <table border="1" cellpadding="1" cellspacing="2">
-  <tr>                      <th>Name</th>
-                            <th>Cups</th>
-                            <th>Type</th>
-                            <th>Sugar</th></tr>
-                        <tr>
-                            <th>Name</th>
-                            <th>Cups</th>
-                            <th>Type</th>
-                            <th>Sugar</th>
-                        </tr>
-                        <tr>
-                            <td>Wendy</td>
-                            <td>10</td>
-                            <td>Regular</td>
-                            <td>yes</td>
-                        </tr>
+  <tr> <th>algorithm</th> <th>Performance</th><th>practical</th></tr>
+  <tr><th>Name</th><th>Cups</th><th>Type</th><th>Sugar</th> </tr>
+  <tr> <td>Wendy</td> <td>10</td> <td>Regular</td> <td>yes</td> </tr>
   </table>
