@@ -22,6 +22,11 @@ bool Dispatcher::init(int workers) {
 	for (int i = 0; i < workers; ++i) {
 		w = new Worker;
 		allWorkers.push_back(w);
+        /*
+         template <class Fn, class... Args>
+         explicit thread (Fn&& fn, Args&&... args);
+        A pointer to function, pointer to member, or any kind of move-constructible function object (i.e., an object whose class defines operator(), including closures and function objects).
+         */
 		t = new thread(&Worker::run, w);
 		threads.push_back(t);
 	}
