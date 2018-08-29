@@ -14,7 +14,8 @@
   
 # Performance
 
-|             |          Grouping           ||
-First Header  | Second Header | Third Header |
- ------------ | :-----------: | -----------: |
-
+| algorithm |            |   |   |   |
+|-----------|------------|---|---|---|
+|           | worst case |   |   |   |
+|           |            |   |   |   |
+|           |            |   |   |   |
