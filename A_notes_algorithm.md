@@ -17,5 +17,5 @@
 
 | Algorithm  | Performance |  |  | Practical |
 | ------------- | ------------- | ------------- | ------------- |------------- |
-| Content Cell  | Content Cell  | Content Cell  |
+|    | worst case  | average case  | best case ||
 | Content Cell  | Content Cell  | Content Cell  |
