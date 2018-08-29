@@ -21,6 +21,12 @@ probblem | algorithm | ADTs | |
 --------- | ---------- | ------------ | ---------| ---------
 connectivity problem|| union-find ||
 
+
+|             |          Grouping           ||
+First Header  | Second Header | Third Header |
+ ------------ | :-----------: | -----------: |
+Content       |          *Long Cell*        ||
+Content       |   **Cell**    |         Cell |
 <\br>
 
 
