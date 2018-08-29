@@ -15,7 +15,7 @@
 # Performance
 
 
-| First Header  | Second Header | Second Header |
+| Algorithm  | Performance | Practical |
 | ------------- | ------------- | ------------- |
 | Content Cell  | Content Cell  | Content Cell  |
 | Content Cell  | Content Cell  | Content Cell  |
