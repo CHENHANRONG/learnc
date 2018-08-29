@@ -14,7 +14,7 @@
   
 # Performance
 
-|             |          Grouping           ||
+             |          Grouping           ||
 First Header  | Second Header | Third Header |
-| ------------ | :-----------: | -----------: |
+ ------------ | :-----------: | -----------: |
 
