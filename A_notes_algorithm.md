@@ -9,28 +9,14 @@
 - Performance is a central consideration in the study of algorithms.
   - scientific method: we develop hypotheses about performance, create mathematical models, and run experiments to test them, repeating the process as necessary.
 
-< \br >
-<table>
-  <th></th>
-   <th></th>
-   <th></th>
-  <tr><td></td><td></td><td></td></tr>
-  
-</table>
-|probblem | algorithm | ADTs | | 
---------- | ---------- | ------------ | ---------| ---------
-connectivity problem|| union-find ||
 
 
-|             |          Grouping           ||
-First Header  | Second Header | Third Header |
- ------------ | :-----------: | -----------: |
-Content       |          *Long Cell*        ||
-Content       |   **Cell**    |         Cell |
-<\br>
+|   algorithm |          Performance                  |practical|
+              |worst case  | average case | best case |
+ ------------ | :---- ---: | -----------: |:---------:|------------
+
+bubble sort   |   **О(n^2**|         Cell |      Cell | If the input is in mostly sorted order with some out-of-order elements nearly in position. 
 
 
-|algorithm | Performance |practical||
-|worst case | average case | best case| |
---------- | ---------- | ------------ | ---------| ---------
-bubble sort | О(n^2) | ------------ | ---------| If the input is in mostly sorted order with some out-of-order elements nearly in position. 
+
+
