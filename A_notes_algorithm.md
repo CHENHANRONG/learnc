@@ -15,7 +15,7 @@
 # Performance
 
 | algorithm |            |   |   |   |
-|           | worst case |   |   |   |
+            | worst case |   |   |   |
 |-----------|------------|---|---|---|
 |           |            |   |   |   |
 |           |            |   |   |   |
