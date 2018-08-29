@@ -12,7 +12,7 @@
 
 
 |   algorithm |          Performance                  |practical|
-              |worst case  | average case | best case |          |
+|              |worst case  | average case | best case |          |
  ------------ | :---- ---: | -----------: |:---------:|:---------:|
 
 bubble sort   |   **О(n^2**|         Cell |      Cell | If the input is in mostly sorted order with some out-of-order elements nearly in position. 
