@@ -20,7 +20,29 @@ learning c and cpp <br />
   - There is also the issue of threads being able to communicate and synchronize themselves.
   - What makes multithreaded programming such a challenge is to be able to keep track of each interaction between threads, and to ensure that each and every form of access is secured while not falling into the trap of deadlocks and data races.
 - **The essential idea behind the sharing of data between threads** is that the data to be shared exists somewhere in a way which is accessible to two threads or more. After this, we have to ensure that only one thread can modify the data, and that the data does not get modified while it's being read. Generally, we would use mutexes or similar to ensure this.
-
+- Using r/w-locks： Read-write locks are a possible optimization here, because they allow multiple threads to read simultaneously from a single data source. If one has an application in which multiple worker threads read the same information repeatedly, it would be more efficient to use read-write locks than basic mutexes, because the attempts to read the data will not block the other threads. A read-write lock can thus be used as a more advanced version of a mutex, namely, as one which adapts its behavior to the type of access. Internally, it builds on mutexes (or semaphores) and condition variables.
+- Using shared pointers： are an abstraction of memory management using reference counting for heap-allocated instances. 
+#### Native C++ Threads and Primitives
+- Starting with the 2011 revision of the C++ standard, a multithreading API is officially part of the C++ Standard Template Library (STL). This means that threads, thread primitives, and synchronization mechanisms are available to any new C++ application without the need to install a third-party library, or to rely on the operating system's APIs.
+- The STL threading API
+  - <thread> header from the STL
+  - C++11 APIs:
+    - std::thread
+    - std::mutex
+    - std::recursive_mutex
+    - std::condition_variable
+    - std::condition_variable_any
+    - std::lock_guard
+    - std::unique_lock
+    - std::packaged_task
+    - std::async
+    - std::future
+  - C++14 APIs: <shared_mutex> header file
+    - std::shared_lock  : Since locks are based on mutexes, a shared lock is, therefore, reliant on a shared mutex.
+    - std::shared_timed_mutex
+  - Thread class: 
+    - In header <thread>
+    - The thread class is the core of the entire threading API; it wraps the underlying operating system's threads, and provides the functionality we need to start and stop threads.
 
 
 
