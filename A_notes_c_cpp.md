@@ -43,6 +43,14 @@ learning c and cpp <br />
   - Thread class: 
     - In header <thread>
     - The thread class is the core of the entire threading API; it wraps the underlying operating system's threads, and provides the functionality we need to start and stop threads.
+    - Passing parameters: hese parameter values have to be move constructible, which means that it's a type which has a move or copy constructor (called for rvalue references).When passing references or pointers, things get more complicated with life cycle issues, data races, and such becoming a potential problem.
+    - Return value: Any value returned by the function passed to the thread class constructor is ignored. To return information to the thread which created the new thread, one has to use inter-thread synchronization mechanisms (like mutexes) and some kind of a shared variable.
+    - Moving threads: std::move in <utility> header, 
+    - Thread ID: obtained by calling the get_id() function of the thread class instance, or by calling std::this_thread::get_id() to get the ID of the thread calling the function
+    - Sleeping: 
+      - sleep_for(), which delays execution by at least the specified duration, but possibly longer
+      - sleep_until(), which takes a single parameter of type std::chrono::time_point<Clock, Duration>. Using this function, one can set a thread to sleep until the specified time point has been reached. Due to the operating system's scheduling priorities, this wake-up time might not be the exact time as specified.
+    - Yield: 
 
 
 
