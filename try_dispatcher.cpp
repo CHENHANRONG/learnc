@@ -22,10 +22,20 @@ bool Dispatcher::init(int workers) {
 	for (int i = 0; i < workers; ++i) {
 		w = new Worker;
 		allWorkers.push_back(w);
-        /*
+         /*
          template <class Fn, class... Args>
          explicit thread (Fn&& fn, Args&&... args);
-        A pointer to function, pointer to member, or any kind of move-constructible function object (i.e., an object whose class defines operator(), including closures and function objects).
+         Construct a thread object that represents a new joinable thread of execution.
+         The new thread of execution calls fn passing args as arguments
+         (using decay copies of its lvalue or rvalue references).
+         Parameters:
+         fn:
+         A pointer to function, pointer to member, or any kind of move-constructible
+         function object. The return value (if any) is ignored.
+         args... :
+         Arguments passed to the call to fn (if any). Their types shall be move-constructible.
+         If fn is a member pointer, the first argument shall be an object for which that member is defined
+         (or a reference, or a pointer to it).
          */
 		t = new thread(&Worker::run, w);
 		threads.push_back(t);
