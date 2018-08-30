@@ -50,8 +50,14 @@ learning c and cpp <br />
     - Sleeping: 
       - sleep_for(), which delays execution by at least the specified duration, but possibly longer
       - sleep_until(), which takes a single parameter of type std::chrono::time_point<Clock, Duration>. Using this function, one can set a thread to sleep until the specified time point has been reached. Due to the operating system's scheduling priorities, this wake-up time might not be the exact time as specified.
-    - Yield: 
-
+    - Yield: std::this_thread::yield() indicate to the OS that the current thread can be rescheduled so that other threads can run instead. 
+    - Detach: call detach() on the thread object. This effectively detaches the new thread from the calling thread, meaning that the former will continue executing even after the calling thread has exited.
+    - Swap: Using swap(), either as a standalone method or as function of a thread instance, one can exchange the underlying thread handles of thread objects. The effect of this is that the state of each thread is swapped with that of the other thread, essentially exchanging their identities.
+  - Mutex
+    - The <mutex> header contains multiple types of mutexes and locks. The mutex type is the most commonly used type, and provides the basic lock/unlock functionality without any further complications.
+    - At its core, the goal of a mutex is to exclude the possibility of simultaneous access so as to prevent data corruption, and to prevent crashes due to the use of non-thread-safe routines.
+    - Non-blocking locking: It's possible to not want the thread to block and wait for the mutex object to become available, then use try_lock() 
+    - Timed mutex: 
 
 
 
