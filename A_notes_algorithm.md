@@ -13,6 +13,7 @@
 - Analysis of algorithms
   - Choosing the best algorithm for a particular task can be a complicated process, involving sophisticated mathematical analysis.
 
+
 # Problems & Solutions
 |probblem | algorithm | ADTs |  | 
 | ------- | --------- | ---- | --|
@@ -26,3 +27,8 @@
 | ------------- | ------------- | ------------- | ------------- |------------- |
 |    | **worst case**  | **average case**  | **best case** ||
 | bubble sort  | О(n^2)  |   | | If the input is in mostly sorted order with some out-of-order elements nearly in position. |
+
+
+
+# OOP (object-oriented programming)
+- Objects are characterized by three essential properties: state, identity, and behavior.
