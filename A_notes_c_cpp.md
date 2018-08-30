@@ -19,6 +19,7 @@ learning c and cpp <br />
   - The central problem with concurrency is that of ensuring safe access to shared resources even when communicating between threads. 
   - There is also the issue of threads being able to communicate and synchronize themselves.
   - What makes multithreaded programming such a challenge is to be able to keep track of each interaction between threads, and to ensure that each and every form of access is secured while not falling into the trap of deadlocks and data races.
+- **The essential idea behind the sharing of data between threads** is that the data to be shared exists somewhere in a way which is accessible to two threads or more. After this, we have to ensure that only one thread can modify the data, and that the data does not get modified while it's being read. Generally, we would use mutexes or similar to ensure this.
 
 
 
