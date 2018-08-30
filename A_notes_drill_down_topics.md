@@ -1,0 +1,4 @@
+- move or copy constructor (called for rvalue references) : http://thbecker.net/articles/rvalue_references/section_01.html
+- When passing references or pointers, things get more complicated with life cycle issues, data races, and such becoming a potential problem.
+  - cycle issues
+  - data races
