@@ -59,8 +59,29 @@ learning c and cpp <br />
     - Non-blocking locking: It's possible to not want the thread to block and wait for the mutex object to become available, then use try_lock() 
     - Timed mutex: A timed mutex is a regular mutex type, but with a number of added functions which give one control over the time period during which it should be attempted to obtain the lock, that is, try_lock_for and try_lock_until.The former tries to obtain the lock during the specified time period (std::chrono object) before returning the result (true or false). The latter will wait until a specific point in the future before returning the result. The use of these functions mostly lies in offering a middle path between the blocking (lock) and non-blocking (try_lock) methods of the regular mutex. One may want to wait for a number of tasks using only a single thread without knowing when a task will become available, or a task may expire at a certain point in time at which waiting for it makes no sense any more.
     - Lock guard: A lock guard is a simple mutex wrapper, which handles the obtaining of a lock on the mutex object as well as its release when the lock guard goes out of scope. This is a helpful mechanism to ensure that one does not forget to release a mutex lock, and to help reduce clutter in one's code when one has to release the same mutex in multiple locations.
-    - Unique lock: 
-
+    - Unique lock: The unique lock is a general-purpose mutex wrapper. It's similar to the timed mutex, but with additional features, primary of which is the concept of ownership. Unlike other lock types, a unique lock does not necessarily own the mutex it wraps if it contains any at all. Mutexes can be transferred between unique lock instances along with ownership of the said mutexes using the swap() function.
+    - Scoped lock: the scoped lock is a mutex wrapper which obtains access to (locks) the provided mutex, and ensures it is unlocked when the scoped lock goes out of scope. It differs from a lock guard in that it is a wrapper for not one, but multiple mutexes.
+    - Recursive mutex: 
+    - Recursive timed mutex:
+  - Shared mutex
+    - <shared_mutex> header
+    - provide shared access to the mutex. This allows one to, for example, provide read access to a resource by multiple threads, while a writing thread would still be able to gain exclusive access. This is similar to the read-write locks of Pthreads.
+    - APIs:
+      - lock_shared()
+      - try_lock_shared()
+      - unlock_shared()
+    - Shared timed mutex: This class is essentially an amalgamation of the shared mutex and timed mutex
+  - Condition variable
+    - In essence, a condition variable provides a mechanism through which a thread's execution can be controlled by another thread. This is done by having a shared variable which a thread will wait for until signaled by another thread.
+    - <condition_variable> header
+    - the condition variable is notified that any threads which are waiting on it can now continue using:
+      - notify_one(): which will signal the first thread in the FIFO queue for this condition variable to continue. 
+      - notify_all(): if there are multiple threads waiting for the same condition variable, the calling of notify_all() will allow all threads in the FIFO queue to continue.
+    - Condition_variable_any
+    - Notify all at thread exit:  std::notify_all_at_thread_exit() function 
+  - Future
+	
+	
 
 
 #### C++ Multithreading APIs
