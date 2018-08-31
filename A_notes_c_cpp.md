@@ -57,7 +57,9 @@ learning c and cpp <br />
     - The <mutex> header contains multiple types of mutexes and locks. The mutex type is the most commonly used type, and provides the basic lock/unlock functionality without any further complications.
     - At its core, the goal of a mutex is to exclude the possibility of simultaneous access so as to prevent data corruption, and to prevent crashes due to the use of non-thread-safe routines.
     - Non-blocking locking: It's possible to not want the thread to block and wait for the mutex object to become available, then use try_lock() 
-    - Timed mutex: 
+    - Timed mutex: A timed mutex is a regular mutex type, but with a number of added functions which give one control over the time period during which it should be attempted to obtain the lock, that is, try_lock_for and try_lock_until.The former tries to obtain the lock during the specified time period (std::chrono object) before returning the result (true or false). The latter will wait until a specific point in the future before returning the result. The use of these functions mostly lies in offering a middle path between the blocking (lock) and non-blocking (try_lock) methods of the regular mutex. One may want to wait for a number of tasks using only a single thread without knowing when a task will become available, or a task may expire at a certain point in time at which waiting for it makes no sense any more.
+    - Lock guard: A lock guard is a simple mutex wrapper, which handles the obtaining of a lock on the mutex object as well as its release when the lock guard goes out of scope. This is a helpful mechanism to ensure that one does not forget to release a mutex lock, and to help reduce clutter in one's code when one has to release the same mutex in multiple locations.
+    - Unique lock: 
 
 
 
