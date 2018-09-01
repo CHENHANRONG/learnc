@@ -8,3 +8,7 @@
 - marginalize (sum or integrate)
 - sampling methods
 - Markov chain Monte Carlo
+- Monte Carlo (computationally intensive and have mainly been used for small-scale problems)
+- highly efficient deterministic approximation schemes
+  - variational Bayes 
+  - expectation propagation
