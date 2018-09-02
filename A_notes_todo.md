@@ -12,3 +12,4 @@
 - highly efficient deterministic approximation schemes
   - variational Bayes 
   - expectation propagation
+- max likelihood approach **systematically underestimates the variance**, cause **bias** which related to the **over-fitting** problem.
