@@ -21,5 +21,8 @@
 - valgrind
   - valgrind --leak-check=full --show-leak-kinds=all ./outfilename.o 
 
+#### Debugging Multithreaded Code
+- Valgrind suite of tools
+- Helgrind and DRD tools
  
  <br />//====================================== <br />
