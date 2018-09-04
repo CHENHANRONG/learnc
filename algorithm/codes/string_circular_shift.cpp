@@ -51,6 +51,37 @@ public class Test1{
 //C++ code:
 
 
+#include <iostream>
+#include <string>
+int main()
+{
+    std:: string s1("ACTGACG");
+    std::string s2("TGACGAC");
+    size_t strlen = s1.length();
+    size_t maxMatchedLen = strlen;
+    while(maxMatchedLen>0){
+         std::string maxMatchSubStr = s1.substr(0, maxMatchedLen);
+         std::string otherSubStr = s1.substr(maxMatchedLen);
+        std::cout<<"maxMatchedLen = "<<maxMatchedLen<<", maxMatchSubStr= "<<maxMatchSubStr<<", otherSubStr="<<otherSubStr<<std::endl;
+        if(s2.find(maxMatchSubStr) != std::string::npos){
+            if(otherSubStr.append(maxMatchSubStr).compare(s2) == 0 ){
+                std::cout<<"find shift"<<std::endl;
+                break;
+            }
+        }else{
+            maxMatchedLen--;
+        }
+    }
+    
+    if(maxMatchedLen>0){
+        std::cout<<"maxMatchedLen = "<<maxMatchedLen<<", one shift was found"<<std::endl;
+    }else{
+        std::cout<<"maxMatchedLen = "<<maxMatchedLen<<", no shift was found"<<std::endl;
+
+    }
+    
+    return 0;
+}
 
 
 /*
