@@ -13,7 +13,7 @@ learning c and cpp <br />
 ### Mastering C++ Multithreading
 
 <br />//======================================<br />
-#### Debugging Multithreaded Code
+
 
 
 #### Thread Synchronization and Communication
