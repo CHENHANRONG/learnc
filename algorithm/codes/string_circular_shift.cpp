@@ -55,7 +55,7 @@ public class Test1{
 #include <string>
 int main()
 {
-    std:: string s1("ACTGACG");
+    std::string s1("ACTGACG");
     std::string s2("TGACGAC");
     size_t strlen = s1.length();
     size_t maxMatchedLen = strlen;
