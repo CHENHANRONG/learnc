@@ -13,6 +13,8 @@ learning c and cpp <br />
 ### Mastering C++ Multithreading
 
 <br />//======================================<br />
+#### Debugging Multithreaded Code
+
 
 #### Thread Synchronization and Communication
 - Safety first
@@ -80,8 +82,19 @@ learning c and cpp <br />
     - Condition_variable_any
     - Notify all at thread exit:  std::notify_all_at_thread_exit() function 
   - Future
-	
-	
+  - Shared future: A shared_future is just like a regular future object, but can be copied, which allows multiple threads to read its results.
+  - Promise: A promise allows one to transfer states between threads.
+  - Packaged_task: A packaged_task is a wrapper for any callable target (function, bind, lambda, or other function object). It allows for asynchronous execution with the result available in a future object. It is similar to std::function, but automatically transfers its results to a future object.
+  - Async: A more straightforward version of promise and packaged_task can be found in std::async().  future<T> pFuture = std::async (<function pointer>, <parameters>);
+  - Launch policy: 
+  - Atomics
+
+
+
+
+
+
+
 
 
 #### C++ Multithreading APIs
