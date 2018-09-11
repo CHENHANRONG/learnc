@@ -30,8 +30,10 @@
 
 
 - Reference:
-  - Sort algorithom: 
+  - Sort algorithm: 
     - https://forum.mianbaoban.cn/topic/62510_1_1.html
+  - Link list algorighm
+    - https://www.jianshu.com/p/b62a868186c9
 
 # OOP (object-oriented programming)
 - Objects are characterized by three essential properties: state, identity, and behavior.
