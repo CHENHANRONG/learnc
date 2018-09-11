@@ -23,9 +23,9 @@
 # Performance
 
 
-| Algorithm  | Performance |  |  | Practical |
-| ------------- | ------------- | ------------- | ------------- |------------- |
-|    | **worst case**  | **average case**  | **best case** ||
+| Algorithm  | Performance |  |  | | Practical |
+| -----------| ------------- | -------------| ------------- | ------------- |------------- |
+|            | **worst case**  | **average case**  | **best case** | Stable|
 | bubble sort  | О(n^2)  |  О(n^2)  | О(n) | If the input is in mostly sorted order with some out-of-order elements nearly in position. |
 
 
