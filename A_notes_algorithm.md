@@ -29,6 +29,9 @@
 | bubble sort  | О(n^2)  |  О(n^2)  | О(n) | Stable ||If the input is in mostly sorted order with some out-of-order elements nearly in position. |
 
 
+- Reference:
+  - Sort algorithom: 
+    - https://forum.mianbaoban.cn/topic/62510_1_1.html
 
 # OOP (object-oriented programming)
 - Objects are characterized by three essential properties: state, identity, and behavior.
