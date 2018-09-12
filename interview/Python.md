@@ -6,4 +6,4 @@
   - copy浅拷贝：值相等，地址不相等 
   - deepcopy深拷贝：值相等，地址不相等
 - http://python.jobbole.com/85231/
-
+- https://www.w3cschool.cn/python3/python3-data-type.html
