@@ -1,2 +1,3 @@
 - https://www.widerfunnel.com/server-side-testing/
 - https://www.widerfunnel.com/ab-testing-on-angularjs/
+- https://help.optimizely.com/Build_Campaigns_and_Experiments/Activation_Mode%3A_Activating_an_experiment_dynamically_after_a_page_has_loaded
