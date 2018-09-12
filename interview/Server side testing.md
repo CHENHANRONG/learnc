@@ -1,1 +1,2 @@
-https://www.widerfunnel.com/server-side-testing/
+- https://www.widerfunnel.com/server-side-testing/
+- https://www.widerfunnel.com/ab-testing-on-angularjs/
