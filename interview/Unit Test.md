@@ -5,3 +5,4 @@
   - https://www.guru99.com/parameterization-using-xml-and-dataproviders-selenium.html
 - Using tcpdump and Wireshark to sniff and analyse your network traffic
   - https://workaround.org/using-tcpdump-and-wireshark/
+  - https://www.thegeekdiary.com/18-practical-tcpdump-command-examples-a-network-sniffer-tool-primer/
