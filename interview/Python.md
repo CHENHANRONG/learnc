@@ -5,4 +5,5 @@
   - =浅拷贝： 值相等，地址相等 
   - copy浅拷贝：值相等，地址不相等 
   - deepcopy深拷贝：值相等，地址不相等
-- 
+- http://python.jobbole.com/85231/
+
