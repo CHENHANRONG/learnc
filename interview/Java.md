@@ -17,3 +17,4 @@
       - You expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes.
       - You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
       - You want to take advantage of multiple inheritance of type.
+- 线程同步和异步的区别： https://blog.csdn.net/u011033906/article/details/53840525
