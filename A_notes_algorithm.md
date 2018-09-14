@@ -35,8 +35,17 @@
   - Link list algorighm
     - https://www.jianshu.com/p/b62a868186c9
 
+
+
+
 # Classic algorithms
 ## String
 ### KMP
+References:  
+http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html  
+
+
+
+
 # OOP (object-oriented programming)
 - Objects are characterized by three essential properties: state, identity, and behavior.
