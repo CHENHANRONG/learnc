@@ -35,5 +35,8 @@
   - Link list algorighm
     - https://www.jianshu.com/p/b62a868186c9
 
+# Classic algorithms
+## String
+### KMP
 # OOP (object-oriented programming)
 - Objects are characterized by three essential properties: state, identity, and behavior.
