@@ -17,8 +17,8 @@
       - You expect that unrelated classes would implement your interface. For example, the interfaces Comparable and Cloneable are implemented by many unrelated classes.
       - You want to specify the behavior of a particular data type, but not concerned about who implements its behavior.
       - You want to take advantage of multiple inheritance of type.
-- 线程同步和异步的区别： https://blog.csdn.net/u011033906/article/details/53840525
-- 泛型不支持建立泛型数组：
+#### 线程同步和异步的区别： https://blog.csdn.net/u011033906/article/details/53840525
+#### 泛型不支持建立泛型数组：
 For historical and technical reasons beyond our scope, generic array creation is disallowed in Java. Instead, we need to use a cast:
 ```Java
 public class FixedCapacityStack<Item>
