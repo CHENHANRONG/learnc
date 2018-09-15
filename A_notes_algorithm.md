@@ -13,6 +13,14 @@
 - Analysis of algorithms
   - Choosing the best algorithm for a particular task can be a complicated process, involving sophisticated mathematical analysis.
 
+### Steps to developing a usable algorithm
+- Model the problem
+- Find an algorithm to solve it.
+- Fast enough? Fit in memory?
+- if not, figure out why.
+- Find a way to address the problem
+- Iterate until satisfied.
+
 
 # Problems & Solutions
 |probblem | algorithm | ADTs |  | 
@@ -43,8 +51,8 @@
 ### KMP
 References:  
 http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html  
-
-
+http://jakeboxer.com/blog/2009/12/13/the-knuth-morris-pratt-algorithm-in-my-own-words/
+https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm
 
 
 # OOP (object-oriented programming)
