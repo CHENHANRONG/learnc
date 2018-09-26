@@ -67,7 +67,7 @@ public class BST<Key extends Comparable<Key>, Value>
      * @param val
      */
     public void put(Key key, Value val){
-         root = put(root, key, val);
+        root = put(root, key, val);
     }
 
 
@@ -95,5 +95,47 @@ public class BST<Key extends Comparable<Key>, Value>
         return x;
     }
 
+    public Key min(){
+        return min(root).key;
+    }
 
+
+
+    /**
+     * 求以节点x为根的子树的最小值
+     *
+     * @param x
+     * @return
+     */
+    public Node min(Node x){
+        if(x.left == null)
+            return x;
+
+        return min(x.left);
+    }
+
+
+    public Key floor(Key key){
+        Node x = floor(root, key);
+        if(x == null)
+            return null;
+
+        return x.key;
+    }
+
+
+    public Node floor(Node x, Key key){
+        if(x == null)
+            return null;
+
+        int cmp = key.compareTo(x.key);
+        if(cmp==0) return x;
+        //如果给定的key小于根节点，那么小于等于key的最大键一定在根结点的左子树中。
+        if(cmp<0) return floor(x.left, key);
+        //如果给定的key大于当前节点的键，那么只有当根节点右子树中存在小于等于key的节点时，
+        //小于等于key的最大键才会出现在右子树中，负责根结点就是小于等于key的最大键。
+        Node t = floor(x.right, key);
+        if(t!=null) return t;
+        else return x;
+    }
 }
