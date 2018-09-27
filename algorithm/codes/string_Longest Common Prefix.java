@@ -24,6 +24,9 @@ better solution: divide and conqur.
 https://leetcode.com/problems/longest-common-prefix/solution/
 
 */
+//TODO
+
+
 
 /*
 my first solution
