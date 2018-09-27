@@ -19,6 +19,11 @@ Note:
 All given inputs are in lowercase letters a-z.
 */
 
+/*
+better solution: divide and conqur.
+https://leetcode.com/problems/longest-common-prefix/solution/
+
+*/
 
 /*
 my first solution
