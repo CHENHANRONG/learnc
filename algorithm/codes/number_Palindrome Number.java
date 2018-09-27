@@ -36,3 +36,15 @@ public boolean isPalindrome(int x) {
         else 
             return false;
     }
+
+/*
+方法2: 反转前半部，跟后半部比较是否一样
+
+
+Following the thoughts based on the second idea, to avoid the overflow issue of the reverted number, what if we only revert half of the \text{int}int number? After all, the reverse of the last half of the palindrome should be the same as the first half of the number, if the number is a palindrome.
+
+For example, if the input is 1221, if we can revert the last part of the number "1221" from "21" to "12", and compare it with the first half of the number "12", since 12 is the same as 12, we know that the number is a palindrome.
+*/
+
+
+//TODO
