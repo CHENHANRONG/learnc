@@ -16,6 +16,7 @@ If you have figured out the O(n) solution, try coding another solution using the
 /*
 better solution:
 
+https://leetcode.com/problems/maximum-subarray/discuss/20211/Accepted-O(n)-solution-in-java
 
 
 this problem was discussed by Jon Bentley (Sep. 1984 Vol. 27 No. 9 Communications of the ACM P885)
