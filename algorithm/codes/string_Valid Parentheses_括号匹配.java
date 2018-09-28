@@ -39,18 +39,9 @@ My init solution.
 思路：利用栈。
 
 对于第i个char，
-如果它与栈顶端第括号匹配，则把栈顶端第括号弹出。
-如果不匹配，如果是左边半个，则把这个char压栈。
-如果是右边半个， 则返回false；
+如过是左边的，则直接押入栈
+如果是右边的，1. 如果栈为空，则返回false；2. 如果栈不为空，则判断是否和栈顶原色匹配
 
-
-如果栈不为空:
-对于第i个char，是右边的部分， 如果不与栈顶元素匹配，则表明不可能配对，返回false
-如果可以匹配，则把栈顶端第括号弹出。
-
-如果栈为空：
-对于第i个char，是右边的部分，则返回false；
-如果是左边半个，则把这个char压栈。
 */
 
 
@@ -64,35 +55,27 @@ My init solution.
         mp.put('{','}');
 
         Stack<Character> st = new Stack<Character>();
-        for(int i=0;i<s.length();i++){
+        for(int i=0;i<s.length();i++) {
             char iChar = s.charAt(i);
             boolean isLeftHalf = mp.keySet().contains(iChar);
-            if(!st.empty()){
-                char peekChar = st.peek();
 
-                if(mp.get(peekChar) == iChar){
-                    st.pop();
-                }else if(isLeftHalf){
-                    st.push(iChar);  //only left half pair could be pushed
-                }else{  //if right half pair, return false;
+            if (isLeftHalf) {  //如过是左边的，则直接押入栈
+                st.push(iChar);
+            } else {  //如果是右边的
+                if (st.empty()) {  // 如果栈为空，则返回false；
                     return false;
+                } else {  // 如果栈不为空，则判断是否和栈顶原色匹配
+                    char peekChar = st.peek();  
+                    if (mp.get(peekChar) == iChar) {  //匹配，弹出栈顶元素
+                        st.pop();  
+                    }else{
+                        return false;  //不匹配，返回false；
+                    }
                 }
             }
-            else
-            {
-                if(isLeftHalf){
-                    st.push(iChar);
-                }else{
-                    return false;
-                }
-
-            }
-
-
-
         }
 
-        if(st.empty())
+        if(st.empty())  //最后如果栈不为空，表明有不匹配顶元素
             return true;
         else
             return false;
