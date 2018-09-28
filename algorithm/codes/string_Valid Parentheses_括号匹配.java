@@ -34,6 +34,26 @@ Output: true
 */
 
 
+/*
+My init solution.
+思路：利用栈。
+
+对于第i个char，
+如果它与栈顶端第括号匹配，则把栈顶端第括号弹出。
+如果不匹配，如果是左边半个，则把这个char压栈。
+如果是右边半个， 则返回false；
+
+
+如果栈不为空:
+对于第i个char，是右边的部分， 如果不与栈顶元素匹配，则表明不可能配对，返回false
+如果可以匹配，则把栈顶端第括号弹出。
+
+如果栈为空：
+对于第i个char，是右边的部分，则返回false；
+如果是左边半个，则把这个char压栈。
+*/
+
+
     public boolean isValid(String s) {
         if(s==null || s.isEmpty())
             return true;
@@ -45,22 +65,27 @@ Output: true
 
         Stack<Character> st = new Stack<Character>();
         for(int i=0;i<s.length();i++){
-
+            char iChar = s.charAt(i);
+            boolean isLeftHalf = mp.keySet().contains(iChar);
             if(!st.empty()){
                 char peekChar = st.peek();
-                
-                if(mp.values().contains(peekChar))  // right brack in stack, means not in pair
-                    return false;
-                
-                if(mp.get(peekChar) == s.charAt(i)){
+
+                if(mp.get(peekChar) == iChar){
                     st.pop();
-                }else{
-                    st.push(s.charAt(i));
+                }else if(isLeftHalf){
+                    st.push(iChar);  //only left half pair could be pushed
+                }else{  //if right half pair, return false;
+                    return false;
                 }
             }
             else
             {
-                st.push(s.charAt(i));
+                if(isLeftHalf){
+                    st.push(iChar);
+                }else{
+                    return false;
+                }
+
             }
 
 
