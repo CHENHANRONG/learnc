@@ -27,6 +27,16 @@ Explanation: The answer is "wke", with the length of 3.
 
 
 /*
+better solutions:
+https://leetcode.com/articles/longest-substring-without-repeating-characters/
+
+*/
+
+
+
+
+
+/*
 my init solution:
 思路：
 遍历Sting， 对于第i个char，
