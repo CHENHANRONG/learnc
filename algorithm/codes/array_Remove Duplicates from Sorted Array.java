@@ -49,12 +49,10 @@ public int removeDuplicates(int[] nums) {
             return 0;
         
         int res = 1;
-        int currN = nums[0];
         for(int i=0, j=1; j<nums.length;j++){
             if(nums[i] != nums[j]){
                 nums[++i] = nums[j];
                 res++;
-                currN = nums[i];
             }
         }
         
