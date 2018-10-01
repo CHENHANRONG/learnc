@@ -56,7 +56,6 @@ my init solution
         int res = 0;
         int reslag = 1;
         boolean flaged = false;
-        boolean started = false; //
 
         str = str.trim();
 
@@ -64,8 +63,9 @@ my init solution
 
             char ic = str.charAt(i);
 
-            if((ic == '-' ||ic == '+' ) && flaged){
-                return 0;
+            if((ic == '-' &&   flaged && reslag>0) ||
+                    (ic == '+'  && flaged && reslag<0)){
+                return res;
             }
 
             if (ic == '-' && !flaged) {
@@ -77,7 +77,6 @@ my init solution
             }else if(Character.isDigit(ic)){
                 int xInt =  Integer.parseInt(String.valueOf(ic));
                 flaged = true;
-
                 long temp = (long)res*10 + reslag*xInt;
                 if(reslag>0 && temp>Integer.MAX_VALUE ) {  //meas excess the max
                     return Integer.MAX_VALUE;
