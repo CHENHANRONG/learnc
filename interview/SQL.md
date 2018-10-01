@@ -28,4 +28,6 @@ A: delete tablename where 自动编号 not in(select min( 自动编号) from tab
 ```
 
 ### Reference list:
+- https://blog.csdn.net/hundan_520520/article/details/54881208
+- https://blog.csdn.net/HD243608836/article/details/80189522
 - https://blog.csdn.net/u012467492/article/details/46790205
