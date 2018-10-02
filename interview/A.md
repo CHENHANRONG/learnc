@@ -10,11 +10,11 @@
       Symmetric keys follow an age-old model of the sender and receiver sharing some kind of pattern. This same pattern is then used by the sender to encrypt the message and by the receiver to decrypt the message.  
       The risk involved with symmetric keys is that you have to find a safe transportation method to use when sharing your secret key with the people you want to communicate with.  
 
-    - The Secure Sockets Layer (SSL) protocol uses both asymmetric and symmetric key exchange. 
+  - The Secure Sockets Layer (SSL) protocol uses both asymmetric and symmetric key exchange. 
     Asymmetric keys are used for the SSL handshake. During the handshake the master key, encrypted with the receiver's public key, is passed from the client to the server. The client and server make their own session keys using the master key. The session keys are used to encrypt and decrypt data for the remainder of the session. Symmetric key exchange is used during the exchange of the cipher specification (or encryption level) used.  
     To send its public key to clients, the server needs a digital certificate. This certificate is issued by a certificate authority (CA) who verifies the identity of the server.  
   
-    - Related Information:
+  - Related Information:
       - For more information about the SSL protocol, see What is the Secure Sockets Layer protocol?.
       - For details on supported key sizes, see Cipher specifications and key sizes.
 
