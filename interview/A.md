@@ -1,3 +1,28 @@
+### 公匙 私匙
+- What is encryption?
+  - Encryption in its simplest form is scrambling a message so that it cannot be read until it is unscrambled later by the receiver. The sender uses an algorithmic pattern (or key) to scramble (or encrypt) the message. The receiver has the decryption key. Encryption ensures privacy and confidentiality in transmissions sent over the Internet.
+
+  - There are two kinds of keys that can be used for encryption:
+      - Asymmetric keys
+      With asymmetric keys, you create a key pair. The key pair is made up of a public key and a private key, which are different from each other. The private key holds more of the secret encryption pattern than the public key. Your private key should not be shared with anyone.    
+      The server uses its private key to sign messages to clients. The server sends its public key to clients so that they can encrypt messages to the server, which the server decrypts with its private key. Only you can decrypt a message that has been encrypted with your public key, because only you have the private key. Key pairs are stored in a key database which is protected by a password.  
+      - Symmetric keys
+      Symmetric keys follow an age-old model of the sender and receiver sharing some kind of pattern. This same pattern is then used by the sender to encrypt the message and by the receiver to decrypt the message.  
+      The risk involved with symmetric keys is that you have to find a safe transportation method to use when sharing your secret key with the people you want to communicate with.  
+
+    - The Secure Sockets Layer (SSL) protocol uses both asymmetric and symmetric key exchange. 
+    Asymmetric keys are used for the SSL handshake. During the handshake the master key, encrypted with the receiver's public key, is passed from the client to the server. The client and server make their own session keys using the master key. The session keys are used to encrypt and decrypt data for the remainder of the session. Symmetric key exchange is used during the exchange of the cipher specification (or encryption level) used.  
+    To send its public key to clients, the server needs a digital certificate. This certificate is issued by a certificate authority (CA) who verifies the identity of the server.  
+  
+    - Related Information:
+      - For more information about the SSL protocol, see What is the Secure Sockets Layer protocol?.
+      - For details on supported key sizes, see Cipher specifications and key sizes.
+
+- https://www-01.ibm.com/software/webservers/httpservers/doc/v1312/ibm/9atssl.htm
+- https://docs.oracle.com/cd/E19509-01/820-3503/ggbgc/index.html
+
+  
+
 ### how to determine the dead lock in code.
 - for c/c++: http://valgrind.org/docs/manual/hg-manual.html
 - for Java: http://korhner.github.io/java/multithreading/detect-java-deadlocks-programmatically/
