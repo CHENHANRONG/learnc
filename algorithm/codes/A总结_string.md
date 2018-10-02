@@ -1,5 +1,9 @@
 
-### sliding window 
+## Important resources
+- EXACT STRING MATCHING ALGORITHMS: http://www-igm.univ-mlv.fr/~lecroq/string/
+
+
+### Sliding window 
 
 - A sliding window is an abstract concept commonly used in array/string problems.   
 A window is a range of elements in the array/string which usually defined by the start and end indices, 
