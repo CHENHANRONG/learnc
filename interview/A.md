@@ -17,8 +17,8 @@ if (threadIds != null) {
 
 
 ### how to find the root cause of 500 status code?
-
-
+  
+  
 ### difference between runnable and callable.
 The Callable interface is similar to Runnable, in that both are designed for classes whose instances are potentially executed by another thread.   
 A Runnable, however, does not return a result and cannot throw a checked exception.  
@@ -121,3 +121,12 @@ public class CallableFutureTest
   - https://www.cnblogs.com/dolphin0520/p/3949310.html
   - https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/Callable.html
   
+
+  
+### Difference between HashMap and ConcurrentHashMap
+- https://www.geeksforgeeks.org/difference-hashmap-concurrenthashmap/
+  
+### hashcode comes from where? how to calculate the hashcode ?
+- https://stackoverflow.com/questions/2427631/how-is-hashcode-calculated-in-java
+- https://www.cnblogs.com/dolphin0520/p/3681042.html
+
