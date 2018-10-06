@@ -187,4 +187,58 @@ public class BST<Key extends Comparable<Key>, Value>
         else
             return size(x.left);
     }
+    
+    
+    
+    public void deleteMin(){
+        root = deleteMin(root);
+    }
+
+
+    /**
+     * 删除以x为根的子树中的最小
+     * @param x
+     * @return
+     */
+    public Node deleteMin(Node x){
+        if(x.left == null)
+            return x.right;  // until x.left==null, return x.right
+
+        x.left = deleteMin(x.left);  //最小结点的上一层结点的左子树指向最小结点的右子树
+        x.N = size(x.left)+size(x.right)+1;
+        return x;
+    }
+
+
+    public void delete(Key key){
+        root = delete(root, key);
+    }
+
+
+    public Node delete(Node x, Key key){
+        if(x == null)
+            return null;
+
+        int cmp=key.compareTo(x.key);
+        if(cmp<0)
+            x.left = delete(x.left, key);
+        else if(cmp>0)
+            x.right = delete(x.right, key);
+        else{  // key = x.Key
+            if( x.right == null)
+                return x.left;
+
+            if(x.left == null)
+                return x.right;
+
+            //if has both left and right
+            Node t = x;
+            x = min(t.right);  //把x指向t右子树中的最小结点
+            x.right = deleteMin(t.right); //t的right指向t右子树（删除右子树最小结点后的）
+            x.left = t.left;
+        }
+
+        x.N = size(x.left)+size(x.right)+1;
+        return x;
+    }
 }
