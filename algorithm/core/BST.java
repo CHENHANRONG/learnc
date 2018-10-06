@@ -138,4 +138,53 @@ public class BST<Key extends Comparable<Key>, Value>
         if(t!=null) return t;
         else return x;
     }
+    
+    
+    // Select
+    public Key select(int k){
+        return select(root, k).key;
+    }
+
+
+    /**
+     * 返回排名为k的结点
+     * @param x
+     * @param k
+     * @return
+     */
+    public Node select(Node x, int k){
+        if(x==null)
+            return null;
+        int t=size(x.left);
+        if(t>k)
+            return select(x.left,k);
+        else if(t<k)
+            return select(x.right,k-t-1);
+        else
+            return x;
+    }
+
+
+    public int rank(Key key){
+        return rank(key, root);
+    }
+
+
+    /**
+     * 返回以x为根结点的子树中小于x.key的键的数量
+     * @param key
+     * @param x
+     * @return
+     */
+    public int rank(Key key, Node x){
+        if (x == null)
+            return 0;
+        int cmp = key.compareTo(x.key);
+        if(cmp<0)
+            return rank(key,x.left);
+        if(cmp>0)
+            return 1+size(x.left)+rank(key, x.right);
+        else
+            return size(x.left);
+    }
 }
