@@ -22,6 +22,35 @@ The result can be in any order.
 
 
 /*
+a little imporve
+*/
+
+  public int[] intersection(int[] nums1, int[] nums2) {
+        List<Integer> res = new ArrayList<Integer>();
+
+        Set<Integer> mySet = new HashSet<Integer>();
+        for(int i=0;i<nums1.length;i++){
+            mySet.add(nums1[i]);
+        }
+
+        for(int i=0;i<nums2.length;i++){
+            if(mySet.contains(nums2[i])){
+                res.add(nums2[i]);
+                mySet.remove(nums2[i]);  //remove found element in the set
+            }
+                
+            
+        }
+
+        int[] resArray = new int[res.size()];
+        for(int j=0;j<resArray.length;j++){
+            resArray[j] = res.get(j);
+        }
+        return resArray;
+
+    }
+
+/*
 my init solution:
 Set has unique value, use it.
 */
