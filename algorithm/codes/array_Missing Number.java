@@ -104,6 +104,16 @@ Index	0	1	2	3
 Value	0	1	3	4
 𝑚𝑖𝑠𝑠𝑖𝑛𝑔=4∧(0∧0)∧(1∧1)∧(2∧3)∧(3∧4)=(4∧4)∧(0∧0)∧(1∧1)∧(3∧3)∧2=0∧0∧0∧0∧2=2
 
+  class Solution {
+    public int missingNumber(int[] nums) {
+        int missing = nums.length;
+        for (int i = 0; i < nums.length; i++) {
+            missing ^= i ^ nums[i];
+        }
+        return missing;
+    }
+  }
+
 Complexity Analysis
 
 Time complexity : \mathcal{O}(n)O(n)
@@ -125,6 +135,15 @@ One of the most well-known stories in mathematics is of a young Gauss, forced to
 Algorithm
 
 We can compute the sum of nums in linear time, and by Gauss' formula, we can compute the sum of the first nn natural numbers in constant time. Therefore, the number that is missing is simply the result of Gauss' formula minus the sum of nums, as nums consists of the first nn natural numbers minus some number.
+
+  class Solution {
+    public int missingNumber(int[] nums) {
+        int expectedSum = nums.length*(nums.length + 1)/2;
+        int actualSum = 0;
+        for (int num : nums) actualSum += num;
+        return expectedSum - actualSum;
+    }
+  }
 
 
 Complexity Analysis
