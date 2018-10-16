@@ -44,9 +44,11 @@ public int findShortestSubArray(int[] nums) {
     }
 
     int maxKey = 0;
+    int maxCnt = 0;
     for(Integer key : mp.keySet()){
-        if(mp.get(key) > maxKey){
+        if(mp.get(key) > maxCnt){
             maxKey = key;
+            maxCnt = mp.get(key);
         }
     }
 
