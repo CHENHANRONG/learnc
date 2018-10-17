@@ -71,3 +71,9 @@ public boolean findTarget(TreeNode root, int k) {
 
     }
 }
+
+
+/*
+other solutions:
+https://leetcode.com/articles/two-sum-iv/
+*/
