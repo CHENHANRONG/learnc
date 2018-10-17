@@ -1,6 +1,4 @@
-
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Digraph {
 
@@ -46,7 +44,7 @@ public class Digraph {
 
 
     /**
-     *  reverse() that returns a copy with all its edges reversed. 
+     *  reverse() that returns a copy with all its edges reversed.
      * @return
      */
     public Digraph revverse(){
@@ -67,8 +65,11 @@ public class Digraph {
  * Single-source reachability:
  * Given a digraph and a source vertex s, support queries of the form
  * Is there a directed path from s to a given target vertex v?
+ *
+ * Application: Mark-and-sweep garbage collection
+ * 垃圾回收
  */
-public class DirectedDFS
+class DirectedDFS
 {
     private boolean[] marked;
     public DirectedDFS(Digraph G, int s)
@@ -99,5 +100,132 @@ public class DirectedDFS
     public boolean marked(int v){
         return marked[v];
     }
-    
+
+}
+
+
+/**
+ * Finding paths in digraphs - DFS
+ *
+ * Classic Question:
+ * 1. Single-source directed paths:
+ * Given a digraph and a source vertex s, support queries of the form Is there a directed path from s to a given target vertex v?
+ * If so, find such a path.
+ *
+ * 2.
+ *
+ */
+class DigraphDepthFirstPaths{
+
+    private boolean[] marked;
+    private int count;
+    private int[] edgeTo;
+    private final int s;
+
+    public DigraphDepthFirstPaths(Digraph G, int s){
+        this.marked = new boolean[G.V()];
+        this.edgeTo = new int[G.V()];
+        this.s = s;
+        dfs(G,s);
+    }
+
+
+    private void dfs(Digraph G, int v){
+        marked[v] = true;
+        count++;
+        for(int w : G.adj(v)) {
+            if (!marked[w]){
+                edgeTo[w] = v;
+                dfs(G, w);
+            }
+        }
+    }
+
+
+    public boolean hasPathTo(int v){
+        return marked[v];
+    }
+
+    public Iterable<Integer> pathTo(int v){
+        if(!hasPathTo(v))
+            return null;
+
+        Stack<Integer> path = new Stack();
+        for(int x=v; x!=s; x=this.edgeTo[x]){
+            path.push(x);
+        }
+
+        path.push(s);
+
+        return path;
+    }
+
+
+    public boolean marked(int w){
+        return marked[w];
+    }
+
+
+    public int count(){
+        return count;
+    }
+
+
+}
+
+
+/**
+ * Finding paths in digraphs - BFS
+ * Classic Question:
+ * 1. Single-source shortest directed paths:
+ * Given a digraph and a source vertex s, support queries of the form Is there a directed path from s to a given target vertex v?
+ * If so, find a shortest such path (one with a minimal number of edges).
+ */
+class DigraphBreadthFirstPaths {
+    private boolean[] marked;  // Is a shortest path to this vertex known?
+    private int[] edgeTo;  // last vertex on known path to this verte
+    private final int s;  // source
+
+    public DigraphBreadthFirstPaths(Digraph G, int s) {
+        marked = new boolean[G.V()];
+        edgeTo = new int[G.V()];
+        this.s = s;
+        bfs(G, s);
+    }
+
+    public void bfs(Digraph G, int s) {
+        Queue<Integer> queue = new LinkedList<Integer>();
+        marked[s] = true;
+        queue.add(s);
+        while (!queue.isEmpty()) {
+            int v = queue.poll();  // Remove next vertex from the queue.
+            for (int w : G.adj(v)) {
+                if (!marked[w]) {  // For every unmarked adjacent vertex
+                    edgeTo[w] = v;  // save last edge on a shortest path
+                    marked[w] = true;
+                    queue.add(w);
+                }
+            }
+        }
+    }
+
+    public boolean hasPathTo(int v) {
+        return marked[v];
+    }
+
+
+    public Iterable<Integer> pathTo(int v){
+        if(!hasPathTo(v))
+            return null;
+
+        Stack<Integer> path = new Stack();
+        for(int x=v; x!=s; x=this.edgeTo[x]){
+            path.push(x);
+        }
+
+        path.push(s);
+
+        return path;
+    }
+
 }
