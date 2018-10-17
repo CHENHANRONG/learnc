@@ -61,3 +61,43 @@ public class Digraph {
     }
 
 }
+
+
+/**
+ * Single-source reachability:
+ * Given a digraph and a source vertex s, support queries of the form
+ * Is there a directed path from s to a given target vertex v?
+ */
+public class DirectedDFS
+{
+    private boolean[] marked;
+    public DirectedDFS(Digraph G, int s)
+    {
+        this.marked = new boolean[G.V()];
+        dfs(G, s);
+    }
+
+    public void dfs(Digraph G, Iterable<Integer> src)
+    {
+        marked = new boolean[G.V()];
+        for(int s : src){
+            if(!marked[s])
+                dfs(G, s);
+        }
+    }
+
+    public void dfs(Digraph G, int v)
+    {
+        marked[v]= true;
+        for(int w : G.adj(v)){
+            if(!marked[w])
+                dfs(G, w);
+        }
+    }
+
+
+    public boolean marked(int v){
+        return marked[v];
+    }
+    
+}
