@@ -27,3 +27,6 @@ public int climbStairs(int n) {
     return dp[n-1];
 
 }
+
+
+other solutions: https://leetcode.com/articles/climbing-stairs/
