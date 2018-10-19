@@ -229,3 +229,47 @@ class DigraphBreadthFirstPaths {
     }
 
 }
+
+
+
+    /**
+     * When executing dfs(G, v),we have followed a directed path from the source to v.
+     * To keep track of this path, DirectedCycle maintains a vertex-indexed array onStack[]
+     * that marks the vertices on the recursive call stack (by setting onStack[v] to true on entry to dfs(G, v)
+     * and to false on exit).
+     * 
+     * @param G
+     * @param v
+     */
+    public void dfs(Digraph G, int v){
+        onStack[v] = true;
+        marked[v] = true;
+        for(int w : G.adj(v)){
+            if(this.hasCycle())
+                return;
+            else if(!marked[w]){
+                edgeTo[w] = v;
+                dfs(G, w);
+            }else if(onStack[w]){
+                /* If we ever find a directed edge v->w to a vertex w that is on that stack, we have found a cycle,
+                since the stack is evidence of a directed path from w to v, and the edge v->w completes the cycle. */
+                cycle = new Stack<Integer>();
+                for(int x=v; x!=w; x=edgeTo[x])
+                    cycle.push(x);
+
+                cycle.push(w);
+                cycle.push(v);
+            }
+        }
+
+        onStack[v] = false;
+    }
+
+    public boolean hasCycle(){
+        return cycle != null;
+    }
+
+    public Iterable<Integer> cycle(){
+        return this.cycle;
+    }
+}
