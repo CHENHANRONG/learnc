@@ -1,3 +1,7 @@
+### 如何测试快递柜
+- 专项测试：
+- 功能测试：
+
 ### 公匙 私匙
 - What is encryption?
   - Encryption in its simplest form is scrambling a message so that it cannot be read until it is unscrambled later by the receiver. The sender uses an algorithmic pattern (or key) to scramble (or encrypt) the message. The receiver has the decryption key. Encryption ensures privacy and confidentiality in transmissions sent over the Internet.
