@@ -231,13 +231,31 @@ class DigraphBreadthFirstPaths {
 }
 
 
+class DirectedCycle
+{
+//    private boolean //does G have a directed cycle?
+    private boolean[] marked;
+    private int[] edgeTo;
+    private Stack<Integer> cycle;  // vertices on a cycle (if one exists)
+    private boolean[] onStack;  // vertices on recursive call stack
+
+    public DirectedCycle(Digraph G){
+        onStack = new boolean[G.V()];
+        edgeTo = new int[G.V()];
+        marked = new boolean[G.V()];
+        for(int v=0; v<G.V(); v++){
+            if(!marked[v])
+                dfs(G, v);
+        }
+    }
+
 
     /**
      * When executing dfs(G, v),we have followed a directed path from the source to v.
      * To keep track of this path, DirectedCycle maintains a vertex-indexed array onStack[]
      * that marks the vertices on the recursive call stack (by setting onStack[v] to true on entry to dfs(G, v)
      * and to false on exit).
-     * 
+     *
      * @param G
      * @param v
      */
@@ -272,4 +290,53 @@ class DigraphBreadthFirstPaths {
     public Iterable<Integer> cycle(){
         return this.cycle;
     }
+}
+
+
+/**
+ * The class DepthFirstOrder is based on the idea that depth-first search visits each vertex exactly once.
+ * If we save the vertex given as argument to the recursive dfs() in a data structure, then iterate through that data structure,
+ * we see all the graph vertices, in order determined by the nature of the data structure
+ * and by whether we do the save before or after the recursive calls.
+ *
+ * Three vertex orderings are of interest in typical applications:
+ * ■ Preorder : Put the vertex on a queue before the recursive calls.
+ * ■ Postorder : Put the vertex on a queue after the recursive calls.
+ * ■ Reverse postorder : Put the vertex on a stack after the recursive calls.
+ */
+class DepthFirstOrder
+{
+    private boolean[] marked;
+    private Queue<Integer> pre;
+    private Queue<Integer> post;
+    private Stack<Integer> reversePost;  // vertices in reverse postorder
+    public DepthFirstOrder(Digraph G)
+    {
+        pre           = new LinkedList<Integer>();
+        post          = new LinkedList<Integer>();
+        reversePost   = new Stack<Integer>();
+        marked  = new boolean[G.V()];
+        for (int v = 0; v < G.V(); v++)
+            if (!marked[v]) dfs(G, v);
+    }
+    private void dfs(Digraph G, int v)
+    {
+        pre.add(v);  // pre order
+        marked[v] = true;
+        for (int w : G.adj(v))
+            if (!marked[w])
+                dfs(G, w);
+        post.add(v);  // post order
+        reversePost.push(v);  // reverse post
+    }
+
+    public Iterable<Integer> pre()
+    {  return pre;  }
+
+    public Iterable<Integer> post()
+    {  return post;  }
+
+    public Iterable<Integer> reversePost()
+    {  return reversePost;  }
+
 }
