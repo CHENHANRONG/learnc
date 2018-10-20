@@ -2,6 +2,22 @@
 
 ## GC and Memory usage.
 
+### GC
+```Java
+/**
+trigger GC
+System.gc() and Runtime.gc() both are same. 
+System.gc() is effectively equivalent to Runtime.gc(). System.gc()internally calls Runtime.gc().
+The only difference is System.gc() is a class method where as Runtime.gc() is an instance method. 
+So, System.gc() is more convenient.
+*/
+
+System.gc()
+
+or 
+
+Runtime.getRuntime().gc()
+```
 
 ### Memory usage:
 ```Java
