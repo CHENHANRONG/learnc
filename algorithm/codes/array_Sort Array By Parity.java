@@ -32,7 +32,6 @@ public int[] sortArrayByParity(int[] A) {
     while(i<j){
         if(A[i]%2==0){
             i++;
-            continue;
         }else{
             //A[i] is even
             swap(A, i,j);
