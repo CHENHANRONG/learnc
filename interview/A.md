@@ -11,7 +11,7 @@
 
 
 
-### 如何测试快递柜
+## 如何测试快递柜
 - 专项测试：
   - 性能测试
   - 安全性测试
@@ -28,7 +28,7 @@
   - 因果图 & 状态转换图
   - 各种异常场景测试： 错误猜测+场景分析
 
-
+## automation qa
 ### 公匙 私匙
 - What is encryption?
   - Encryption in its simplest form is scrambling a message so that it cannot be read until it is unscrambled later by the receiver. The sender uses an algorithmic pattern (or key) to scramble (or encrypt) the message. The receiver has the decryption key. Encryption ensures privacy and confidentiality in transmissions sent over the Internet.
