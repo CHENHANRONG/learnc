@@ -31,6 +31,8 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 
 // it is wrong answer:
+// e.g. [7,1,3,5,6,4], correct answer is 7, but below code returns 5.
+  
 class Solution {
     public int maxProfit(int[] prices) {
         int i = 0;
