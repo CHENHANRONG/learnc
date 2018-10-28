@@ -46,3 +46,6 @@ public int majorityElement(int[] nums) {
 
 
 }
+
+//other solution:
+// https://leetcode.com/articles/majority-element/
