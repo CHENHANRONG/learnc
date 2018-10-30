@@ -26,6 +26,11 @@ import java.util.Arrays;
  **/
 
 
+/*
+My init solution:
+seems too complex
+*/
+
 public class Array_DistributeCandies {
     public int distributeCandies(int[] candies) {
         boolean picked[] = new boolean[candies.length];
@@ -47,7 +52,7 @@ public class Array_DistributeCandies {
             if(picked[i]){  //already picked, then skip
                 i++;
             }else{  //not picked
-                if(candies[i] == cur){
+                if(candies[i] == cur){  //same as current, skip
                     i++;
                 }else{
                     sPickedNum++;
