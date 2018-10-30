@@ -6,8 +6,9 @@ import java.util.Arrays;
  * 575. Distribute Candies: Given an integer array with even length, where
  * different numbers in this array represent different kinds of candies. Each
  * number means one candy of the corresponding kind. You need to distribute
- * these candies equally in number to brother and sister. Return the maximum
- * number of kinds of candies the sister could gain.
+ * these candies equally in number to brother and sister. 
+ * 
+ * Return the maximum number of kinds of candies the sister could gain.
  * 
  * Example 1: Input: candies = [1,1,2,2,3,3] Output: 3 Explanation: There are
  * three different kinds of candies (1, 2 and 3), and two candies for each kind.
@@ -30,33 +31,36 @@ public class Array_DistributeCandies {
         boolean picked[] = new boolean[candies.length];
         Arrays.sort(candies);
 
-        int num = 0;
         int i=1;
-        int pickNum=1;
-        int remainNum = candies.length;
-        while(pickNum<candies.length/2){
-            if(i == remainNum){
-                // remainNum = cntRemain(picked);
+        int sPickedNum = 1;  // sister picked number
+        int cur = candies[0];  //current candie
+        Set<Integer> sPicked = new HashSet<Integer>();  // sister picked candy kinds
+        sPicked.add(candies[0]);
+
+
+        while(sPickedNum<candies.length/2){
+            if(i % candies.length == 0){  //return to the very begining
+                cur = Integer.MIN_VALUE;
                 i = 0;
             }
 
-            if(!picked[i] && candies[i] != candies[i-1]){ // not picked && 
-                picked[i] = true;  // set pick to true
-                pickNum++;  // pick num++
-            }else if(!picked[i] || candies[i] == candies[i-1]){
+            if(picked[i]){  //already picked, then skip
                 i++;
+            }else{  //not picked
+                if(candies[i] == cur){
+                    i++;
+                }else{
+                    sPickedNum++;
+                    cur = candies[i];
+                    picked[i] = true;
+                    if(!sPicked.contains(candies[i])){
+                        sPicked.add(candies[i]);
+                    }
+                }
+               
             }
-
-        }
-        
-    }
-
-    public int cntRemain(boolean arr[]){
-        int cnt = 0;
-        for(Boolean x : arr){
-            if(!x) cnt++; 
         }
 
-        return cnt;
+        return sPicked.size();
     }
 }
