@@ -53,3 +53,52 @@ Priority queue represented as a **balanced binary heap: the two children of queu
         queue[k] = x;  // 把x放到合适的k的child的节点上，保证此节点的所有父节点都比此节点的值大
     }
 ```
+
+
+```Java
+/**
+     * Inserts item x at position k, maintaining heap invariant by
+     * promoting x up the tree until it is greater than or equal to
+     * its parent, or is the root.
+     *
+     * To simplify and speed up coercions and comparisons. the
+     * Comparable and Comparator versions are separated into different
+     * methods that are otherwise identical. (Similarly for siftDown.)
+     *
+     * @param k the position to fill
+     * @param x the item to insert
+     */
+    private void siftUp(int k, E x) {
+        if (comparator != null)
+            siftUpUsingComparator(k, x);
+        else
+            siftUpComparable(k, x);
+    }
+
+    @SuppressWarnings("unchecked")
+    private void siftUpComparable(int k, E x) {
+        Comparable<? super E> key = (Comparable<? super E>) x;
+        while (k > 0) {
+            int parent = (k - 1) >>> 1;
+            Object e = queue[parent];
+            if (key.compareTo((E) e) >= 0)
+                break;
+            queue[k] = e;
+            k = parent;
+        }
+        queue[k] = key;
+    }
+
+    @SuppressWarnings("unchecked")
+    private void siftUpUsingComparator(int k, E x) {
+        while (k > 0) {
+            int parent = (k - 1) >>> 1;  //（k-1）除以2获取父节点的index
+            Object e = queue[parent];
+            if (comparator.compare(x, (E) e) >= 0)  //直到x大于父节点
+                break;
+            queue[k] = e;   //把父节点的值放入k
+            k = parent;  //k上移指向父节点
+        }
+        queue[k] = x;  //最终合适到位置放入x
+    }
+    ```
