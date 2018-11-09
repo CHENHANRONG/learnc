@@ -1,6 +1,7 @@
 # Priority queue
 Priority queue represented as a **balanced binary heap: the two children of queue[n] are queue[2*n+1] and queue[2*(n+1)].** The priority queue is ordered by comparator, or by the elements' natural ordering, if comparator is null: For each node n in the heap and each descendant d of n, n <= d. The element with the lowest value is in queue[0], assuming the queue is nonempty.
 
+## siftDown
 ```Java
     /**
      * Inserts item x at position k, maintaining heap invariant by
@@ -54,9 +55,9 @@ Priority queue represented as a **balanced binary heap: the two children of queu
     }
 ```
 
-
+## siftUp
 ```Java
-/**
+    /**
      * Inserts item x at position k, maintaining heap invariant by
      * promoting x up the tree until it is greater than or equal to
      * its parent, or is the root.
@@ -100,5 +101,41 @@ Priority queue represented as a **balanced binary heap: the two children of queu
             k = parent;  //k上移指向父节点
         }
         queue[k] = x;  //最终合适到位置放入x
+    }
+    ```
+
+
+    ## removeAt
+    ```Java
+    /**
+     * Removes the ith element from queue.
+     *
+     * Normally this method leaves the elements at up to i-1,
+     * inclusive, untouched.  Under these circumstances, it returns
+     * null.  Occasionally, in order to maintain the heap invariant,
+     * it must swap a later element of the list with one earlier than
+     * i.  Under these circumstances, this method returns the element
+     * that was previously at the end of the list and is now at some
+     * position before i. This fact is used by iterator.remove so as to
+     * avoid missing traversing elements.
+     */
+    @SuppressWarnings("unchecked")
+    private E removeAt(int i) {
+        // assert i >= 0 && i < size;
+        modCount++;
+        int s = --size;
+        if (s == i) // i是最后一个，直接删除
+            queue[i] = null;  // 直接删除
+        else {
+            E moved = (E) queue[s];  // 把最后一个元素保存到临时变量moved
+            queue[s] = null;  // 删除最后一个元素
+            siftDown(i, moved);  // 把原最后的元素放入位置i， 并调用siftDown重新调整堆
+            if (queue[i] == moved) { // 如果siftDown之后，queue[i] == moved， 表明 moved  小于所有child（表明moved原来也是叶节点？）
+                siftUp(i, moved);  // 这时候要尝试做siftUp
+                if (queue[i] != moved)  //如果siftUp使堆有变化，则返回moved
+                    return moved;
+            }
+        }
+        return null;  // 如果到i-1为止堆元素没有变化，返回null
     }
     ```
