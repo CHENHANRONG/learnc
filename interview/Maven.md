@@ -36,6 +36,22 @@ Features are enabled by using POM are:
 ### Maven's dependency management
 
 
+## Maven plugins
+plugins list: https://maven.apache.org/plugins/index.html  
+### core plugins
+goals: e.g. for complier plugin, there are two goals in page: https://maven.apache.org/plugins/maven-compiler-plugin/   "Goals Overview" section.  
+call plugin goals: mvn \<plagin name\>:\<goal name\>
+### packaging tools
+### reporting plugins
+### tools
+
+
+## Create a project with Maven
+
+
+
+
+
 ## Resources:
 - https://search.maven.org
 - 
