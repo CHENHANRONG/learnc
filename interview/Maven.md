@@ -49,6 +49,7 @@ call plugin goals: mvn \<plagin name\>:\<goal name\>
 ## Create a project with Maven
 
 
+![Getting Started Img](../resources/images/Maven/img.jpg)
 
 
 
