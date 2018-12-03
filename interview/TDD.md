@@ -1,4 +1,7 @@
 # TDD
+## Life cycle
+Red(fail) -> Green (pass) -> Refactor  
+
 ## Rules of TDD
 - Test the expected outcome of an example.
 - Don't prejudge design...let your test drive it.
