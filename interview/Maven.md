@@ -56,6 +56,13 @@ build life cycle + maven repository + dependency management + POM.
 
 
 
+
+
+## Test with Maven
+
+
+
+
 ![Getting Started Img](../resources/images/Maven/img.jpg)
 
 
