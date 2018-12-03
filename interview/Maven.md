@@ -47,6 +47,13 @@ call plugin goals: mvn \<plagin name\>:\<goal name\>
 
 
 ## Create a project with Maven
+build life cycle + maven repository + dependency management + POM.
+1. mvn archetype:generate -DgroupId=\<groupId name\> -DartifactId=\<artifact name\> -DarcheTypeArifactId=\<archeType artifactId \>
+2. mvn help:effective-pom
+3. 
+4. mvn install  # install project to jar
+5. java -cp XXXX.jar XXXXXclass # run the app
+
 
 
 ![Getting Started Img](../resources/images/Maven/img.jpg)
