@@ -77,7 +77,7 @@ Detached HEAD state.
  
 
 ## GIT diff
-![GIT diff](../resource/images/GIT/git_diff.jpg)
+![GIT diff](../resource/images/GIT/git_diff.png)
 
  
 
