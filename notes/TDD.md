@@ -2,7 +2,7 @@
 
 ## Life cycle
 Red(fail) -> Green (pass) -> Refactor  
-![TDD Iteration](../resource/images/TDD/TDD life cycle.png)
+![TDD Iteration](../resource/images/TDD/TDD_life _cycle.png)
 
 ## Rules of TDD
 - Test the expected outcome of an example.
