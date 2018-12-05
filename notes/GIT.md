@@ -79,6 +79,8 @@ Detached HEAD state.
 ## GIT diff
 ![GIT diff](../resource/images/GIT/git_diff.png)
 
+- reference:
+  - https://stackoverflow.com/questions/30023405/how-to-compare-the-working-copy-staging-copy-and-committed-copy-of-a-file-using
  
 
 ## Branch:
