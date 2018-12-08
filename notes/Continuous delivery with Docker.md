@@ -36,3 +36,42 @@
 - Kubernetes
 - Docker registry
 - Monitor tools
+
+## Build CI/CD toolbox
+
+### Build docker image for CI
+
+#### Split build and runtime dependencies
+
+- Avoid inclusion of build tools in final images
+- Production images should be as small as possible
+- Pre-cache common dependencies in build images
+
+#### Build tools for docker
+
+- Are a major source of complexity
+- Make re-creation of images challenging
+- Steps to run the build might be unknown after the fact
+- Dynamically fetching dependencies adds additional complexity
+
+
+## Deployment
+
+### Blue-Green depolyment
+
+- Create new service before tearing down old ones
+- When both new and old service are running, flip traffic to the new service
+- Can be done with routing(portable IP address, etc.), DNS, load balance, and other methods
+- No overlap
+- Very easy to implement
+
+#### Blue-Green depolyment with DNS
+
+#### Blue-Green depolyment with Load Balancers
+
+### Deployment tips
+
+- Be ready to "roll back" from start
+- If using automatic load balancing, transition no faster than 2x the balancing sample period
+- If using automatic load balancer, give the load balancers time to scale up
+- Explicitly prevent inheritance of pathological configurations
